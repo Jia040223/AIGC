@@ -15,6 +15,9 @@ import torch
 import torch.nn.functional as nnf
 import abc
 import numpy as np
+from diffusers.models.attention_processor import AttnProcessor
+import math
+import torch.nn.functional as F
 
 
 class LocalBlend:
@@ -99,8 +102,8 @@ class AttentionStore(AttentionControl):
 
     def forward(self, attn, is_cross: bool, place_in_unet: str):
         key = f"{place_in_unet}_{'cross' if is_cross else 'self'}"
-        if attn.shape[1] <= 32 ** 2:  # avoid memory overhead
-            self.step_store[key].append(attn)
+        self.step_store[key].append(attn)
+        print(0, self.step_store)
         return attn
 
     def between_steps(self):
@@ -127,6 +130,32 @@ class AttentionStore(AttentionControl):
         self.step_store = self.get_empty_store()
         self.attention_store = {}
 
+    def aggregate_attention(
+        self, batch_size, attention_maps, prompts, res: Union[int, Tuple[int]], from_where: List[str], is_cross: bool, select: int
+    ):
+        print(self.attention_store)
+
+        out = [[] for x in range(batch_size)]
+        if isinstance(res, int):
+            num_pixels = res**2
+            resolution = (res, res)
+        else:
+            num_pixels = res[0] * res[1]
+            resolution = res[:2]
+
+        for location in from_where:
+            for bs_item in attention_maps[f"{location}_{'cross' if is_cross else 'self'}"]:
+                for batch, item in enumerate(bs_item):
+                    if item.shape[1] == num_pixels:
+                        cross_maps = item.reshape(len(prompts), -1, *resolution, item.shape[-1])[select]
+                        out[batch].append(cross_maps)
+
+        print(out)
+        out = torch.stack([torch.cat(x, dim=0) for x in out])
+        # average over heads
+        out = out.sum(1) / out.shape[1]
+        return out
+
         
 class AttentionControlEdit(AttentionStore, abc.ABC):
     
@@ -147,6 +176,7 @@ class AttentionControlEdit(AttentionStore, abc.ABC):
     
     def forward(self, attn, is_cross: bool, place_in_unet: str):
         super(AttentionControlEdit, self).forward(attn, is_cross, place_in_unet)
+        print(1, self.step_store)
         if is_cross or (self.num_self_replace[0] <= self.cur_step < self.num_self_replace[1]):
             h = attn.shape[0] // (self.batch_size)
             attn = attn.reshape(self.batch_size, h, *attn.shape[1:])
@@ -304,3 +334,314 @@ def load_512(image_path, left=0, right=0, top=0, bottom=0, device=None):
     image = image.permute(2, 0, 1).unsqueeze(0).to(device)
 
     return image
+
+def load_768(image_path, left=0, right=0, top=0, bottom=0, device=None):
+    if type(image_path) is str:
+        image = np.array(Image.open(image_path).convert('RGB'))[:, :, :3]
+    else:
+        image = image_path
+    h, w, c = image.shape
+    left = min(left, w-1)
+    right = min(right, w - left - 1)
+    top = min(top, h - left - 1)
+    bottom = min(bottom, h - top - 1)
+    image = image[top:h-bottom, left:w-right]
+    h, w, c = image.shape
+    if h < w:
+        offset = (w - h) // 2
+        image = image[:, offset:offset + h]
+    elif w < h:
+        offset = (h - w) // 2
+        image = image[offset:offset + w]
+    image = np.array(Image.fromarray(image).resize((768, 768)))
+    image = torch.from_numpy(image).float() / 127.5 -1
+    image = image.permute(2, 0, 1).unsqueeze(0).to(device)
+
+    return image
+
+
+
+
+class LeditsAttentionStore:
+    @staticmethod
+    def get_empty_store():
+        return {"down_cross": [], "mid_cross": [], "up_cross": [], "down_self": [], "mid_self": [], "up_self": []}
+
+    def __call__(self, attn, is_cross: bool, place_in_unet: str, editing_prompts, PnP=False):
+        # attn.shape = batch_size * head_size, seq_len query, seq_len_key
+        #if attn.shape[1] <= self.max_size:
+        bs = 1 + int(PnP) + editing_prompts
+        skip = 2 if PnP else 1  # skip PnP & unconditional
+        attn = torch.stack(attn.split(self.batch_size)).permute(1, 0, 2, 3)
+        source_batch_size = int(attn.shape[1] // bs)
+        self.forward(attn[:, skip * source_batch_size :], is_cross, place_in_unet)
+
+    def forward(self, attn, is_cross: bool, place_in_unet: str):
+        key = f"{place_in_unet}_{'cross' if is_cross else 'self'}"
+
+        self.step_store[key].append(attn)
+
+    def between_steps(self, store_step=True):
+        if store_step:
+            if self.average:
+                if len(self.attention_store) == 0:
+                    self.attention_store = self.step_store
+                else:
+                    for key in self.attention_store:
+                        for i in range(len(self.attention_store[key])):
+                            self.attention_store[key][i] += self.step_store[key][i]
+            else:
+                if len(self.attention_store) == 0:
+                    self.attention_store = [self.step_store]
+                else:
+                    self.attention_store.append(self.step_store)
+
+            self.cur_step += 1
+        self.step_store = self.get_empty_store()
+
+    def get_attention(self, step: int):
+        if self.average:
+            attention = {
+                key: [item / self.cur_step for item in self.attention_store[key]] for key in self.attention_store
+            }
+        else:
+            assert step is not None
+            attention = self.attention_store[step]
+        return attention
+
+    def aggregate_attention(
+        self, attention_maps, prompts, res: Union[int, Tuple[int]], from_where: List[str], is_cross: bool, select: int
+    ):
+        out = [[] for x in range(self.batch_size)]
+        if isinstance(res, int):
+            num_pixels = res**2
+            resolution = (res, res)
+        else:
+            num_pixels = res[0] * res[1]
+            resolution = res[:2]
+
+        for location in from_where:
+            for bs_item in attention_maps[f"{location}_{'cross' if is_cross else 'self'}"]:
+                for batch, item in enumerate(bs_item):
+                    if item.shape[1] == num_pixels:
+                        cross_maps = item.reshape(len(prompts), -1, *resolution, item.shape[-1])[select]
+                        out[batch].append(cross_maps)
+
+        out = torch.stack([torch.cat(x, dim=0) for x in out])
+        # average over heads
+        out = out.sum(1) / out.shape[1]
+        return out
+
+    def __init__(self, average: bool, batch_size=1, max_resolution=16, max_size: int = None):
+        self.step_store = self.get_empty_store()
+        self.attention_store = []
+        self.cur_step = 0
+        self.average = average
+        self.batch_size = batch_size
+        if max_size is None:
+            self.max_size = max_resolution**2
+        elif max_size is not None and max_resolution is None:
+            self.max_size = max_size
+        else:
+            raise ValueError("Only allowed to set one of max_resolution or max_size")
+
+
+# Copied from diffusers.pipelines.ledits_pp.pipeline_leditspp_stable_diffusion.LeditsGaussianSmoothing
+class LeditsGaussianSmoothing:
+    def __init__(self, device):
+        kernel_size = [3, 3]
+        sigma = [0.5, 0.5]
+
+        # The gaussian kernel is the product of the gaussian function of each dimension.
+        kernel = 1
+        meshgrids = torch.meshgrid([torch.arange(size, dtype=torch.float32) for size in kernel_size])
+        for size, std, mgrid in zip(kernel_size, sigma, meshgrids):
+            mean = (size - 1) / 2
+            kernel *= 1 / (std * math.sqrt(2 * math.pi)) * torch.exp(-(((mgrid - mean) / (2 * std)) ** 2))
+
+        # Make sure sum of values in gaussian kernel equals 1.
+        kernel = kernel / torch.sum(kernel)
+
+        # Reshape to depthwise convolutional weight
+        kernel = kernel.view(1, 1, *kernel.size())
+        kernel = kernel.repeat(1, *[1] * (kernel.dim() - 1))
+
+        self.weight = kernel.to(device)
+
+    def __call__(self, input):
+        """
+        Arguments:
+        Apply gaussian filter to input.
+            input (torch.Tensor): Input to apply gaussian filter on.
+        Returns:
+            filtered (torch.Tensor): Filtered output.
+        """
+        return F.conv2d(input, weight=self.weight.to(input.dtype))
+
+
+# Copied from diffusers.pipelines.ledits_pp.pipeline_leditspp_stable_diffusion.LEDITSCrossAttnProcessor
+class LEDITSCrossAttnProcessor:
+    def __init__(self, attention_store, place_in_unet, pnp, editing_prompts):
+        self.attnstore = attention_store
+        self.place_in_unet = place_in_unet
+        self.editing_prompts = editing_prompts
+        self.pnp = pnp
+
+    def __call__(
+        self,
+        attn,
+        hidden_states,
+        encoder_hidden_states,
+        attention_mask=None,
+        temb=None,
+    ):
+        batch_size, sequence_length, _ = (
+            hidden_states.shape if encoder_hidden_states is None else encoder_hidden_states.shape
+        )
+        attention_mask = attn.prepare_attention_mask(attention_mask, sequence_length, batch_size)
+
+        query = attn.to_q(hidden_states)
+
+        if encoder_hidden_states is None:
+            encoder_hidden_states = hidden_states
+        elif attn.norm_cross:
+            encoder_hidden_states = attn.norm_encoder_hidden_states(encoder_hidden_states)
+
+        key = attn.to_k(encoder_hidden_states)
+        value = attn.to_v(encoder_hidden_states)
+
+        query = attn.head_to_batch_dim(query)
+        key = attn.head_to_batch_dim(key)
+        value = attn.head_to_batch_dim(value)
+
+        attention_probs = attn.get_attention_scores(query, key, attention_mask)
+        self.attnstore(
+            attention_probs,
+            is_cross=True,
+            place_in_unet=self.place_in_unet,
+            editing_prompts=self.editing_prompts,
+            PnP=self.pnp,
+        )
+
+        hidden_states = torch.bmm(attention_probs, value)
+        hidden_states = attn.batch_to_head_dim(hidden_states)
+
+        # linear proj
+        hidden_states = attn.to_out[0](hidden_states)
+        # dropout
+        hidden_states = attn.to_out[1](hidden_states)
+
+        hidden_states = hidden_states / attn.rescale_output_factor
+        return hidden_states
+
+def prepare_unet(model, attention_store, PnP: bool = False):
+    attn_procs = {}
+    for name in model.unet.attn_processors.keys():
+        if name.startswith("mid_block"):
+            place_in_unet = "mid"
+        elif name.startswith("up_blocks"):
+            place_in_unet = "up"
+        elif name.startswith("down_blocks"):
+            place_in_unet = "down"
+        else:
+            continue
+
+        if "attn2" in name and place_in_unet != "mid":
+            attn_procs[name] = LEDITSCrossAttnProcessor(
+                attention_store=attention_store,
+                place_in_unet=place_in_unet,
+                pnp=PnP,
+                editing_prompts=1,
+            )
+        else:
+            attn_procs[name] = AttnProcessor()
+
+    model.unet.set_attn_processor(attn_procs)
+
+def my_register_attention_control(model, controller):
+    class myAttnProcessor():
+        def __init__(self,place_in_unet):
+            self.place_in_unet = place_in_unet
+
+        def __call__(self,
+            attn,
+            hidden_states,
+            encoder_hidden_states=None,
+            attention_mask=None,
+            temb=None,
+            scale=1.0,):
+            # The `Attention` class can call different attention processors / attention functions
+    
+            residual = hidden_states
+
+            if attn.spatial_norm is not None:
+                hidden_states = attn.spatial_norm(hidden_states, temb)
+
+            input_ndim = hidden_states.ndim
+
+            if input_ndim == 4:
+                batch_size, channel, height, width = hidden_states.shape
+                hidden_states = hidden_states.view(batch_size, channel, height * width).transpose(1, 2)
+
+            h = attn.heads
+            is_cross = encoder_hidden_states is not None
+            if encoder_hidden_states is None:
+                encoder_hidden_states = hidden_states
+            elif attn.norm_cross:
+                encoder_hidden_states = attn.norm_encoder_hidden_states(encoder_hidden_states)
+
+            batch_size, sequence_length, _ = (
+                hidden_states.shape if encoder_hidden_states is None else encoder_hidden_states.shape
+            )
+            attention_mask = attn.prepare_attention_mask(attention_mask, sequence_length, batch_size)
+
+            q = attn.to_q(hidden_states)
+            k = attn.to_k(encoder_hidden_states)
+            v = attn.to_v(encoder_hidden_states)
+            q = attn.head_to_batch_dim(q)
+            k = attn.head_to_batch_dim(k)
+            v = attn.head_to_batch_dim(v)
+
+            if not is_cross:
+                q,k,v = controller.self_attn_forward(q, k, v, attn.heads)
+
+            attention_probs = attn.get_attention_scores(q, k, attention_mask)
+            if is_cross:
+                attention_probs  = controller(attention_probs , is_cross, self.place_in_unet)
+            hidden_states = torch.bmm(attention_probs, v)
+            hidden_states = attn.batch_to_head_dim(hidden_states)
+
+            # linear proj   
+            hidden_states = attn.to_out[0](hidden_states)
+            # dropout
+            hidden_states = attn.to_out[1](hidden_states)
+
+            if input_ndim == 4:
+                hidden_states = hidden_states.transpose(-1, -2).reshape(batch_size, channel, height, width)
+
+            if attn.residual_connection:
+                hidden_states = hidden_states + residual
+
+            hidden_states = hidden_states / attn.rescale_output_factor
+
+            return hidden_states
+
+
+    def register_recr(net_, count, place_in_unet):
+        for idx, m in enumerate(net_.modules()):
+            # print(m.__class__.__name__)
+            if m.__class__.__name__ == "Attention":
+                count+=1
+                m.processor = myAttnProcessor( place_in_unet)
+        return count
+
+    cross_att_count = 0
+    sub_nets = model.unet.named_children()
+    for net in sub_nets:
+        if "down" in net[0]:
+            cross_att_count += register_recr(net[1], 0, "down")
+        elif "up" in net[0]:
+            cross_att_count += register_recr(net[1], 0, "up")
+        elif "mid" in net[0]:
+            cross_att_count += register_recr(net[1], 0, "mid")
+    controller.num_att_layers = cross_att_count

@@ -1,8 +1,9 @@
+print("init")
 import argparse
 from diffusers import StableDiffusionPipeline
 from diffusers import DDIMScheduler
 import os
-from prompt_to_prompt.ptp_classes import AttentionStore, AttentionReplace, AttentionRefine, EmptyControl,load_512
+from prompt_to_prompt.ptp_classes import AttentionStore, AttentionReplace, AttentionRefine, EmptyControl,load_512, LeditsAttentionStore, prepare_unet
 from prompt_to_prompt.ptp_utils import register_attention_control, text2image_ldm_stable, view_images
 from ddm_inversion.inversion_utils import  inversion_forward_process, inversion_reverse_process
 from ddm_inversion.utils import image_grid,dataset_from_yaml
@@ -14,24 +15,28 @@ import calendar
 import time
 
 if __name__ == "__main__":
+    print("start")
     parser = argparse.ArgumentParser()
     parser.add_argument("--device_num", type=int, default=0)
-    parser.add_argument("--cfg_src", type=float, default=3.5)
-    parser.add_argument("--cfg_tar", type=float, default=15)
-    parser.add_argument("--num_diffusion_steps", type=int, default=100)
-    parser.add_argument("--dataset_yaml",  default="test.yaml")
+    parser.add_argument("--cfg_src", type=float, default=10)
+    parser.add_argument("--cfg_tar", type=float, default=13)
+    parser.add_argument("--num_diffusion_steps", type=int, default=50)
+    parser.add_argument("--dataset_yaml",  default="my.yaml")
     parser.add_argument("--eta", type=float, default=1)
     parser.add_argument("--mode",  default="our_inv", help="modes: our_inv,p2pinv,p2pddim,ddim")
     parser.add_argument("--skip",  type=int, default=36)
     parser.add_argument("--xa", type=float, default=0.6)
     parser.add_argument("--sa", type=float, default=0.2)
+
+    edit_threshold_c = 0.95
     
     args = parser.parse_args()
     full_data = dataset_from_yaml(args.dataset_yaml)
 
     # create scheduler
     # load diffusion model
-    model_id = "CompVis/stable-diffusion-v1-4"
+    #model_id = "/data/worker/Resources/34/HuggingFaceRepos/stabilityai/stable-diffusion-2-1"
+    model_id = "/data/worker/Resources/34/HuggingFaceRepos/CompVis/stable-diffusion-v1-4"
     # model_id = "stable_diff_local" # load local save of model (for internet problems)
 
     device = f"cuda:{args.device_num}"
@@ -47,8 +52,9 @@ if __name__ == "__main__":
 
     # load/reload model:
     ldm_stable = StableDiffusionPipeline.from_pretrained(model_id).to(device)
-
+    print(0)
     for i in range(len(full_data)):
+        print(i)
         current_image_data = full_data[i]
         image_path = current_image_data['init_img']
         image_path = '.' + image_path 
@@ -63,21 +69,30 @@ if __name__ == "__main__":
             ldm_stable.scheduler = DDIMScheduler.from_config(model_id, subfolder = "scheduler")
             
         ldm_stable.scheduler.set_timesteps(args.num_diffusion_steps)
+        attention_store = LeditsAttentionStore(
+                            average=False,
+                            batch_size=1,
+                        )
 
+        prepare_unet(ldm_stable, attention_store)
+        
+        
         # load image
         offsets=(0,0,0,0)
         x0 = load_512(image_path, *offsets, device)
 
         # vae encode image
         with autocast("cuda"), inference_mode():
-            w0 = (ldm_stable.vae.encode(x0).latent_dist.mode() * 0.18215).float()
+            w0 = (ldm_stable.vae.encode(x0).latent_dist.mode() * ldm_stable.vae.config.scaling_factor).float()
 
         # find Zs and wts - forward process
         if args.mode=="p2pddim" or args.mode=="ddim":
             wT = ddim_inversion(ldm_stable, w0, prompt_src, cfg_scale_src)
         else:
-            wt, zs, wts = inversion_forward_process(ldm_stable, w0, etas=eta, prompt=prompt_src, cfg_scale=cfg_scale_src, prog_bar=True, num_inference_steps=args.num_diffusion_steps)
+            wt, zs, wts = inversion_forward_process(ldm_stable, w0, etas=eta, prompt=prompt_src, edit_threshold_c = edit_threshold_c, cfg_scale=cfg_scale_src, prog_bar=True, num_inference_steps=args.num_diffusion_steps, attention_store=attention_store)
 
+        print(len(attention_store.attention_store))
+        
         # iterate over decoder prompts
         for k in range(len(prompt_tar_list)):
             prompt_tar = prompt_tar_list[k]
@@ -91,10 +106,27 @@ if __name__ == "__main__":
                 for skip in skip_zs:    
                     if args.mode=="our_inv":
                         # reverse process (via Zs and wT)
-                        controller = AttentionStore()
-                        register_attention_control(ldm_stable, controller)
-                        w0, _ = inversion_reverse_process(ldm_stable, xT=wts[args.num_diffusion_steps-skip], etas=eta, prompts=[prompt_tar], cfg_scales=[cfg_scale_tar], prog_bar=True, zs=zs[:(args.num_diffusion_steps-skip)], controller=controller)
+                        #controller = AttentionStore()
+                        cfg_scale_list = [cfg_scale_src, cfg_scale_tar]
+                        prompts = [prompt_src, prompt_tar]
+                        if src_tar_len_eq:
+                            controller = AttentionReplace(prompts, args.num_diffusion_steps, cross_replace_steps=args.xa, self_replace_steps=args.sa, model=ldm_stable)
+                        else:
+                            # Should use Refine for target prompts with different number of tokens
+                            controller = AttentionRefine(prompts, args.num_diffusion_steps, cross_replace_steps=args.xa, self_replace_steps=args.sa, model=ldm_stable)
 
+                        register_attention_control(ldm_stable, controller)
+
+                        attention_store = LeditsAttentionStore(
+                            average=True,
+                            batch_size=1,
+                            max_size=(wts[args.num_diffusion_steps-skip].shape[-2] / 4.0) * (wts[args.num_diffusion_steps-skip].shape[-1] / 4.0),
+                            max_resolution=None,
+                        )
+
+                        prepare_unet(ldm_stable, attention_store)
+                        w0, _ = inversion_reverse_process(ldm_stable, xT=wts[args.num_diffusion_steps-skip], edit_threshold_c = edit_threshold_c, etas=eta, prompts=[prompt_tar], cfg_scales=[cfg_scale_tar], prog_bar=True, zs=zs[:(args.num_diffusion_steps-skip)], controller=controller, attention_store=attention_store)
+                        
                     elif args.mode=="p2pinv":
                         # inversion with attention replace
                         cfg_scale_list = [cfg_scale_src, cfg_scale_tar]
@@ -133,7 +165,7 @@ if __name__ == "__main__":
                     
                     # vae decode image
                     with autocast("cuda"), inference_mode():
-                        x0_dec = ldm_stable.vae.decode(1 / 0.18215 * w0).sample
+                        x0_dec = ldm_stable.vae.decode(1 / ldm_stable.vae.config.scaling_factor * w0).sample
                     if x0_dec.dim()<4:
                         x0_dec = x0_dec[None,:,:,:]
                     img = image_grid(x0_dec)

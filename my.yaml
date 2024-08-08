@@ -1,0 +1,7 @@
+  -
+    init_img:  /example_images/300.jpg
+    source_prompt: a photo of a smiling man without beard
+
+    target_prompts:
+    - a photo of a smiling man with beard
+

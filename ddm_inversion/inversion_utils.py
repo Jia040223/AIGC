@@ -1,6 +1,8 @@
 import torch
 import os
 from tqdm import tqdm
+import torch.nn.functional as F
+from prompt_to_prompt.ptp_classes import LeditsGaussianSmoothing
 
 def load_real_image(folder = "data/", img_name = None, idx = 0, img_size=512, device='cuda'):
     from ddm_inversion.utils import pil_to_tensor
@@ -102,8 +104,9 @@ def inversion_forward_process(model, x0,
                             etas = None,    
                             prog_bar = False,
                             prompt = "",
+                            edit_threshold_c = 0.95,
                             cfg_scale = 3.5,
-                            num_inference_steps=50, eps = None):
+                            num_inference_steps=50, eps = None, attention_store=None):
 
     if not prompt=="":
         text_embeddings = encode_text(model, prompt)
@@ -139,11 +142,42 @@ def inversion_forward_process(model, x0,
         with torch.no_grad():
             out = model.unet.forward(xt, timestep =  t, encoder_hidden_states = uncond_embedding)
             if not prompt=="":
-                cond_out = model.unet.forward(xt, timestep=t, encoder_hidden_states = text_embeddings)
+                cond_out = model.unet.forward(xt, timestep=t, encoder_hidden_states = text_embeddings) 
+
+        noise_guidance_edit_tmp = cond_out.sample - out.sample
+        noise_guidance_edit_tmp_quantile = torch.abs(noise_guidance_edit_tmp)
+        noise_guidance_edit_tmp_quantile = torch.sum(
+            noise_guidance_edit_tmp_quantile, dim=1, keepdim=True
+        )
+        noise_guidance_edit_tmp_quantile = noise_guidance_edit_tmp_quantile.repeat(
+            1, model.unet.config.in_channels, 1, 1
+        )
+
+        # torch.quantile function expects float32
+        if noise_guidance_edit_tmp_quantile.dtype == torch.float32:
+            tmp = torch.quantile(
+                noise_guidance_edit_tmp_quantile.flatten(start_dim=2),
+                edit_threshold_c,
+                dim=2,
+                keepdim=False,
+            )
+        else:
+            tmp = torch.quantile(
+                noise_guidance_edit_tmp_quantile.flatten(start_dim=2).to(torch.float32),
+                edit_threshold_c,
+                dim=2,
+                keepdim=False,
+            ).to(noise_guidance_edit_tmp_quantile.dtype)
+
+        intersect_mask = torch.where(
+                noise_guidance_edit_tmp_quantile >= tmp[:, :, None, None],
+                torch.ones_like(noise_guidance_edit_tmp),
+                torch.zeros_like(noise_guidance_edit_tmp),
+            )
 
         if not prompt=="":
             ## classifier free guidance
-            noise_pred = out.sample + cfg_scale * (cond_out.sample - out.sample)
+            noise_pred = out.sample + cfg_scale * (cond_out.sample - out.sample) * intersect_mask
         else:
             noise_pred = out.sample
         if eta_is_zero:
@@ -171,6 +205,9 @@ def inversion_forward_process(model, x0,
             # correction to avoid error accumulation
             xtm1 = mu_xt + ( etas[idx] * variance ** 0.5 )*z
             xts[idx] = xtm1
+            
+        if attention_store is not None:
+            attention_store.between_steps()
 
     if not zs is None: 
         zs[0] = torch.zeros_like(zs[0]) 
@@ -211,19 +248,21 @@ def reverse_step(model, model_output, timestep, sample, eta = 0, variance_noise=
 
 def inversion_reverse_process(model,
                     xT, 
+                    edit_threshold_c = 0.95,
                     etas = 0,
                     prompts = "",
                     cfg_scales = None,
                     prog_bar = False,
                     zs = None,
                     controller=None,
-                    asyrp = False):
-
+                    asyrp = False,
+                    attention_store = None):
     batch_size = len(prompts)
 
     cfg_scales_tensor = torch.Tensor(cfg_scales).view(-1,1,1,1).to(model.device)
 
     text_embeddings = encode_text(model, prompts)
+    #uncond_embedding = encode_text(model, src_prompts)
     uncond_embedding = encode_text(model, [""] * batch_size)
 
     if etas is None: etas = 0
@@ -248,19 +287,93 @@ def inversion_reverse_process(model,
             with torch.no_grad():
                 cond_out = model.unet.forward(xt, timestep =  t, 
                                                 encoder_hidden_states = text_embeddings)
-            
-        
+        noise_guidance_edit_tmp = cond_out.sample - uncond_out.sample
+
+        resolution = xT.shape[-2:]
+        att_res = (int(resolution[0] / 4), int(resolution[1] / 4))
+
+        out = attention_store.aggregate_attention(
+            attention_maps=attention_store.step_store,
+            prompts= [prompts],
+            res=att_res,
+            from_where=["up", "down"],
+            is_cross=True,
+            select= 0
+        )
+        attn_map = out[:, :, :, 1 : 2]  # 0 -> startoftext
+
+        # average over all tokens
+        if attn_map.shape[3] != 1:
+            raise ValueError(
+                f"Incorrect shape of attention_map. Expected size 1, but found {attn_map.shape[3]}!"
+            )
+        attn_map = torch.sum(attn_map, dim=3)
+
+        # gaussian_smoothing
+        attn_map = F.pad(attn_map.unsqueeze(1), (1, 1, 1, 1), mode="reflect")
+        smoothing = LeditsGaussianSmoothing("cuda")
+        attn_map = smoothing(attn_map).squeeze(1)
+
+        # torch.quantile function expects float32
+        if attn_map.dtype == torch.float32:
+            tmp = torch.quantile(attn_map.flatten(start_dim=1), edit_threshold_c, dim=1)
+        else:
+            tmp = torch.quantile(
+                attn_map.flatten(start_dim=1).to(torch.float32), edit_threshold_c, dim=1
+            ).to(attn_map.dtype)
+        attn_mask = torch.where(
+            attn_map >= tmp.unsqueeze(1).unsqueeze(1).repeat(1, *att_res), 1.0, 0.0
+        )
+
+        # resolution must match latent space dimension
+        attn_mask = F.interpolate(
+            attn_mask.unsqueeze(1),
+            noise_guidance_edit_tmp.shape[-2:],  # 64,64
+        ).repeat(1, 4, 1, 1)      
+
+    
+        noise_guidance_edit_tmp_quantile = torch.abs(noise_guidance_edit_tmp)
+        noise_guidance_edit_tmp_quantile = torch.sum(
+            noise_guidance_edit_tmp_quantile, dim=1, keepdim=True
+        )
+        noise_guidance_edit_tmp_quantile = noise_guidance_edit_tmp_quantile.repeat(
+            1, model.unet.config.in_channels, 1, 1
+        )
+
+        # torch.quantile function expects float32
+        if noise_guidance_edit_tmp_quantile.dtype == torch.float32:
+            tmp = torch.quantile(
+                noise_guidance_edit_tmp_quantile.flatten(start_dim=2),
+                edit_threshold_c,
+                dim=2,
+                keepdim=False,
+            )
+        else:
+            tmp = torch.quantile(
+                noise_guidance_edit_tmp_quantile.flatten(start_dim=2).to(torch.float32),
+                edit_threshold_c,
+                dim=2,
+                keepdim=False,
+            ).to(noise_guidance_edit_tmp_quantile.dtype)
+
+        intersect_mask = torch.where(
+                noise_guidance_edit_tmp_quantile >= tmp[:, :, None, None],
+                torch.ones_like(noise_guidance_edit_tmp),
+                torch.zeros_like(noise_guidance_edit_tmp),
+            )
+
         z = zs[idx] if not zs is None else None
         z = z.expand(batch_size, -1, -1, -1)
         if prompts:
             ## classifier free guidance
-            noise_pred = uncond_out.sample + cfg_scales_tensor * (cond_out.sample - uncond_out.sample)
+            noise_pred = uncond_out.sample + cfg_scales_tensor * (cond_out.sample - uncond_out.sample) * intersect_mask
         else: 
             noise_pred = uncond_out.sample
         # 2. compute less noisy image and set x_t -> x_t-1  
         xt = reverse_step(model, noise_pred, t, xt, eta = etas[idx], variance_noise = z) 
         if controller is not None:
-            xt = controller.step_callback(xt)        
+            xt = controller.step_callback(xt)     
+           
     return xt, zs
 
 
