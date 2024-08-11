@@ -92,18 +92,27 @@ class EmptyControl(AttentionControl):
     def forward (self, attn, is_cross: bool, place_in_unet: str):
         return attn
     
-    
 class AttentionStore(AttentionControl):
 
     @staticmethod
     def get_empty_store():
         return {"down_cross": [], "mid_cross": [], "up_cross": [],
                 "down_self": [],  "mid_self": [],  "up_self": []}
+    
+    '''
+    def __call__(self, attn, is_cross: bool, place_in_unet: str, editing_prompts, PnP=False):
+        # attn.shape = batch_size * head_size, seq_len query, seq_len_key
+        #if attn.shape[1] <= self.max_size:
+        bs = 1 + int(PnP) + editing_prompts
+        skip = 2 if PnP else 1  # skip PnP & unconditional
+        attn = torch.stack(attn.split(self.batch_size)).permute(1, 0, 2, 3)
+        source_batch_size = int(attn.shape[1] // bs)
+        self.forward(attn[:, skip * source_batch_size :], is_cross, place_in_unet)
+    '''
 
     def forward(self, attn, is_cross: bool, place_in_unet: str):
         key = f"{place_in_unet}_{'cross' if is_cross else 'self'}"
         self.step_store[key].append(attn)
-        print(0, self.step_store)
         return attn
 
     def between_steps(self):
@@ -129,13 +138,12 @@ class AttentionStore(AttentionControl):
         super(AttentionStore, self).__init__()
         self.step_store = self.get_empty_store()
         self.attention_store = {}
-
+    
     def aggregate_attention(
-        self, batch_size, attention_maps, prompts, res: Union[int, Tuple[int]], from_where: List[str], is_cross: bool, select: int
+        self, attention_maps, prompts, res: Union[int, Tuple[int]], from_where: List[str], is_cross: bool, select: int
     ):
-        print(self.attention_store)
-
-        out = [[] for x in range(batch_size)]
+        out = [[] for x in range(self.batch_size)]
+        attention_maps = self.get_average_attention()
         if isinstance(res, int):
             num_pixels = res**2
             resolution = (res, res)
@@ -145,18 +153,18 @@ class AttentionStore(AttentionControl):
 
         for location in from_where:
             for bs_item in attention_maps[f"{location}_{'cross' if is_cross else 'self'}"]:
+                bs_item = torch.stack(bs_item.split(self.batch_size)).permute(1, 0, 2, 3)
                 for batch, item in enumerate(bs_item):
                     if item.shape[1] == num_pixels:
                         cross_maps = item.reshape(len(prompts), -1, *resolution, item.shape[-1])[select]
                         out[batch].append(cross_maps)
 
-        print(out)
         out = torch.stack([torch.cat(x, dim=0) for x in out])
         # average over heads
         out = out.sum(1) / out.shape[1]
-        return out
-
         
+        return out
+    
 class AttentionControlEdit(AttentionStore, abc.ABC):
     
     def step_callback(self, x_t):
@@ -176,7 +184,6 @@ class AttentionControlEdit(AttentionStore, abc.ABC):
     
     def forward(self, attn, is_cross: bool, place_in_unet: str):
         super(AttentionControlEdit, self).forward(attn, is_cross, place_in_unet)
-        print(1, self.step_store)
         if is_cross or (self.num_self_replace[0] <= self.cur_step < self.num_self_replace[1]):
             h = attn.shape[0] // (self.batch_size)
             attn = attn.reshape(self.batch_size, h, *attn.shape[1:])
@@ -193,7 +200,7 @@ class AttentionControlEdit(AttentionStore, abc.ABC):
     def __init__(self, prompts, num_steps: int,
                  cross_replace_steps: Union[float, Tuple[float, float], Dict[str, Tuple[float, float]]],
                  self_replace_steps: Union[float, Tuple[float, float]],
-                 local_blend: Optional[LocalBlend],
+                 local_blend=None,
                  device=None,
                  tokenizer=None):
         super(AttentionControlEdit, self).__init__()
@@ -203,7 +210,7 @@ class AttentionControlEdit(AttentionStore, abc.ABC):
             self_replace_steps = 0, self_replace_steps
         self.num_self_replace = int(num_steps * self_replace_steps[0]), int(num_steps * self_replace_steps[1])
         self.local_blend = local_blend
-
+        
 class AttentionReplace(AttentionControlEdit):
 
     def replace_cross_attention(self, attn_base, att_replace):
@@ -243,7 +250,6 @@ class AttentionReweight(AttentionControlEdit):
         super(AttentionReweight, self).__init__(prompts, num_steps, cross_replace_steps, self_replace_steps, local_blend)
         self.equalizer = equalizer.to(device)
         self.prev_controller = controller
-
 
 def get_equalizer(text: str, word_select: Union[int, Tuple[int, ...]], values: Union[List[float],
                   Tuple[float, ...]], tokenizer=None):
@@ -432,7 +438,7 @@ class LeditsAttentionStore:
         out = out.sum(1) / out.shape[1]
         return out
 
-    def __init__(self, average: bool, batch_size=1, max_resolution=16, max_size: int = None):
+    def __init__(self, average: bool = False, batch_size=1, max_resolution=16, max_size: int = None):
         self.step_store = self.get_empty_store()
         self.attention_store = []
         self.cur_step = 0
@@ -492,9 +498,10 @@ class LEDITSCrossAttnProcessor:
         attn,
         hidden_states,
         encoder_hidden_states,
+        is_cross = True,
         attention_mask=None,
         temb=None,
-    ):
+    ):  
         batch_size, sequence_length, _ = (
             hidden_states.shape if encoder_hidden_states is None else encoder_hidden_states.shape
         )
@@ -515,13 +522,8 @@ class LEDITSCrossAttnProcessor:
         value = attn.head_to_batch_dim(value)
 
         attention_probs = attn.get_attention_scores(query, key, attention_mask)
-        self.attnstore(
-            attention_probs,
-            is_cross=True,
-            place_in_unet=self.place_in_unet,
-            editing_prompts=self.editing_prompts,
-            PnP=self.pnp,
-        )
+        #print(attention_probs.shape)
+        attention_probs = self.attnstore(attention_probs, is_cross, self.place_in_unet)
 
         hidden_states = torch.bmm(attention_probs, value)
         hidden_states = attn.batch_to_head_dim(hidden_states)
@@ -558,90 +560,3 @@ def prepare_unet(model, attention_store, PnP: bool = False):
 
     model.unet.set_attn_processor(attn_procs)
 
-def my_register_attention_control(model, controller):
-    class myAttnProcessor():
-        def __init__(self,place_in_unet):
-            self.place_in_unet = place_in_unet
-
-        def __call__(self,
-            attn,
-            hidden_states,
-            encoder_hidden_states=None,
-            attention_mask=None,
-            temb=None,
-            scale=1.0,):
-            # The `Attention` class can call different attention processors / attention functions
-    
-            residual = hidden_states
-
-            if attn.spatial_norm is not None:
-                hidden_states = attn.spatial_norm(hidden_states, temb)
-
-            input_ndim = hidden_states.ndim
-
-            if input_ndim == 4:
-                batch_size, channel, height, width = hidden_states.shape
-                hidden_states = hidden_states.view(batch_size, channel, height * width).transpose(1, 2)
-
-            h = attn.heads
-            is_cross = encoder_hidden_states is not None
-            if encoder_hidden_states is None:
-                encoder_hidden_states = hidden_states
-            elif attn.norm_cross:
-                encoder_hidden_states = attn.norm_encoder_hidden_states(encoder_hidden_states)
-
-            batch_size, sequence_length, _ = (
-                hidden_states.shape if encoder_hidden_states is None else encoder_hidden_states.shape
-            )
-            attention_mask = attn.prepare_attention_mask(attention_mask, sequence_length, batch_size)
-
-            q = attn.to_q(hidden_states)
-            k = attn.to_k(encoder_hidden_states)
-            v = attn.to_v(encoder_hidden_states)
-            q = attn.head_to_batch_dim(q)
-            k = attn.head_to_batch_dim(k)
-            v = attn.head_to_batch_dim(v)
-
-            if not is_cross:
-                q,k,v = controller.self_attn_forward(q, k, v, attn.heads)
-
-            attention_probs = attn.get_attention_scores(q, k, attention_mask)
-            if is_cross:
-                attention_probs  = controller(attention_probs , is_cross, self.place_in_unet)
-            hidden_states = torch.bmm(attention_probs, v)
-            hidden_states = attn.batch_to_head_dim(hidden_states)
-
-            # linear proj   
-            hidden_states = attn.to_out[0](hidden_states)
-            # dropout
-            hidden_states = attn.to_out[1](hidden_states)
-
-            if input_ndim == 4:
-                hidden_states = hidden_states.transpose(-1, -2).reshape(batch_size, channel, height, width)
-
-            if attn.residual_connection:
-                hidden_states = hidden_states + residual
-
-            hidden_states = hidden_states / attn.rescale_output_factor
-
-            return hidden_states
-
-
-    def register_recr(net_, count, place_in_unet):
-        for idx, m in enumerate(net_.modules()):
-            # print(m.__class__.__name__)
-            if m.__class__.__name__ == "Attention":
-                count+=1
-                m.processor = myAttnProcessor( place_in_unet)
-        return count
-
-    cross_att_count = 0
-    sub_nets = model.unet.named_children()
-    for net in sub_nets:
-        if "down" in net[0]:
-            cross_att_count += register_recr(net[1], 0, "down")
-        elif "up" in net[0]:
-            cross_att_count += register_recr(net[1], 0, "up")
-        elif "mid" in net[0]:
-            cross_att_count += register_recr(net[1], 0, "mid")
-    controller.num_att_layers = cross_att_count

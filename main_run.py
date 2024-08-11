@@ -20,15 +20,15 @@ if __name__ == "__main__":
     parser.add_argument("--device_num", type=int, default=0)
     parser.add_argument("--cfg_src", type=float, default=10)
     parser.add_argument("--cfg_tar", type=float, default=13)
-    parser.add_argument("--num_diffusion_steps", type=int, default=50)
+    parser.add_argument("--num_diffusion_steps", type=int, default=150)
     parser.add_argument("--dataset_yaml",  default="my.yaml")
     parser.add_argument("--eta", type=float, default=1)
     parser.add_argument("--mode",  default="our_inv", help="modes: our_inv,p2pinv,p2pddim,ddim")
     parser.add_argument("--skip",  type=int, default=36)
-    parser.add_argument("--xa", type=float, default=0.6)
-    parser.add_argument("--sa", type=float, default=0.2)
+    parser.add_argument("--xa", type=float, default=0.1)
+    parser.add_argument("--sa", type=float, default=0.1)
 
-    edit_threshold_c = 0.95
+    edit_threshold_c = 0.0
     
     args = parser.parse_args()
     full_data = dataset_from_yaml(args.dataset_yaml)
@@ -69,13 +69,14 @@ if __name__ == "__main__":
             ldm_stable.scheduler = DDIMScheduler.from_config(model_id, subfolder = "scheduler")
             
         ldm_stable.scheduler.set_timesteps(args.num_diffusion_steps)
+        '''
         attention_store = LeditsAttentionStore(
                             average=False,
                             batch_size=1,
                         )
 
         prepare_unet(ldm_stable, attention_store)
-        
+        '''
         
         # load image
         offsets=(0,0,0,0)
@@ -89,10 +90,8 @@ if __name__ == "__main__":
         if args.mode=="p2pddim" or args.mode=="ddim":
             wT = ddim_inversion(ldm_stable, w0, prompt_src, cfg_scale_src)
         else:
-            wt, zs, wts = inversion_forward_process(ldm_stable, w0, etas=eta, prompt=prompt_src, edit_threshold_c = edit_threshold_c, cfg_scale=cfg_scale_src, prog_bar=True, num_inference_steps=args.num_diffusion_steps, attention_store=attention_store)
+            wt, zs, wts = inversion_forward_process(ldm_stable, w0, etas=eta, prompt=prompt_src, edit_threshold_c = edit_threshold_c, cfg_scale=cfg_scale_src, prog_bar=True, num_inference_steps=args.num_diffusion_steps)
 
-        print(len(attention_store.attention_store))
-        
         # iterate over decoder prompts
         for k in range(len(prompt_tar_list)):
             prompt_tar = prompt_tar_list[k]
@@ -115,17 +114,20 @@ if __name__ == "__main__":
                             # Should use Refine for target prompts with different number of tokens
                             controller = AttentionRefine(prompts, args.num_diffusion_steps, cross_replace_steps=args.xa, self_replace_steps=args.sa, model=ldm_stable)
 
-                        register_attention_control(ldm_stable, controller)
+                        #register_attention_control(ldm_stable, controller)
+                        #print(controller.num_att_layers)
 
+                        '''
                         attention_store = LeditsAttentionStore(
                             average=True,
                             batch_size=1,
                             max_size=(wts[args.num_diffusion_steps-skip].shape[-2] / 4.0) * (wts[args.num_diffusion_steps-skip].shape[-1] / 4.0),
                             max_resolution=None,
                         )
+                        '''
 
-                        prepare_unet(ldm_stable, attention_store)
-                        w0, _ = inversion_reverse_process(ldm_stable, xT=wts[args.num_diffusion_steps-skip], edit_threshold_c = edit_threshold_c, etas=eta, prompts=[prompt_tar], cfg_scales=[cfg_scale_tar], prog_bar=True, zs=zs[:(args.num_diffusion_steps-skip)], controller=controller, attention_store=attention_store)
+                        prepare_unet(ldm_stable, controller)
+                        w0, _ = inversion_reverse_process(ldm_stable, xT=wts[args.num_diffusion_steps-skip], edit_threshold_c = edit_threshold_c, etas=eta, prompts=[prompt_tar], cfg_scales=[cfg_scale_tar], prog_bar=True, zs=zs[:(args.num_diffusion_steps-skip)], controller=controller)
                         
                     elif args.mode=="p2pinv":
                         # inversion with attention replace

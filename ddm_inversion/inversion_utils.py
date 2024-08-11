@@ -287,13 +287,15 @@ def inversion_reverse_process(model,
             with torch.no_grad():
                 cond_out = model.unet.forward(xt, timestep =  t, 
                                                 encoder_hidden_states = text_embeddings)
+                
+        controller.between_steps()
         noise_guidance_edit_tmp = cond_out.sample - uncond_out.sample
 
         resolution = xT.shape[-2:]
         att_res = (int(resolution[0] / 4), int(resolution[1] / 4))
-
-        out = attention_store.aggregate_attention(
-            attention_maps=attention_store.step_store,
+        
+        out = controller.aggregate_attention(
+            attention_maps=controller.step_store,
             prompts= [prompts],
             res=att_res,
             from_where=["up", "down"],
@@ -372,7 +374,8 @@ def inversion_reverse_process(model,
         # 2. compute less noisy image and set x_t -> x_t-1  
         xt = reverse_step(model, noise_pred, t, xt, eta = etas[idx], variance_noise = z) 
         if controller is not None:
-            xt = controller.step_callback(xt)     
+            xt = controller.step_callback(xt)    
+     
            
     return xt, zs
 
