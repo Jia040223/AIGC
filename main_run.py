@@ -18,17 +18,16 @@ if __name__ == "__main__":
     print("start")
     parser = argparse.ArgumentParser()
     parser.add_argument("--device_num", type=int, default=0)
-    parser.add_argument("--cfg_src", type=float, default=10)
-    parser.add_argument("--cfg_tar", type=float, default=13)
+    parser.add_argument("--cfg_src", type=float, default=5)
+    parser.add_argument("--cfg_tar", type=float, default=8)
     parser.add_argument("--num_diffusion_steps", type=int, default=150)
     parser.add_argument("--dataset_yaml",  default="my.yaml")
     parser.add_argument("--eta", type=float, default=1)
     parser.add_argument("--mode",  default="our_inv", help="modes: our_inv,p2pinv,p2pddim,ddim")
     parser.add_argument("--skip",  type=int, default=36)
-    parser.add_argument("--xa", type=float, default=0.1)
-    parser.add_argument("--sa", type=float, default=0.1)
-
-    edit_threshold_c = 0.0
+    parser.add_argument("--xa", type=float, default=0.2)
+    parser.add_argument("--sa", type=float, default=0.2)
+    parser.add_argument("--edit_threshold_c", type=float, default=0.0)
     
     args = parser.parse_args()
     full_data = dataset_from_yaml(args.dataset_yaml)
@@ -39,7 +38,9 @@ if __name__ == "__main__":
     model_id = "/data/worker/Resources/34/HuggingFaceRepos/CompVis/stable-diffusion-v1-4"
     # model_id = "stable_diff_local" # load local save of model (for internet problems)
 
+
     device = f"cuda:{args.device_num}"
+    edit_threshold_c = args.edit_threshold_c
 
     cfg_scale_src = args.cfg_src
     cfg_scale_tar_list = [args.cfg_tar]
@@ -106,6 +107,7 @@ if __name__ == "__main__":
                     if args.mode=="our_inv":
                         # reverse process (via Zs and wT)
                         #controller = AttentionStore()
+                        print(src_tar_len_eq)
                         cfg_scale_list = [cfg_scale_src, cfg_scale_tar]
                         prompts = [prompt_src, prompt_tar]
                         if src_tar_len_eq:

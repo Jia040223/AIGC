@@ -294,8 +294,9 @@ def inversion_reverse_process(model,
         resolution = xT.shape[-2:]
         att_res = (int(resolution[0] / 4), int(resolution[1] / 4))
         
+        #print(controller.attention_store[-1])
         out = controller.aggregate_attention(
-            attention_maps=controller.step_store,
+            attention_maps=controller.attention_store[-1],
             prompts= [prompts],
             res=att_res,
             from_where=["up", "down"],
@@ -305,6 +306,7 @@ def inversion_reverse_process(model,
         attn_map = out[:, :, :, 1 : 2]  # 0 -> startoftext
 
         # average over all tokens
+        attn_map = attn_map[1].unsqueeze(0)
         if attn_map.shape[3] != 1:
             raise ValueError(
                 f"Incorrect shape of attention_map. Expected size 1, but found {attn_map.shape[3]}!"
@@ -362,13 +364,13 @@ def inversion_reverse_process(model,
                 noise_guidance_edit_tmp_quantile >= tmp[:, :, None, None],
                 torch.ones_like(noise_guidance_edit_tmp),
                 torch.zeros_like(noise_guidance_edit_tmp),
-            )
+            ) * attn_mask
 
         z = zs[idx] if not zs is None else None
         z = z.expand(batch_size, -1, -1, -1)
         if prompts:
             ## classifier free guidance
-            noise_pred = uncond_out.sample + cfg_scales_tensor * (cond_out.sample - uncond_out.sample) * intersect_mask
+            noise_pred = uncond_out.sample + cfg_scales_tensor * (cond_out.sample - uncond_out.sample)
         else: 
             noise_pred = uncond_out.sample
         # 2. compute less noisy image and set x_t -> x_t-1  

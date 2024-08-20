@@ -115,13 +115,21 @@ class AttentionStore(AttentionControl):
         self.step_store[key].append(attn)
         return attn
 
-    def between_steps(self):
-        if len(self.attention_store) == 0:
-            self.attention_store = self.step_store
-        else:
-            for key in self.attention_store:
-                for i in range(len(self.attention_store[key])):
-                    self.attention_store[key][i] += self.step_store[key][i]
+    def between_steps(self, store_step=True):
+        if store_step:
+            if self.average:
+                if len(self.attention_store) == 0:
+                    self.attention_store = self.step_store
+                else:
+                    for key in self.attention_store:
+                        for i in range(len(self.attention_store[key])):
+                            self.attention_store[key][i] += self.step_store[key][i]
+            else:
+                if len(self.attention_store) == 0:
+                    self.attention_store = [self.step_store]
+                else:
+                    self.attention_store.append(self.step_store)
+        
         self.step_store = self.get_empty_store()
 
     def get_average_attention(self):
@@ -134,16 +142,17 @@ class AttentionStore(AttentionControl):
         self.step_store = self.get_empty_store()
         self.attention_store = {}
 
-    def __init__(self):
+    def __init__(self, average=False):
         super(AttentionStore, self).__init__()
         self.step_store = self.get_empty_store()
         self.attention_store = {}
+        self.average = average
     
     def aggregate_attention(
         self, attention_maps, prompts, res: Union[int, Tuple[int]], from_where: List[str], is_cross: bool, select: int
     ):
         out = [[] for x in range(self.batch_size)]
-        attention_maps = self.get_average_attention()
+        #attention_maps = self.get_average_attention()
         if isinstance(res, int):
             num_pixels = res**2
             resolution = (res, res)

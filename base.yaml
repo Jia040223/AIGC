@@ -1,0 +1,53 @@
+  -
+    init_img:  /example_images/300.jpg
+    source_prompt: a photo of a smiling man
+    target_prompts:
+    - a photo of a smiling man with beard
+    - a photo of a serious man
+    - a photo of a smiling man with glasses
+    - a photo of a smiling man with red hair
+
+  -
+    init_img:  /example_images/1.png
+    source_prompt: a photo of a beautiful serious girl with brown hair and black eyes
+    target_prompts:
+    - a photo of a beautiful serious girl with red hair and black eyes
+    - a photo of a beautiful serious girl with brown hair and blue eyes
+    - a photo of a beautiful smiling girl with brown hair and black eyes
+    - a photo of a beautiful serious girl with brown hair and black eyes who wearing glasses
+  
+  -
+    init_img:  /example_images/trump2.png
+    source_prompt: a photo of a old smiling man with white hair
+    target_prompts:
+    - a photo of a old serious man with white hair
+    - a photo of a old smiling man with white hair and bigger eyes
+    - a photo of a young smiling man with black hair
+    - a photo of a old smiling man with white hair and smoother facial skin
+
+  -
+    init_img:  /example_images/2.png
+    source_prompt: a photo of a old man with white hair
+    target_prompts:
+    - a photo of a old smiling man with white hair
+    - a photo of a very angry old man with white hair
+    - a photo of a old man with much bigger eyes
+    - a photo of a young man
+
+  -
+    init_img:  /example_images/cat1.png
+    source_prompt: a drawing of a cat
+    target_prompts:
+    - a drawing of a dog
+    - a drawing of a bear
+    - a drawing of a rabbit
+    - a drawing of a bird
+
+    -
+      init_img:  /example_images/3.png
+      source_prompt: A painting of a waterfall in the mountains in spring
+      target_prompts:
+      - A painting of a waterfall and angels in the mountains in spring
+      - A painting of a waterfall in the mountains and birds in the sky in spring
+      - A painting of a waterfall in the mountains in winter
+      - A painting of two waterfall in the mountains 
