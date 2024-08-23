@@ -1,0 +1,17 @@
+{
+    "NSFW": "NSFW",
+    "similarity": 0.33785900473594666,
+    "LICENSE": "?",
+    "SAMPLE_ID": 4211812018821.0,
+    "caption": "On Hopes for the Inauguration of Kamala D. Harris",
+    "url": "https://static.wixstatic.com/media/5e5827_aa129cb87734419685f0ee756f3ac419~mv2.jpg/v1/fill/w_292,h_165,fp_0.50_0.50,q_90/5e5827_aa129cb87734419685f0ee756f3ac419~mv2.jpg",
+    "key": "000003783",
+    "status": "success",
+    "error_message": null,
+    "width": 292,
+    "height": 165,
+    "original_width": 292,
+    "original_height": 165,
+    "exif": "{\"Image Orientation\": \"Horizontal (normal)\", \"Image XResolution\": \"96\", \"Image YResolution\": \"96\", \"Image ResolutionUnit\": \"Pixels/Inch\", \"Image YCbCrPositioning\": \"Centered\", \"Image ExifOffset\": \"102\", \"EXIF ExifVersion\": \"\", \"EXIF ComponentsConfiguration\": \"\", \"EXIF FlashPixVersion\": \"\", \"EXIF ColorSpace\": \"Uncalibrated\", \"EXIF ExifImageWidth\": \"292\", \"EXIF ExifImageLength\": \"165\"}",
+    "sha256": "570257baaaf576b0512e931ce09eed21afa107f44db16ab2fd060fb0569581a6"
+}

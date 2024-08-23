@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.33373093605041504,
+    "LICENSE": "?",
+    "SAMPLE_ID": 1435075010214.0,
+    "caption": "\"Fits American Girl 18\"\" Purple Pajamas, Slippers, Eye Mask - 18 Inch Doll Clothes/clothing\"",
+    "url": "http://ecx.images-amazon.com/images/I/41r7zGWZxcL.jpg",
+    "key": "000002429",
+    "status": "success",
+    "error_message": null,
+    "width": 500,
+    "height": 500,
+    "original_width": 500,
+    "original_height": 500,
+    "exif": "{\"Image ExifOffset\": \"26\"}",
+    "sha256": "f12c3fed0aa64af6f6d131784838f985a430829ef356d36c5dea215dcc85e2ba"
+}

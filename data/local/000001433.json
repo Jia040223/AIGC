@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNSURE",
+    "similarity": 0.31011849641799927,
+    "LICENSE": "?",
+    "SAMPLE_ID": 1083316013452.0,
+    "caption": "British Fashion Awards 2013: the nominees",
+    "url": "http://images.vogue.it/Storage/Assets/Crops/61663/12/59786/stella-mccartney_0x440.jpg",
+    "key": "000001433",
+    "status": "success",
+    "error_message": null,
+    "width": 276,
+    "height": 440,
+    "original_width": 276,
+    "original_height": 440,
+    "exif": "{}",
+    "sha256": "2e8c6753807d0067a9e4b56a1c0c7f20a41cc2d497a834e01b38dadaeaf8da75"
+}

@@ -1,0 +1,17 @@
+{
+    "NSFW": "NSFW",
+    "similarity": 0.33981814980506897,
+    "LICENSE": "?",
+    "SAMPLE_ID": 1955888013307.0,
+    "caption": "alan-greenspan",
+    "url": "http://economistua.com/wp-content/uploads/2016/09/alan-greenspan-300x300.jpg",
+    "key": "000000697",
+    "status": "success",
+    "error_message": null,
+    "width": 300,
+    "height": 300,
+    "original_width": 300,
+    "original_height": 300,
+    "exif": "{}",
+    "sha256": "02b247f0e15cac364743840693bad22e2fa3ed231071df1bdf47a58114f7e219"
+}

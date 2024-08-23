@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.317595899105072,
+    "LICENSE": "?",
+    "SAMPLE_ID": 3125228000259.0,
+    "caption": "boone-engagement-session-destination-wedding-photographer-49",
+    "url": "https://static.showit.co/1200/ng0DzxEpRi2PdXzZbMWhRQ/59643/boone-engagement-session-destination-wedding-photographer-49.jpg",
+    "key": "000005274",
+    "status": "success",
+    "error_message": null,
+    "width": 1200,
+    "height": 1800,
+    "original_width": 1200,
+    "original_height": 1800,
+    "exif": "{\"Image Make\": \"Canon\", \"Image Model\": \"Canon EOS 6D Mark II\", \"Image XResolution\": \"300\", \"Image YResolution\": \"300\", \"Image ResolutionUnit\": \"Pixels/Inch\", \"Image Software\": \"Adobe Photoshop Camera Raw 10.3 (Windows)\", \"Image DateTime\": \"2018:10:02 23:02:28\", \"Image ExifOffset\": \"216\", \"Thumbnail Compression\": \"JPEG (old-style)\", \"Thumbnail XResolution\": \"72\", \"Thumbnail YResolution\": \"72\", \"Thumbnail ResolutionUnit\": \"Pixels/Inch\", \"Thumbnail JPEGInterchangeFormat\": \"864\", \"Thumbnail JPEGInterchangeFormatLength\": \"9298\", \"EXIF ExposureTime\": \"1/4000\", \"EXIF FNumber\": \"9/5\", \"EXIF ExposureProgram\": \"Manual\", \"EXIF ISOSpeedRatings\": \"200\", \"EXIF SensitivityType\": \"Recommended Exposure Index\", \"EXIF RecommendedExposureIndex\": \"200\", \"EXIF ExifVersion\": \"\", \"EXIF DateTimeOriginal\": \"2018:09:08 17:52:14\", \"EXIF DateTimeDigitized\": \"2018:09:08 17:52:14\", \"EXIF ShutterSpeedValue\": \"1495723/125000\", \"EXIF ApertureValue\": \"847997/500000\", \"EXIF ExposureBiasValue\": \"0\", \"EXIF MaxApertureValue\": \"7/4\", \"EXIF MeteringMode\": \"Pattern\", \"EXIF Flash\": \"Flash did not fire, compulsory flash mode\", \"EXIF FocalLength\": \"50\", \"EXIF SubSecTimeOriginal\": \"14\", \"EXIF SubSecTimeDigitized\": \"14\", \"EXIF ColorSpace\": \"sRGB\", \"EXIF FocalPlaneXResolution\": \"56907257/32768\", \"EXIF FocalPlaneYResolution\": \"56907257/32768\", \"EXIF FocalPlaneResolutionUnit\": \"3\", \"EXIF CustomRendered\": \"Normal\", \"EXIF ExposureMode\": \"Manual Exposure\", \"EXIF WhiteBalance\": \"Manual\", \"EXIF SceneCaptureType\": \"Standard\", \"EXIF BodySerialNumber\": \"052051003613\", \"EXIF LensSpecification\": \"[50, 50, 0/0, 0/0]\", \"EXIF LensModel\": \"EF50mm f/1.8 STM\", \"EXIF LensSerialNumber\": \"0000282eb7\"}",
+    "sha256": "637cb34daa5cbb74ee82d6f128a620e1d195c68f434fe6c70725d743fe72b5b3"
+}

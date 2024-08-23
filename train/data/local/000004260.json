@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.31677401065826416,
+    "LICENSE": "?",
+    "SAMPLE_ID": 1108336035455.0,
+    "caption": "Tough Mudder Wi 2013 T-Shirt Photo",
+    "url": "https://s3.amazonaws.com/customink-iotw-east-prod/images/24943/large/KEITHS_PICS_168.JPG?1425373206",
+    "key": "000004260",
+    "status": "success",
+    "error_message": null,
+    "width": 720,
+    "height": 540,
+    "original_width": 720,
+    "original_height": 540,
+    "exif": "{\"Image ImageDescription\": \"\", \"Image Make\": \"NIKON\", \"Image Model\": \"COOLPIX S01\", \"Image Orientation\": \"Horizontal (normal)\", \"Image XResolution\": \"300\", \"Image YResolution\": \"300\", \"Image ResolutionUnit\": \"Pixels/Inch\", \"Image Software\": \"COOLPIX S01    V1.0\", \"Image DateTime\": \"2013:09:06 20:54:09\", \"Image YCbCrPositioning\": \"Co-sited\", \"Image ExifOffset\": \"244\", \"Image XPKeywords\": \"[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]\", \"Thumbnail Compression\": \"JPEG (old-style)\", \"Thumbnail XResolution\": \"300\", \"Thumbnail YResolution\": \"300\", \"Thumbnail ResolutionUnit\": \"Pixels/Inch\", \"Thumbnail JPEGInterchangeFormat\": \"57378\", \"Thumbnail JPEGInterchangeFormatLength\": \"4570\", \"EXIF ExposureTime\": \"1/80\", \"EXIF FNumber\": \"33/10\", \"EXIF ExposureProgram\": \"Program Normal\", \"EXIF ISOSpeedRatings\": \"80\", \"EXIF SensitivityType\": \"Standard Output Sensitivity\", \"EXIF ExifVersion\": \"\", \"EXIF DateTimeOriginal\": \"2013:09:06 20:54:09\", \"EXIF DateTimeDigitized\": \"2013:09:06 20:54:09\", \"EXIF ComponentsConfiguration\": \"\", \"EXIF CompressedBitsPerPixel\": \"2\", \"EXIF ExposureBiasValue\": \"0\", \"EXIF MaxApertureValue\": \"17/5\", \"EXIF MeteringMode\": \"Pattern\", \"EXIF LightSource\": \"Unknown\", \"EXIF Flash\": \"Flash did not fire, auto mode\", \"EXIF FocalLength\": \"41/10\", \"EXIF FlashPixVersion\": \"\", \"EXIF ColorSpace\": \"sRGB\", \"EXIF ExifImageWidth\": \"3648\", \"EXIF ExifImageLength\": \"2736\", \"Interoperability InteroperabilityVersion\": \"[0, 0, 0, 0]\", \"EXIF InteroperabilityOffset\": \"57230\", \"EXIF FileSource\": \"0\", \"EXIF SceneType\": \"0\", \"EXIF CustomRendered\": \"Normal\", \"EXIF ExposureMode\": \"Auto Exposure\", \"EXIF WhiteBalance\": \"Auto\", \"EXIF DigitalZoomRatio\": \"0\", \"EXIF FocalLengthIn35mmFilm\": \"29\", \"EXIF SceneCaptureType\": \"Standard\", \"EXIF GainControl\": \"Low gain up\", \"EXIF Contrast\": \"Normal\", \"EXIF Saturation\": \"Normal\", \"EXIF Sharpness\": \"Normal\", \"EXIF SubjectDistanceRange\": \"0\", \"EXIF OffsetSchema\": \"-112\"}",
+    "sha256": "63596ecfaa19c72ce73c83c099a130cff8d724c54f6dd5916bb1823fe7c8d789"
+}

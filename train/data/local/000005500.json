@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNSURE",
+    "similarity": 0.3415786325931549,
+    "LICENSE": "?",
+    "SAMPLE_ID": 4264758008956.0,
+    "caption": "Buy Chris Young tickets at ScoreBig.com",
+    "url": "https://s3.amazonaws.com/scorebig-brand/images/performer/10161/10161-375x188.jpg",
+    "key": "000005500",
+    "status": "success",
+    "error_message": null,
+    "width": 375,
+    "height": 188,
+    "original_width": 375,
+    "original_height": 188,
+    "exif": "{}",
+    "sha256": "12339b69dfbeafd3ff4d58547da96ef5cde7e61150e4ad1cdc07c544f670da29"
+}

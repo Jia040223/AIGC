@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.3262244760990143,
+    "LICENSE": "?",
+    "SAMPLE_ID": 4243976016596.0,
+    "caption": "Oversized Unicorn Hoodie Wearable Blanket",
+    "url": "https://cdn.shopify.com/s/files/1/0069/7453/7817/products/pic_016_1024x1024.jpg?v=1603853524",
+    "key": "000005162",
+    "status": "success",
+    "error_message": null,
+    "width": 800,
+    "height": 800,
+    "original_width": 800,
+    "original_height": 800,
+    "exif": "{\"Image Orientation\": \"Horizontal (normal)\", \"Image XResolution\": \"96\", \"Image YResolution\": \"96\", \"Image ResolutionUnit\": \"Pixels/Inch\", \"Image YCbCrPositioning\": \"Centered\", \"Image ExifOffset\": \"102\", \"EXIF ExifVersion\": \"\", \"EXIF ComponentsConfiguration\": \"\", \"EXIF FlashPixVersion\": \"\", \"EXIF ColorSpace\": \"Uncalibrated\", \"EXIF ExifImageWidth\": \"800\", \"EXIF ExifImageLength\": \"800\"}",
+    "sha256": "471661ea312606df442a485135aa9f8edd95b1a25ba0862ff00772167b413662"
+}

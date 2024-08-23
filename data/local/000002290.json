@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.3417212665081024,
+    "LICENSE": "?",
+    "SAMPLE_ID": 153617006984.0,
+    "caption": "<em>Tomb Raider</em> Review (Multi-Platform)",
+    "url": "http://cdn.pastemagazine.com/www/articles/tomb%20raider%20square.jpg?635334990394962546",
+    "key": "000002290",
+    "status": "success",
+    "error_message": null,
+    "width": 514,
+    "height": 514,
+    "original_width": 514,
+    "original_height": 514,
+    "exif": "{\"Image ExifOffset\": \"26\"}",
+    "sha256": "49eb6199317f30a0e604662ed6a74db35754ad9856d8b36edea13e4726244232"
+}

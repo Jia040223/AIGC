@@ -1,0 +1,17 @@
+{
+    "NSFW": "NSFW",
+    "similarity": 0.309600293636322,
+    "LICENSE": "?",
+    "SAMPLE_ID": 1323504022393.0,
+    "caption": "Luke Dahlhaus gets his handball away as Jaeger O'Meara tackles him.",
+    "url": "https://cdn.newsapi.com.au/image/v1/243fd2bced3390bee47185655106dab8",
+    "key": "000007324",
+    "status": "success",
+    "error_message": null,
+    "width": 650,
+    "height": 366,
+    "original_width": 650,
+    "original_height": 366,
+    "exif": "{}",
+    "sha256": "8ca988c9ace69ffa22ee60d520640680dc82e7655c2a3e36389594abd938fab7"
+}

@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.40623369812965393,
+    "LICENSE": "?",
+    "SAMPLE_ID": 3097069005677.0,
+    "caption": "Ann De St. Aubin Senior Director Client Services - Dealer Teamwork",
+    "url": "https://www.dealerteamwork.com/wp-content/uploads/2018/01/Ann-De-St.-Aubin-Senior-Director-Client-Services.jpg",
+    "key": "000003237",
+    "status": "success",
+    "error_message": null,
+    "width": 1200,
+    "height": 628,
+    "original_width": 1200,
+    "original_height": 628,
+    "exif": "{\"Image Orientation\": \"Horizontal (normal)\", \"Image XResolution\": \"96\", \"Image YResolution\": \"96\", \"Image ResolutionUnit\": \"Pixels/Inch\", \"Image ExifOffset\": \"90\", \"EXIF ExifImageWidth\": \"1200\", \"EXIF ExifImageLength\": \"628\"}",
+    "sha256": "aa146f400e787e92cb620fbb8e30fa003a33184f9861e18979131f2055c501a4"
+}

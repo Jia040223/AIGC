@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.3727675676345825,
+    "LICENSE": "?",
+    "SAMPLE_ID": 2715271039412.0,
+    "caption": "Richard Wagner",
+    "url": "https://www.du-souffle-a-la-voix.com/wp-content/uploads/2015/01/Richard_Wagner_Paris_1861.jpg",
+    "key": "000004302",
+    "status": "success",
+    "error_message": null,
+    "width": 1035,
+    "height": 1218,
+    "original_width": 1035,
+    "original_height": 1218,
+    "exif": "{\"Image ImageWidth\": \"1035\", \"Image ImageLength\": \"1218\", \"Image BitsPerSample\": \"8\", \"Image Compression\": \"Uncompressed\", \"Image PhotometricInterpretation\": \"3\", \"Image Orientation\": \"Horizontal (normal)\", \"Image SamplesPerPixel\": \"1\", \"Image XResolution\": \"150\", \"Image YResolution\": \"150\", \"Image PlanarConfiguration\": \"1\", \"Image ResolutionUnit\": \"Pixels/Inch\", \"Image Software\": \"Adobe Photoshop CS2 Windows\", \"Image DateTime\": \"2007:05:15 22:32:29\", \"Image ExifOffset\": \"248\", \"Thumbnail Compression\": \"JPEG (old-style)\", \"Thumbnail XResolution\": \"72\", \"Thumbnail YResolution\": \"72\", \"Thumbnail ResolutionUnit\": \"Pixels/Inch\", \"Thumbnail JPEGInterchangeFormat\": \"386\", \"Thumbnail JPEGInterchangeFormatLength\": \"5787\", \"EXIF ColorSpace\": \"Uncalibrated\", \"EXIF ExifImageWidth\": \"1035\", \"EXIF ExifImageLength\": \"1218\"}",
+    "sha256": "fc535e6edd5d42d92fde9cb8537e10e3bb7bbf813bc6687f3f2c9e8a3f028273"
+}

@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.34577685594558716,
+    "LICENSE": "?",
+    "SAMPLE_ID": 1820144005158.0,
+    "caption": "Women s Hair Absorbent Quick Drying Towel 9762072",
+    "url": "https://s3.amazonaws.com/tanga-fetched-images-prod/48ed4cd0-1824-11e7-8ad1-f762fd3c1039.jpg",
+    "key": "000001102",
+    "status": "success",
+    "error_message": null,
+    "width": 1001,
+    "height": 1001,
+    "original_width": 1001,
+    "original_height": 1001,
+    "exif": "{\"Image ImageWidth\": \"1001\", \"Image ImageLength\": \"1001\", \"Image BitsPerSample\": \"[8, 8, 8]\", \"Image PhotometricInterpretation\": \"2\", \"Image Orientation\": \"Horizontal (normal)\", \"Image SamplesPerPixel\": \"3\", \"Image XResolution\": \"72\", \"Image YResolution\": \"72\", \"Image ResolutionUnit\": \"Pixels/Inch\", \"Image Software\": \"Adobe Photoshop CS6 (Windows)\", \"Image DateTime\": \"2017:03:02 16:41:30\", \"Image ExifOffset\": \"232\", \"Thumbnail Compression\": \"JPEG (old-style)\", \"Thumbnail XResolution\": \"72\", \"Thumbnail YResolution\": \"72\", \"Thumbnail ResolutionUnit\": \"Pixels/Inch\", \"Thumbnail JPEGInterchangeFormat\": \"382\", \"Thumbnail JPEGInterchangeFormatLength\": \"9329\", \"EXIF ExifVersion\": \"\", \"EXIF ColorSpace\": \"sRGB\", \"EXIF ExifImageWidth\": \"1001\", \"EXIF ExifImageLength\": \"1001\"}",
+    "sha256": "9854c08ecf004dcc380484e5ad60e3d8f30abac8ceefc3f6bce293568bd67530"
+}

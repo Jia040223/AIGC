@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.3242492973804474,
+    "LICENSE": "?",
+    "SAMPLE_ID": 196721004524.0,
+    "caption": "The autobiography of Martin Luther King, Jr",
+    "url": "http://coverart.oclc.org/ImageWebSvc/oclc/+-+020848849_140.jpg?SearchOrder=+-+OT,OS,TN,GO,FA",
+    "key": "000002148",
+    "status": "success",
+    "error_message": null,
+    "width": 140,
+    "height": 215,
+    "original_width": 140,
+    "original_height": 215,
+    "exif": "{}",
+    "sha256": "1ee8880328c4a830faec6e54e509edfde11f6e50364974d368c37f0a70388c8a"
+}

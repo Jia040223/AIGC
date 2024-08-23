@@ -1,0 +1,17 @@
+{
+    "NSFW": "NSFW",
+    "similarity": 0.30026793479919434,
+    "LICENSE": "?",
+    "SAMPLE_ID": 9532028607.0,
+    "caption": "Adam Pally: Why would we make comedy for your parents?",
+    "url": "https://media.salon.com/2012/11/adam_pally_rect-460x307.jpg",
+    "key": "000005843",
+    "status": "success",
+    "error_message": null,
+    "width": 460,
+    "height": 307,
+    "original_width": 460,
+    "original_height": 307,
+    "exif": "{}",
+    "sha256": "cf4e44a20e7d5445e12e144a01116e50fa48f2c413154089e010f824eae54975"
+}

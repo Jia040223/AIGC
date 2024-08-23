@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNSURE",
+    "similarity": 0.3293670117855072,
+    "LICENSE": "?",
+    "SAMPLE_ID": 140278006737.0,
+    "caption": "fp dress3 Free People Taps Sabrina Nait for its New Year's Eve Lookbook",
+    "url": "https://fashiongonerogue.com/wp-content/uploads/2012/12/fp-dress3.jpg",
+    "key": "000000379",
+    "status": "success",
+    "error_message": null,
+    "width": 800,
+    "height": 1200,
+    "original_width": 800,
+    "original_height": 1200,
+    "exif": "{\"Image ImageWidth\": \"2667\", \"Image ImageLength\": \"4000\", \"Image BitsPerSample\": \"[8, 8, 8]\", \"Image PhotometricInterpretation\": \"2\", \"Image Make\": \"Canon\", \"Image Model\": \"Canon EOS 5D Mark II\", \"Image Orientation\": \"Horizontal (normal)\", \"Image SamplesPerPixel\": \"3\", \"Image XResolution\": \"72\", \"Image YResolution\": \"72\", \"Image ResolutionUnit\": \"Pixels/Inch\", \"Image Software\": \"Adobe Photoshop CS5.1 Windows\", \"Image DateTime\": \"2012:12:06 10:04:28\", \"Image ExifOffset\": \"296\", \"GPS GPSVersionID\": \"[0, 0, 0, 0]\", \"Image GPSInfo\": \"1004\", \"Thumbnail Compression\": \"JPEG (old-style)\", \"Thumbnail XResolution\": \"72\", \"Thumbnail YResolution\": \"72\", \"Thumbnail ResolutionUnit\": \"Pixels/Inch\", \"Thumbnail JPEGInterchangeFormat\": \"1118\", \"Thumbnail JPEGInterchangeFormatLength\": \"5479\", \"EXIF XResolution\": \"72\", \"EXIF YResolution\": \"72\", \"EXIF ResolutionUnit\": \"Pixels/Inch\", \"EXIF DateTime\": \"2012:12:04 11:55:29\", \"EXIF ExposureTime\": \"1/125\", \"EXIF FNumber\": \"8\", \"EXIF ExposureProgram\": \"Manual\", \"EXIF ISOSpeedRatings\": \"100\", \"EXIF ExifVersion\": \"\", \"EXIF DateTimeOriginal\": \"2012:12:04 11:55:29\", \"EXIF DateTimeDigitized\": \"2012:12:04 11:55:29\", \"EXIF ShutterSpeedValue\": \"7\", \"EXIF ApertureValue\": \"6\", \"EXIF ExposureBiasValue\": \"0\", \"EXIF MeteringMode\": \"Pattern\", \"EXIF Flash\": \"Flash did not fire, compulsory flash mode\", \"EXIF FocalLength\": \"80\", \"EXIF ColorSpace\": \"sRGB\", \"EXIF ExifImageWidth\": \"800\", \"EXIF ExifImageLength\": \"1200\", \"EXIF FocalPlaneResolutionUnit\": \"2\", \"EXIF FileSource\": \"0\", \"EXIF SceneType\": \"0\", \"EXIF ExposureMode\": \"Manual Exposure\", \"EXIF WhiteBalance\": \"Manual\"}",
+    "sha256": "96e3858c7d77fb8ce5cf0957e733cf2ad078d336d4686f86abd80e85988edccc"
+}

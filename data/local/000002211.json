@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.33155694603919983,
+    "LICENSE": "?",
+    "SAMPLE_ID": 3865307003651.0,
+    "caption": "Renoir-Dance-at-Le-Moulin-de-la-Galette",
+    "url": "http://www.istitutoitalianoarteedanza.it/wp-content/uploads/2015/04/Renoir-Dance-at-Le-Moulin-de-la-Galette-600x446.jpg",
+    "key": "000002211",
+    "status": "success",
+    "error_message": null,
+    "width": 600,
+    "height": 446,
+    "original_width": 600,
+    "original_height": 446,
+    "exif": "{}",
+    "sha256": "bbbbd31bbfe89c537535e7692b9a3ce7eafe008d8ed0f10820cf741182c78678"
+}

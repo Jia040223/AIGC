@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.320143461227417,
+    "LICENSE": "?",
+    "SAMPLE_ID": 7393055067.0,
+    "caption": "Red Skelton Tribute - Emcee in Fort Smith, Arkansas",
+    "url": "http://s3.amazonaws.com/gigsalad_media/r/redskelton/4d4045fb4021e_large_sq",
+    "key": "000003147",
+    "status": "success",
+    "error_message": null,
+    "width": 200,
+    "height": 200,
+    "original_width": 200,
+    "original_height": 200,
+    "exif": "{}",
+    "sha256": "2b9961eaea979e1102a93f8b0e7c8d1c6592bf643ea8e271ed6189e61662dcda"
+}

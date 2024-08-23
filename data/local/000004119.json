@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.3040432333946228,
+    "LICENSE": "?",
+    "SAMPLE_ID": 3158318050372.0,
+    "caption": "Emory School of Medicine appoints new Chair of Gynecology and Obstetrics",
+    "url": "https://news.emory.edu/stories/2019/06/ob_gyn_chair_jamieson/thumbs/feed.jpg",
+    "key": "000004119",
+    "status": "success",
+    "error_message": null,
+    "width": 180,
+    "height": 120,
+    "original_width": 180,
+    "original_height": 120,
+    "exif": "{}",
+    "sha256": "9c0181f919d9d0c4ab7c314e92b572144a616bd8f7c7c4ab442f6c19a3a33dff"
+}

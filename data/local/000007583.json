@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNSURE",
+    "similarity": 0.32339438796043396,
+    "LICENSE": "?",
+    "SAMPLE_ID": 2696268007000.0,
+    "caption": "Rumor Bust! Meghan Markle Not Pregnant with Twin Boys",
+    "url": "https://media.extratv.com/2018/10/30/meghan-markle-prince-harry-getty1-825x580.jpg",
+    "key": "000007583",
+    "status": "success",
+    "error_message": null,
+    "width": 825,
+    "height": 580,
+    "original_width": 825,
+    "original_height": 580,
+    "exif": "{\"Image ImageDescription\": \"Photo: JASON DORDAY/POOL The Duke and Duchess of Sussex, Prince Harry and Meghan Markle have joined the New Zealand Prime Minister Jacinda Ardern on a visit to Pillars in Manukau City, a charity operating across New Zealand that supports children who have a parent in prison by providing special mentoring schemes. 30 October 2018\", \"Image Make\": \"Canon\", \"Image Model\": \"Canon EOS-1D X\", \"Image XResolution\": \"240\", \"Image YResolution\": \"240\", \"Image ResolutionUnit\": \"Pixels/Inch\", \"Image Software\": \"Adobe Photoshop Lightroom Classic 7.0 (Macintosh)\", \"Image DateTime\": \"2018:10:30 16:03:04\", \"Image Artist\": \"JASON DORDAY/STUFF\", \"Image YCbCrPositioning\": \"Centered\", \"Image Copyright\": \"stuff\", \"Image ExifOffset\": \"624\", \"Thumbnail Compression\": \"0\", \"Thumbnail XResolution\": \"240\", \"Thumbnail YResolution\": \"240\", \"Thumbnail ResolutionUnit\": \"Pixels/Inch\", \"Thumbnail JPEGInterchangeFormat\": \"1326\", \"Thumbnail JPEGInterchangeFormatLength\": \"10373\", \"EXIF ExposureTime\": \"1/125\", \"EXIF FNumber\": \"28/5\", \"EXIF ExposureProgram\": \"Program Normal\", \"EXIF ISOSpeedRatings\": \"1250\", \"EXIF SensitivityType\": \"Recommended Exposure Index\", \"EXIF RecommendedExposureIndex\": \"1250\", \"EXIF ExifVersion\": \"\", \"EXIF DateTimeOriginal\": \"2018:10:30 14:28:07\", \"EXIF DateTimeDigitized\": \"2018:10:30 14:28:07\", \"EXIF ComponentsConfiguration\": \"\", \"EXIF ShutterSpeedValue\": \"274633/39426\", \"EXIF ApertureValue\": \"56111/11288\", \"EXIF ExposureBiasValue\": \"0\", \"EXIF MaxApertureValue\": \"3\", \"EXIF MeteringMode\": \"CenterWeightedAverage\", \"EXIF Flash\": \"Flash fired, compulsory flash mode\", \"EXIF FocalLength\": \"35\", \"EXIF SubSecTimeOriginal\": \"97\", \"EXIF SubSecTimeDigitized\": \"97\", \"EXIF FlashPixVersion\": \"\", \"EXIF ColorSpace\": \"sRGB\", \"EXIF ExifImageWidth\": \"4323\", \"EXIF ExifImageLength\": \"2882\", \"EXIF FocalPlaneXResolution\": \"1440\", \"EXIF FocalPlaneYResolution\": \"1440\", \"EXIF FocalPlaneResolutionUnit\": \"3\", \"EXIF CustomRendered\": \"Normal\", \"EXIF ExposureMode\": \"Auto Exposure\", \"EXIF WhiteBalance\": \"Auto\", \"EXIF SceneCaptureType\": \"Standard\", \"EXIF BodySerialNumber\": \"375012000090\", \"EXIF LensSpecification\": \"[16, 35, 0, 0]\", \"EXIF LensModel\": \"EF16-35mm f/2.8L II USM\", \"EXIF LensSerialNumber\": \"00008720ce\"}",
+    "sha256": "7462eaa9933766e44c516f3aa3a7b416487a12e137be60e83cf33419892d4a10"
+}

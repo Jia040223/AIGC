@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.3190585672855377,
+    "LICENSE": "?",
+    "SAMPLE_ID": 43543008013.0,
+    "caption": "VIDEO: 50 Cent sheds more than 50 pounds for movie role as a cancer patient.",
+    "url": "http://a.abcnews.com/images/Entertainment/abc_wnn_50cent_weight_100527_wn.jpg",
+    "key": "000002815",
+    "status": "success",
+    "error_message": null,
+    "width": 300,
+    "height": 168,
+    "original_width": 300,
+    "original_height": 168,
+    "exif": "{}",
+    "sha256": "585dd86c8f008c9ff0b5cb20ba771465a2d520363a6c67980882a4328d66d94a"
+}

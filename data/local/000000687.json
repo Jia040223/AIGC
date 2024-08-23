@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.35945478081703186,
+    "LICENSE": "?",
+    "SAMPLE_ID": 1269099000591.0,
+    "caption": "1935 David Copperfield",
+    "url": "https://i1.wp.com/www.classicfilmfreak.com/wp-content/uploads/2017/03/1935-David-Copperfield.jpg?resize=312%2C448",
+    "key": "000000687",
+    "status": "success",
+    "error_message": null,
+    "width": 312,
+    "height": 448,
+    "original_width": 312,
+    "original_height": 448,
+    "exif": "{}",
+    "sha256": "5bce71ecf150b59ceeb2a7daaa74323ef61f0863b22c0b11ba30c11323347fc1"
+}

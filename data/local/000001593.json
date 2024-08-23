@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.3270653784275055,
+    "LICENSE": "?",
+    "SAMPLE_ID": 3516925006292.0,
+    "caption": "The cover of Revolutionary Road, The Easter Parade, Eleven Kinds of Loneliness",
+    "url": "https://www.bookforum.com/uploads/publication.000/id00597/cover00_large.jpg",
+    "key": "000001593",
+    "status": "success",
+    "error_message": null,
+    "width": 316,
+    "height": 500,
+    "original_width": 316,
+    "original_height": 500,
+    "exif": "{}",
+    "sha256": "cc24b679921737ad24bd285498d5b112162fadd77830ec74cff956ec663bf4e1"
+}

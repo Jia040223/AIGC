@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.38691335916519165,
+    "LICENSE": "?",
+    "SAMPLE_ID": 75403005921.0,
+    "caption": "North Mississippi Allstars Promo Print",
+    "url": "http://images.wolfgangsvault.com/north-mississippi-allstars/promo-print/memorabilia/sm/ZZZ005624-PP.jpg",
+    "key": "000001071",
+    "status": "success",
+    "error_message": null,
+    "width": 190,
+    "height": 163,
+    "original_width": 190,
+    "original_height": 163,
+    "exif": "{\"Image Orientation\": \"Horizontal (normal)\", \"Image XResolution\": \"72\", \"Image YResolution\": \"72\", \"Image ResolutionUnit\": \"Pixels/Inch\", \"Image Software\": \"Adobe Photoshop 7.0\", \"Image DateTime\": \"2013:02:19 18:25:50\", \"Image YCbCrPositioning\": \"Co-sited\", \"Image ExifOffset\": \"168\", \"EXIF ExifVersion\": \"\", \"EXIF ComponentsConfiguration\": \"\", \"EXIF FlashPixVersion\": \"\", \"EXIF ColorSpace\": \"Uncalibrated\", \"EXIF ExifImageWidth\": \"190\", \"EXIF ExifImageLength\": \"163\"}",
+    "sha256": "9b6d91d87c51027adcf5901e972188fcea332e1bccb5512fd88b834012eb9135"
+}

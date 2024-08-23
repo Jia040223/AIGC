@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.3188929855823517,
+    "LICENSE": "?",
+    "SAMPLE_ID": 3352285003302.0,
+    "caption": "Episode 93 - Real-World Windows Azure with Mural.ly",
+    "url": "https://sec.ch9.ms/ch9/5c18/8f8f3aff-82ed-42ac-89b3-aa1f2ce75c18/CloudCover93_512.jpg?v=c191e88b2ea2c29a1e217f6755fc411852012020d68300b7638f7e83776db740",
+    "key": "000002163",
+    "status": "success",
+    "error_message": null,
+    "width": 512,
+    "height": 288,
+    "original_width": 512,
+    "original_height": 288,
+    "exif": "{}",
+    "sha256": "0d353f34d37617ad8fbf9a9aa819574cb8ed24921ed80e2248a523f1f32241c2"
+}

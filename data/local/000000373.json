@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.3461906611919403,
+    "LICENSE": "?",
+    "SAMPLE_ID": 1475635007886.0,
+    "caption": "Alex Brosque looks dejected. (Photo by Robert Cianflone/Getty Images)",
+    "url": "https://cdn.newsapi.com.au/image/v1/3fe4620b490569be4cb0d387d1fa4ba3",
+    "key": "000000373",
+    "status": "success",
+    "error_message": null,
+    "width": 650,
+    "height": 488,
+    "original_width": 650,
+    "original_height": 488,
+    "exif": "{}",
+    "sha256": "6809c933301fa0496102a470b6c8f9a432ac4cc588038a93363c0eb0392aad39"
+}

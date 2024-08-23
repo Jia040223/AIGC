@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.31599029898643494,
+    "LICENSE": "?",
+    "SAMPLE_ID": 3020351021316.0,
+    "caption": "Portrait of George Graham (1673-1751) by John Faber the Younger",
+    "url": "https://cdn.shopify.com/s/files/1/2988/4982/products/rs-5428_1024x1024.jpg?v=1519040779",
+    "key": "000007856",
+    "status": "success",
+    "error_message": null,
+    "width": 769,
+    "height": 1024,
+    "original_width": 769,
+    "original_height": 1024,
+    "exif": "{\"Image Orientation\": \"Horizontal (normal)\", \"Image XResolution\": \"300\", \"Image YResolution\": \"300\", \"Image ResolutionUnit\": \"Pixels/Inch\", \"Image YCbCrPositioning\": \"Centered\", \"Image ExifOffset\": \"102\", \"EXIF ExifVersion\": \"\", \"EXIF ComponentsConfiguration\": \"\", \"EXIF FlashPixVersion\": \"\", \"EXIF ColorSpace\": \"Uncalibrated\", \"EXIF ExifImageWidth\": \"769\", \"EXIF ExifImageLength\": \"1024\"}",
+    "sha256": "49515f420a075f58bb05351909197d7852d0a09a886058ab86fcbf9606e20944"
+}

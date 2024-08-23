@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.3062869608402252,
+    "LICENSE": "?",
+    "SAMPLE_ID": 3596073008828.0,
+    "caption": "Custom Photo Phone Case|iPhone 6/6S",
+    "url": "https://cdn.shopify.com/s/files/1/0141/4247/2256/products/iphone6_-2_394x.jpg?v=1554716806",
+    "key": "000000139",
+    "status": "success",
+    "error_message": null,
+    "width": 394,
+    "height": 394,
+    "original_width": 394,
+    "original_height": 394,
+    "exif": "{\"Image Orientation\": \"Horizontal (normal)\", \"Image XResolution\": \"72\", \"Image YResolution\": \"72\", \"Image ResolutionUnit\": \"Pixels/Inch\", \"Image YCbCrPositioning\": \"Centered\", \"Image ExifOffset\": \"102\", \"EXIF ExifVersion\": \"\", \"EXIF ComponentsConfiguration\": \"\", \"EXIF FlashPixVersion\": \"\", \"EXIF ColorSpace\": \"Uncalibrated\", \"EXIF ExifImageWidth\": \"394\", \"EXIF ExifImageLength\": \"394\"}",
+    "sha256": "d8d9528cdeb8e757a7911085b1d306d96ec36c5d21025dad1718f2a0b15f6b9c"
+}

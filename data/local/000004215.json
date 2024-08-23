@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNSURE",
+    "similarity": 0.305864155292511,
+    "LICENSE": "?",
+    "SAMPLE_ID": 4148467014565.0,
+    "caption": "timothy-foong-brewing",
+    "url": "https://i0.wp.com/straatosphere.com/wp-content/uploads/2014/10/timothy-foong-brewing.jpg?resize=525%2C700&ssl=1",
+    "key": "000004215",
+    "status": "success",
+    "error_message": null,
+    "width": 525,
+    "height": 700,
+    "original_width": 525,
+    "original_height": 700,
+    "exif": "{}",
+    "sha256": "cf7e07d2a03c84b075bae1a9546d1b1393196473aac51b64487090940f068d50"
+}

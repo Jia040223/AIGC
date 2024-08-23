@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.33090877532958984,
+    "LICENSE": "?",
+    "SAMPLE_ID": 1145237004808.0,
+    "caption": "FILE - Jamaican Sprinter Veronica Campbell-Brown Tests Positive For Banned Substance",
+    "url": "http://en.africatopsports.com/wp-content/uploads/2013/07/veronica-300x214.jpg",
+    "key": "000004783",
+    "status": "success",
+    "error_message": null,
+    "width": 300,
+    "height": 214,
+    "original_width": 300,
+    "original_height": 214,
+    "exif": "{\"Image ImageWidth\": \"3111\", \"Image ImageLength\": \"2067\", \"Image BitsPerSample\": \"[8, 8, 8]\", \"Image PhotometricInterpretation\": \"2\", \"Image ImageDescription\": \"FILE - JUNE 16, 2013:  World 200m champion, sprinter Veronica Campbell-Brown of Jamaica has tested positive for a banned diuretic and faces a two year ban from athletics competition OSAKA, JAPAN - AUGUST 28:  Gold medalist Veronica Campbell of Jamaica shows off her gold medal from the Women's 100m on day four of the 11th IAAF World Athletics Championships on August 28, 2007 at the Nagai Stadium in Osaka, Japan.  (Photo by Andy Lyons/Getty Images)\", \"Image Orientation\": \"Horizontal (normal)\", \"Image SamplesPerPixel\": \"3\", \"Image XResolution\": \"300\", \"Image YResolution\": \"300\", \"Image ResolutionUnit\": \"Pixels/Inch\", \"Image Software\": \"Adobe Photoshop CS5.1 Macintosh\", \"Image DateTime\": \"2013:06:19 15:34:06\", \"Image Artist\": \"Andy Lyons\", \"Image Padding\": \"[]\", \"Image ExifOffset\": \"4840\", \"Thumbnail Compression\": \"JPEG (old-style)\", \"Thumbnail XResolution\": \"300\", \"Thumbnail YResolution\": \"300\", \"Thumbnail ResolutionUnit\": \"Pixels/Inch\", \"Thumbnail JPEGInterchangeFormat\": \"9110\", \"Thumbnail JPEGInterchangeFormatLength\": \"5974\", \"EXIF ExifVersion\": \"\", \"EXIF ColorSpace\": \"Uncalibrated\", \"EXIF ExifImageWidth\": \"655\", \"EXIF ExifImageLength\": \"469\", \"EXIF Padding\": \"[]\"}",
+    "sha256": "3b1298be7507a99b96ffd2e5a76a153e04b274f109c8cdaf147fad3a7c4d12ab"
+}

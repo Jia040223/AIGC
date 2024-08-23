@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.3310222625732422,
+    "LICENSE": "?",
+    "SAMPLE_ID": 1908395001807.0,
+    "caption": "Syrian rebels take position in Aleppo on Tuesday.",
+    "url": "http://cdn.cnn.com/cnnnext/dam/assets/121113090845-03-syria-1113-horizontal-large-gallery.jpg",
+    "key": "000000288",
+    "status": "success",
+    "error_message": null,
+    "width": 980,
+    "height": 552,
+    "original_width": 980,
+    "original_height": 552,
+    "exif": "{}",
+    "sha256": "ba4c92441b19edc1eb4b79c1ad69d72fb67b8a3bc3375703be4b9e38fbc6d980"
+}

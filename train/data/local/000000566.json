@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.3315558433532715,
+    "LICENSE": "?",
+    "SAMPLE_ID": 3533413003972.0,
+    "caption": "Bill and the Swans 4 (Blog)",
+    "url": "http://www.LesDeuxPetitsCochons.com/wp-content/uploads/2017/01/Bill-and-the-Swans-4-Blog.jpg",
+    "key": "000000566",
+    "status": "success",
+    "error_message": null,
+    "width": 600,
+    "height": 450,
+    "original_width": 600,
+    "original_height": 450,
+    "exif": "{\"Image ImageDescription\": \"\", \"Image Make\": \"Canon\", \"Image Model\": \"Canon PowerShot SX280 HS\", \"Image Orientation\": \"Horizontal (normal)\", \"Image DateTime\": \"2016:12:24 13:29:49\", \"Image Artist\": \"Mary Deming\", \"Image YCbCrPositioning\": \"Co-sited\", \"Image Tag 0x1001\": \"4000\", \"Image Tag 0x1002\": \"3000\", \"Image Rating\": \"0\", \"Image Tag 0x4749\": \"0\", \"Image ExifOffset\": \"2398\", \"GPS GPSVersionID\": \"[0, 0, 0, 0]\", \"Image GPSInfo\": \"9246\", \"Image SensitivityType\": \"Standard Output Sensitivity and Recommended Exposure Index\", \"Image XPTitle\": \"[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ... ]\", \"Image XPAuthor\": \"\", \"Image XPSubject\": \"[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ... ]\", \"Image CameraOwnerName\": \"\", \"Image Padding\": \"[]\", \"EXIF ExposureTime\": \"1/800\", \"EXIF FNumber\": \"7/2\", \"EXIF ISOSpeedRatings\": \"400\", \"EXIF ExifVersion\": \"\", \"EXIF DateTimeOriginal\": \"2016:12:24 13:29:49\", \"EXIF DateTimeDigitized\": \"2016:12:24 13:29:49\", \"EXIF ComponentsConfiguration\": \"\", \"EXIF CompressedBitsPerPixel\": \"3\", \"EXIF ShutterSpeedValue\": \"309/32\", \"EXIF ApertureValue\": \"29/8\", \"EXIF ExposureBiasValue\": \"0\", \"EXIF MaxApertureValue\": \"29/8\", \"EXIF MeteringMode\": \"Pattern\", \"EXIF Flash\": \"Flash did not fire, compulsory flash mode\", \"EXIF FocalLength\": \"9/2\", \"EXIF SubSecTimeOriginal\": \"00\", \"EXIF SubSecTimeDigitized\": \"00\", \"EXIF FlashPixVersion\": \"\", \"EXIF ColorSpace\": \"sRGB\", \"EXIF ExifImageWidth\": \"4000\", \"EXIF ExifImageLength\": \"3000\", \"EXIF FocalPlaneXResolution\": \"1000000/61\", \"EXIF FocalPlaneYResolution\": \"1000000/61\", \"EXIF FocalPlaneResolutionUnit\": \"2\", \"EXIF SensingMethod\": \"One-chip color area\", \"EXIF FileSource\": \"0\", \"EXIF CustomRendered\": \"Normal\", \"EXIF ExposureMode\": \"Auto Exposure\", \"EXIF WhiteBalance\": \"Auto\", \"EXIF DigitalZoomRatio\": \"1\", \"EXIF SceneCaptureType\": \"Standard\", \"EXIF Padding\": \"[]\", \"EXIF OffsetSchema\": \"4276\"}",
+    "sha256": "72c0b45c4a6ad5ae4e0463f37d50c96c65b067605dabf3138b737bcad54f0465"
+}

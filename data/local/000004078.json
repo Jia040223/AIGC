@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.3039417862892151,
+    "LICENSE": "?",
+    "SAMPLE_ID": 3000938022974.0,
+    "caption": "Public Debt Outlook",
+    "url": "https://winteryknight.files.wordpress.com/2009/04/chart-first100.jpg?w=474",
+    "key": "000004078",
+    "status": "success",
+    "error_message": null,
+    "width": 410,
+    "height": 337,
+    "original_width": 410,
+    "original_height": 337,
+    "exif": "{\"Image XResolution\": \"72\", \"Image YResolution\": \"72\", \"Image ResolutionUnit\": \"Pixels/Inch\", \"Image Software\": \"Paint.NET v2.72\"}",
+    "sha256": "b6b2ceb292e7fdd6c93c43330b3a6cd99c2d9a8514b7e0445d15f4f60bf5bd6c"
+}

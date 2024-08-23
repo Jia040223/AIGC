@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNSURE",
+    "similarity": 0.38908904790878296,
+    "LICENSE": "?",
+    "SAMPLE_ID": 285877000112.0,
+    "caption": "The Ermine knows the meaning of the plastic bottle on the Downton promo shot",
+    "url": "http://simple-living-in-suffolk.co.uk/wp-content/uploads/2014/08/1408_76957616_downton_bottle-449x450.jpg",
+    "key": "000001103",
+    "status": "success",
+    "error_message": null,
+    "width": 449,
+    "height": 450,
+    "original_width": 449,
+    "original_height": 450,
+    "exif": "{\"Image XResolution\": \"96\", \"Image YResolution\": \"96\", \"Image ResolutionUnit\": \"Pixels/Inch\"}",
+    "sha256": "4f4d9afeacd4c32df2e21af541abb9b850cbdd417af5a55e45fd6cc3b550494c"
+}

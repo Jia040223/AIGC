@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.33047086000442505,
+    "LICENSE": "?",
+    "SAMPLE_ID": 3418490005559.0,
+    "caption": "Usain Bolt's day of speed at ESPN",
+    "url": "https://a.espncdn.com/media/motion/2019/0828/dm_190828_bolt_rob_king/dm_190828_bolt_rob_king.jpg?cquality=40",
+    "key": "000002121",
+    "status": "success",
+    "error_message": null,
+    "width": 576,
+    "height": 324,
+    "original_width": 576,
+    "original_height": 324,
+    "exif": "{}",
+    "sha256": "a2bf64fabcbd6cd99517c52cee395d27264ac3b8f90e6b77d1f71820508ee5f5"
+}

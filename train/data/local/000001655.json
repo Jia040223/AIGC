@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.32390910387039185,
+    "LICENSE": "?",
+    "SAMPLE_ID": 3314850014063.0,
+    "caption": "Navy Pleated Floral Dress",
+    "url": "https://cdn.shopify.com/s/files/1/0408/7813/products/roman-cicek-desenli-kadin-elbise-y1811146089-39101-28-B_540x900_crop_center.jpg?v=1533944134",
+    "key": "000001655",
+    "status": "success",
+    "error_message": null,
+    "width": 540,
+    "height": 900,
+    "original_width": 540,
+    "original_height": 900,
+    "exif": "{\"Image Orientation\": \"Horizontal (normal)\", \"Image XResolution\": \"72\", \"Image YResolution\": \"72\", \"Image ResolutionUnit\": \"Pixels/Inch\", \"Image YCbCrPositioning\": \"Centered\", \"Image ExifOffset\": \"102\", \"EXIF ExifVersion\": \"\", \"EXIF ComponentsConfiguration\": \"\", \"EXIF FlashPixVersion\": \"\", \"EXIF ColorSpace\": \"Uncalibrated\", \"EXIF ExifImageWidth\": \"540\", \"EXIF ExifImageLength\": \"900\"}",
+    "sha256": "59ff8b480a6458c3363fd47de677b52ea784277703066d4b402c4fe3e643f9da"
+}

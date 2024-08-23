@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNSURE",
+    "similarity": 0.3165982663631439,
+    "LICENSE": "?",
+    "SAMPLE_ID": 15902051253.0,
+    "caption": "Britain's Got Talent judge Amanda Holden arrives at Royal Ascot.",
+    "url": "http://news.images.itv.com/image/file/48320/category_image_update_af8cf16f127ae73f_1340116859_9j-4aaqsk.jpeg",
+    "key": "000002052",
+    "status": "success",
+    "error_message": null,
+    "width": 560,
+    "height": 315,
+    "original_width": 560,
+    "original_height": 315,
+    "exif": "{}",
+    "sha256": "403703db723f179750039069002599da0c60d31391cf2734aea8a5c1fe92fe23"
+}

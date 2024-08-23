@@ -3,6 +3,7 @@ import os
 from tqdm import tqdm
 import torch.nn.functional as F
 from prompt_to_prompt.ptp_classes import LeditsGaussianSmoothing
+import json
 
 def load_real_image(folder = "data/", img_name = None, idx = 0, img_size=512, device='cuda'):
     from ddm_inversion.utils import pil_to_tensor
@@ -258,6 +259,8 @@ def inversion_reverse_process(model,
                     asyrp = False,
                     attention_store = None):
     batch_size = len(prompts)
+    mse_list = []  # 用于存储每个时间步的 MSE
+    print(batch_size)
 
     cfg_scales_tensor = torch.Tensor(cfg_scales).view(-1,1,1,1).to(model.device)
 
@@ -287,7 +290,11 @@ def inversion_reverse_process(model,
             with torch.no_grad():
                 cond_out = model.unet.forward(xt, timestep =  t, 
                                                 encoder_hidden_states = text_embeddings)
-                
+        
+        print(cond_out.sample.shape)
+        #mse = calculate_mse(cond_out.sample[0], cond_out.sample[1])
+        #mse_list.append(mse)
+        
         controller.between_steps()
         noise_guidance_edit_tmp = cond_out.sample - uncond_out.sample
 
@@ -304,7 +311,8 @@ def inversion_reverse_process(model,
             select= 0
         )
         attn_map = out[:, :, :, 1 : 2]  # 0 -> startoftext
-
+        print(out.shape)
+        
         # average over all tokens
         attn_map = attn_map[1].unsqueeze(0)
         if attn_map.shape[3] != 1:
@@ -365,6 +373,8 @@ def inversion_reverse_process(model,
                 torch.ones_like(noise_guidance_edit_tmp),
                 torch.zeros_like(noise_guidance_edit_tmp),
             ) * attn_mask
+        
+        print(intersect_mask.shape)
 
         z = zs[idx] if not zs is None else None
         z = z.expand(batch_size, -1, -1, -1)
@@ -378,7 +388,31 @@ def inversion_reverse_process(model,
         if controller is not None:
             xt = controller.step_callback(xt)    
      
-           
+    
+    #mse_avg = sum(mse_list) / len(mse_list) if mse_list else 0
+    # 保存 MSE 列表和平均值到文件
+    #save_mse_to_file(mse_list, mse_avg, "tmp/mse.json")
+    
     return xt, zs
 
+def calculate_mse(tensor1, tensor2):
+    mse = torch.mean((tensor1 - tensor2) ** 2)
+    return mse.item()
 
+def save_mse_to_file(mse_list, mse_avg, mse_save_path):
+    # 如果文件存在，读取已有内容
+    if os.path.exists(mse_save_path):
+        with open(mse_save_path, "r") as f:
+            existing_data = json.load(f)
+    else:
+        existing_data = []
+
+    # 将 MSE 列表和平均值一起作为一行保存
+    existing_data.append({
+        "mse_list": mse_list,
+        "average_mse": mse_avg
+    })
+
+    # 保存更新后的列表回文件
+    with open(mse_save_path, "w") as f:
+        json.dump(existing_data, f, indent=4)

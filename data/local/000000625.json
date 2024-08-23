@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.3245014548301697,
+    "LICENSE": "?",
+    "SAMPLE_ID": 4185639005047.0,
+    "caption": "The Kangaroo Chronicles",
+    "url": "https://static.onleihe.de/images/bookwire_inter/20210127/9783863911546/im9783863911546s.jpg",
+    "key": "000000625",
+    "status": "success",
+    "error_message": null,
+    "width": 300,
+    "height": 441,
+    "original_width": 300,
+    "original_height": 441,
+    "exif": "{}",
+    "sha256": "f98ff14208d0344a0790adab9d35b387c040a64934dffe3200a9f09fb404a27c"
+}

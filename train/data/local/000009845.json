@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNSURE",
+    "similarity": 0.357112854719162,
+    "LICENSE": "?",
+    "SAMPLE_ID": 3948445002968.0,
+    "caption": "Solicitors Gown",
+    "url": "https://cdn.shopify.com/s/files/1/0036/0844/4977/products/DSC_9578_400x.jpg?v=1571075482",
+    "key": "000009845",
+    "status": "success",
+    "error_message": null,
+    "width": 400,
+    "height": 600,
+    "original_width": 400,
+    "original_height": 600,
+    "exif": "{\"Image Orientation\": \"Horizontal (normal)\", \"Image XResolution\": \"72\", \"Image YResolution\": \"72\", \"Image ResolutionUnit\": \"Pixels/Inch\", \"Image YCbCrPositioning\": \"Centered\", \"Image ExifOffset\": \"102\", \"EXIF ExifVersion\": \"\", \"EXIF ComponentsConfiguration\": \"\", \"EXIF FlashPixVersion\": \"\", \"EXIF ColorSpace\": \"Uncalibrated\", \"EXIF ExifImageWidth\": \"400\", \"EXIF ExifImageLength\": \"600\"}",
+    "sha256": "60a81887cb62c05975be2923a49f788aa865982d7101d31e3385fc46b0a12ce2"
+}

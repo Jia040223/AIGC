@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.37729573249816895,
+    "LICENSE": "?",
+    "SAMPLE_ID": 3369781015943.0,
+    "caption": "Gold Satin Trench Coat plus sizes",
+    "url": "https://cdn.shopify.com/s/files/1/0807/5835/products/All-Lux-Satin-Jacket-Macara001_800x.jpg?v=1550839182",
+    "key": "000002610",
+    "status": "success",
+    "error_message": null,
+    "width": 750,
+    "height": 1138,
+    "original_width": 750,
+    "original_height": 1138,
+    "exif": "{\"Image Orientation\": \"Horizontal (normal)\", \"Image XResolution\": \"72\", \"Image YResolution\": \"72\", \"Image ResolutionUnit\": \"Pixels/Inch\", \"Image YCbCrPositioning\": \"Centered\", \"Image ExifOffset\": \"102\", \"EXIF ExifVersion\": \"\", \"EXIF ComponentsConfiguration\": \"\", \"EXIF FlashPixVersion\": \"\", \"EXIF ColorSpace\": \"Uncalibrated\", \"EXIF ExifImageWidth\": \"750\", \"EXIF ExifImageLength\": \"1138\"}",
+    "sha256": "30dfb78a55cfadeffadbaca4fe0afaf6382c098e5c07b88b6656abcdfe164ddb"
+}

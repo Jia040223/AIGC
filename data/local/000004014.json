@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.3553488850593567,
+    "LICENSE": "?",
+    "SAMPLE_ID": 118211006399.0,
+    "caption": "Ireland captain Andy Townsend",
+    "url": "http://news.bbcimg.co.uk/media/images/67572000/jpg/_67572878_townsend.jpg",
+    "key": "000004014",
+    "status": "success",
+    "error_message": null,
+    "width": 320,
+    "height": 180,
+    "original_width": 320,
+    "original_height": 180,
+    "exif": "{\"Image XResolution\": \"96\", \"Image YResolution\": \"96\", \"Image ResolutionUnit\": \"Pixels/Inch\"}",
+    "sha256": "23192825dd0109c1591382dabffa8d8df2fa117901ab9eb487874458e3cce431"
+}

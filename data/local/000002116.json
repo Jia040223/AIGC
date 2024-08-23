@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.38498201966285706,
+    "LICENSE": "?",
+    "SAMPLE_ID": 1736207000384.0,
+    "caption": "Vanguard Spark rookie of the month contest",
+    "url": "https://www.ogbongeblog.com/wp-content/uploads/2014/11/Vanguard_spark_Rookie_Contest_banner.jpg",
+    "key": "000002116",
+    "status": "success",
+    "error_message": null,
+    "width": 600,
+    "height": 500,
+    "original_width": 600,
+    "original_height": 500,
+    "exif": "{\"Image Software\": \"Google\", \"Image Artist\": \"Kleoss\", \"Image ExifOffset\": \"64\", \"EXIF ExifVersion\": \"\", \"EXIF ExifImageWidth\": \"600\", \"EXIF ExifImageLength\": \"500\"}",
+    "sha256": "ab53f8884fa35d68f048e9b2b994c99238370e159a1cc4e7eab213693944cb40"
+}

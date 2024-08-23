@@ -1,0 +1,17 @@
+{
+    "NSFW": "NSFW",
+    "similarity": 0.33965548872947693,
+    "LICENSE": "?",
+    "SAMPLE_ID": 3715678020242.0,
+    "caption": "https://www.cclaziowaterpolo.it/wp-content/uploads/2019/12/lapreziosa-calotta.jpeg",
+    "url": "https://www.cclaziowaterpolo.it/wp-content/uploads/2019/12/lapreziosa-calotta.jpeg",
+    "key": "000002775",
+    "status": "success",
+    "error_message": null,
+    "width": 1079,
+    "height": 1149,
+    "original_width": 1079,
+    "original_height": 1149,
+    "exif": "{\"Image Tag 0x000B\": \"Windows Photo Editor 10.0.10011.16384\", \"Image Orientation\": \"Horizontal (normal)\", \"Image Software\": \"Windows Photo Editor 10.0.10011.16384\", \"Image DateTime\": \"2019:12:01 14:11:10\", \"Image ExifOffset\": \"2242\", \"Image Padding\": \"[]\", \"Thumbnail Compression\": \"JPEG (old-style)\", \"Thumbnail XResolution\": \"96\", \"Thumbnail YResolution\": \"96\", \"Thumbnail ResolutionUnit\": \"Pixels/Inch\", \"Thumbnail JPEGInterchangeFormat\": \"4516\", \"Thumbnail JPEGInterchangeFormatLength\": \"7396\", \"EXIF DateTimeOriginal\": \"2019:12:01 00:21:10\", \"EXIF DateTimeDigitized\": \"2019:12:01 00:21:10\", \"EXIF SubSecTimeOriginal\": \"83\", \"EXIF SubSecTimeDigitized\": \"83\", \"EXIF ColorSpace\": \"sRGB\", \"EXIF Padding\": \"[]\"}",
+    "sha256": "c8b5f2c6eff3333322007403eabe4c8cd3b0ee058b41d4d1839e0be3c687ea36"
+}

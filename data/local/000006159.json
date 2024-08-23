@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.3891963064670563,
+    "LICENSE": "?",
+    "SAMPLE_ID": 29600015002.0,
+    "caption": "Blues Around the Clock by Jimmy Witherspoon",
+    "url": "http://ecx.images-amazon.com/images/I/4157106JE1L.jpg",
+    "key": "000006159",
+    "status": "success",
+    "error_message": null,
+    "width": 300,
+    "height": 293,
+    "original_width": 300,
+    "original_height": 293,
+    "exif": "{\"Image ExifOffset\": \"26\"}",
+    "sha256": "6d71acd17506a21537fe77bf1c84e858d5e6547d3a6f7ece81ac6cf6e61bd805"
+}

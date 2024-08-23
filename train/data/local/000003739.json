@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNSURE",
+    "similarity": 0.3624137043952942,
+    "LICENSE": "?",
+    "SAMPLE_ID": 109454004878.0,
+    "caption": "Russian President Vladimir Putin (right) and Ukrainian President Viktor Yanukovych shake hands in Moscow",
+    "url": "http://news.bbcimg.co.uk/media/images/71804000/jpg/_71804339_71802479.jpg",
+    "key": "000003739",
+    "status": "success",
+    "error_message": null,
+    "width": 640,
+    "height": 360,
+    "original_width": 640,
+    "original_height": 360,
+    "exif": "{\"Image XResolution\": \"96\", \"Image YResolution\": \"96\", \"Image ResolutionUnit\": \"Pixels/Inch\"}",
+    "sha256": "d4e6f48428a6975403ae8c4b7004644348e34fc2d4b7a985790c236451dffb25"
+}

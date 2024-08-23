@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.3650735020637512,
+    "LICENSE": "?",
+    "SAMPLE_ID": 83601004200.0,
+    "caption": "\"President Barack Obama and first lady Michelle Obama chat with guests during the second kids' \"\"state dinner\"\" on Tuesday, July 9, at the White House. Fifty-four children, along with their parents and guardians, attended as winners of the Healthy Lunchtime Challenge.\"",
+    "url": "http://i2.cdn.turner.com/cnn/dam/assets/130709172848-07-kids-state-dinner-horizontal-gallery.jpg",
+    "key": "000000115",
+    "status": "success",
+    "error_message": null,
+    "width": 640,
+    "height": 360,
+    "original_width": 640,
+    "original_height": 360,
+    "exif": "{}",
+    "sha256": "a55f2819236459cba0a958058889b34583b200b3c7fa37995c3b348d61ad0a2f"
+}

@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.32424652576446533,
+    "LICENSE": "?",
+    "SAMPLE_ID": 3205908022982.0,
+    "caption": "The Great White Hope",
+    "url": "http://image.tmdb.org/t/p/w500/8I97W0YqmclNNnAsVSzNTnQBcjc.jpg",
+    "key": "000007971",
+    "status": "success",
+    "error_message": null,
+    "width": 500,
+    "height": 771,
+    "original_width": 500,
+    "original_height": 771,
+    "exif": "{}",
+    "sha256": "53a803b681ac12d1346af57e305a4ad356c9ab0dcfc3c9ddb10271052fba400a"
+}

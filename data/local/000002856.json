@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.30247995257377625,
+    "LICENSE": "?",
+    "SAMPLE_ID": 1354431011841.0,
+    "caption": "How about chewing.",
+    "url": "http://images.slideplayer.com/13/4031887/slides/slide_4.jpg",
+    "key": "000002856",
+    "status": "success",
+    "error_message": null,
+    "width": 960,
+    "height": 720,
+    "original_width": 960,
+    "original_height": 720,
+    "exif": "{}",
+    "sha256": "62e9eb291ab269a0ffe3ad846a0988f8ef9f278ede752808aa89a38189221fc4"
+}

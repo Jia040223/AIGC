@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.33945292234420776,
+    "LICENSE": "?",
+    "SAMPLE_ID": 3298630021074.0,
+    "caption": "Rush Limbaugh",
+    "url": "https://cbsnews3.cbsistatic.com/hub/i/r/2003/11/12/46729980-a642-11e2-a3f0-029118418759/resize/620x465/3adbb891ad3d6c481701f0296e81c79e/image583332.jpg",
+    "key": "000005035",
+    "status": "success",
+    "error_message": null,
+    "width": 383,
+    "height": 465,
+    "original_width": 383,
+    "original_height": 465,
+    "exif": "{}",
+    "sha256": "7596a83b0094d0b1dc59259aaedf44592b56d5aa2333eca36322291956e2de88"
+}

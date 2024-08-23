@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNSURE",
+    "similarity": 0.3406122028827667,
+    "LICENSE": "?",
+    "SAMPLE_ID": 3785137010213.0,
+    "caption": "canmore wedding sergei belski photo",
+    "url": "http://sergeibelski.com/Images/Blog/201109/canmore-wedding-alpine-club-sergei-belski-photo-29.jpg",
+    "key": "000005685",
+    "status": "success",
+    "error_message": null,
+    "width": 900,
+    "height": 600,
+    "original_width": 900,
+    "original_height": 600,
+    "exif": "{\"Image ImageWidth\": \"4896\", \"Image ImageLength\": \"3264\", \"Image BitsPerSample\": \"[8, 8, 8]\", \"Image PhotometricInterpretation\": \"2\", \"Image Make\": \"Canon\", \"Image Model\": \"Canon EOS-1D Mark IV\", \"Image Orientation\": \"Horizontal (normal)\", \"Image SamplesPerPixel\": \"3\", \"Image XResolution\": \"300\", \"Image YResolution\": \"300\", \"Image ResolutionUnit\": \"Pixels/Inch\", \"Image Software\": \"Adobe Photoshop CS5 Macintosh\", \"Image DateTime\": \"2011:09:29 09:56:57\", \"Image YCbCrPositioning\": \"Co-sited\", \"Image ExifOffset\": \"308\", \"GPS GPSVersionID\": \"[0, 0, 0, 0]\", \"Image GPSInfo\": \"1116\", \"Thumbnail Compression\": \"JPEG (old-style)\", \"Thumbnail XResolution\": \"72\", \"Thumbnail YResolution\": \"72\", \"Thumbnail ResolutionUnit\": \"Pixels/Inch\", \"Thumbnail JPEGInterchangeFormat\": \"1230\", \"Thumbnail JPEGInterchangeFormatLength\": \"9007\", \"EXIF ExposureTime\": \"1/400\", \"EXIF FNumber\": \"7/2\", \"EXIF ExposureProgram\": \"Aperture Priority\", \"EXIF ISOSpeedRatings\": \"400\", \"EXIF ExifVersion\": \"\", \"EXIF DateTimeOriginal\": \"2011:09:17 15:52:29\", \"EXIF DateTimeDigitized\": \"2011:09:17 15:52:29\", \"EXIF ComponentsConfiguration\": \"\", \"EXIF ShutterSpeedValue\": \"69/8\", \"EXIF ApertureValue\": \"29/8\", \"EXIF ExposureBiasValue\": \"0\", \"EXIF MaxApertureValue\": \"3\", \"EXIF SubjectDistance\": \"163/100\", \"EXIF MeteringMode\": \"Pattern\", \"EXIF Flash\": \"Flash did not fire\", \"EXIF FocalLength\": \"33\", \"EXIF SubSecTime\": \"13\", \"EXIF SubSecTimeOriginal\": \"13\", \"EXIF SubSecTimeDigitized\": \"13\", \"EXIF FlashPixVersion\": \"\", \"EXIF ColorSpace\": \"sRGB\", \"EXIF ExifImageWidth\": \"900\", \"EXIF ExifImageLength\": \"600\", \"Interoperability InteroperabilityIndex\": \"R98\", \"Interoperability InteroperabilityVersion\": \"[0, 0, 0, 0]\", \"EXIF InteroperabilityOffset\": \"1084\", \"EXIF FocalPlaneXResolution\": \"163200/43\", \"EXIF FocalPlaneYResolution\": \"816000/209\", \"EXIF FocalPlaneResolutionUnit\": \"2\", \"EXIF CustomRendered\": \"Normal\", \"EXIF ExposureMode\": \"Auto Exposure\", \"EXIF WhiteBalance\": \"Auto\", \"EXIF SceneCaptureType\": \"Standard\"}",
+    "sha256": "0c631d96e3c3bca505645bef940381daf9ba29ed321b475dac418c6ab4d3de1b"
+}

@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.34151026606559753,
+    "LICENSE": "?",
+    "SAMPLE_ID": 301920001347.0,
+    "caption": "Sanchez, Kerley Back Embattled Sparano",
+    "url": "http://img.bleacherreport.net/img/images/photos/002/069/067/hi-res-152649241_crop_north.jpg?w=630&h=420&q=75",
+    "key": "000007826",
+    "status": "success",
+    "error_message": null,
+    "width": 630,
+    "height": 420,
+    "original_width": 630,
+    "original_height": 420,
+    "exif": "{}",
+    "sha256": "0f9af18a6abce48aafedbb98c595f51460ac9aa30ed6fb616e768136d1749405"
+}

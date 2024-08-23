@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.3041323721408844,
+    "LICENSE": "?",
+    "SAMPLE_ID": 847356002514.0,
+    "caption": "New York Yankees'manager Joe Girardi, left, points as,",
+    "url": "https://cdn.newsday.com/polopoly_fs/1.3859323.1343219255!/httpImage/image.jpg_gen/derivatives/landscape_296/image.jpg",
+    "key": "000004287",
+    "status": "success",
+    "error_message": null,
+    "width": 296,
+    "height": 166,
+    "original_width": 296,
+    "original_height": 166,
+    "exif": "{\"Image Orientation\": \"Horizontal (normal)\", \"Image XResolution\": \"72\", \"Image YResolution\": \"72\", \"Image ResolutionUnit\": \"Pixels/Inch\", \"Image YCbCrPositioning\": \"Centered\", \"Image ExifOffset\": \"102\", \"EXIF ExifVersion\": \"\", \"EXIF ComponentsConfiguration\": \"\", \"EXIF FlashPixVersion\": \"\", \"EXIF ColorSpace\": \"Uncalibrated\", \"EXIF ExifImageWidth\": \"296\", \"EXIF ExifImageLength\": \"166\"}",
+    "sha256": "9d5c1ee05c146c8c8a7d0f3d6f7430d46bf185ae593cd7e6e0ba10b224c744bf"
+}

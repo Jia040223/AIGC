@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.300255686044693,
+    "LICENSE": "?",
+    "SAMPLE_ID": 1459489016698.0,
+    "caption": "Hiking on Backroads Galapagos, Andes and Amazon River Cruise Walking Tour",
+    "url": "https://backroads-web.s3.amazonaws.com/images/trips/2017/slideshows/browser/WEASB-amazonrivercruise-multisport-tour-2.jpg",
+    "key": "000002130",
+    "status": "success",
+    "error_message": null,
+    "width": 1440,
+    "height": 452,
+    "original_width": 1440,
+    "original_height": 452,
+    "exif": "{\"Image Copyright\": \"FORO7\"}",
+    "sha256": "8880d7d8a72672853521d5d92a5defa7db2f03e09feb86a379a4abb3f7a2b9e9"
+}

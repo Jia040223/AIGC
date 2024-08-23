@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.3430444896221161,
+    "LICENSE": "?",
+    "SAMPLE_ID": 4217483008345.0,
+    "caption": "20111006-CCARE-I Am-Tom Shadyac-2739.jpg",
+    "url": "https://photos.smugmug.com/photos/i-dNsk4ZV/0/L/i-dNsk4ZV-L.jpg",
+    "key": "000001970",
+    "status": "success",
+    "error_message": null,
+    "width": 600,
+    "height": 600,
+    "original_width": 600,
+    "original_height": 600,
+    "exif": "{\"Image ExifOffset\": \"26\"}",
+    "sha256": "b23871b8e55d148d00f7aa08b59a1dfdf04928bd9d46f5d15d3d9ba831a33589"
+}

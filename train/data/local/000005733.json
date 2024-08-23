@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.31663942337036133,
+    "LICENSE": "?",
+    "SAMPLE_ID": 3722504010016.0,
+    "caption": "amaterasu_by_tattereddreams.jpg",
+    "url": "https://acatslibrary.files.wordpress.com/2019/06/amaterasu_by_tattereddreams.jpg?w=672",
+    "key": "000005733",
+    "status": "success",
+    "error_message": null,
+    "width": 672,
+    "height": 840,
+    "original_width": 672,
+    "original_height": 840,
+    "exif": "{}",
+    "sha256": "f9aef8a78b3fd570b5bd55c729a8d6023fb227d8a34d0513646b0e73127c9d8b"
+}

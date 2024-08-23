@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.36778438091278076,
+    "LICENSE": "?",
+    "SAMPLE_ID": 200070002492.0,
+    "caption": "Watch Monty Python's Final Reunion Performance",
+    "url": "http://cdn.pastemagazine.com/www/articles/Fullscreen%20capture%207232014%20110027%20AM.jpg?635417845806231622",
+    "key": "000002908",
+    "status": "success",
+    "error_message": null,
+    "width": 480,
+    "height": 481,
+    "original_width": 480,
+    "original_height": 481,
+    "exif": "{\"Image Software\": \"Picasa\", \"Image DateTime\": \"2014:07:23 11:01:18\", \"Image Artist\": \"Picasa\", \"Image ExifOffset\": \"96\", \"Thumbnail Compression\": \"JPEG (old-style)\", \"Thumbnail XResolution\": \"72\", \"Thumbnail YResolution\": \"72\", \"Thumbnail ResolutionUnit\": \"Pixels/Inch\", \"Thumbnail JPEGInterchangeFormat\": \"364\", \"Thumbnail JPEGInterchangeFormatLength\": \"6329\", \"EXIF ExifVersion\": \"\", \"EXIF DateTimeOriginal\": \"2014:07:23 11:00:27\", \"EXIF ExifImageWidth\": \"480\", \"EXIF ExifImageLength\": \"481\", \"Interoperability InteroperabilityVersion\": \"[0, 0, 0, 0]\", \"Interoperability RelatedImageWidth\": \"480\", \"Interoperability RelatedImageLength\": \"481\", \"EXIF InteroperabilityOffset\": \"228\", \"EXIF ImageUniqueID\": \"0047b701b769670c3766de7987ed421c\"}",
+    "sha256": "f84d1193f9955c505d7ce21e9bb337e20147a5ac9bdc6990c516798269daf157"
+}

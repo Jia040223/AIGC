@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.32181844115257263,
+    "LICENSE": "?",
+    "SAMPLE_ID": 3013105028963.0,
+    "caption": "Blanket-Sarong Scarf in Sea Glass",
+    "url": "https://cdn.shopify.com/s/files/1/2128/7993/products/SeaGlassBlanketScarf_large.jpg?v=1552001441",
+    "key": "000000421",
+    "status": "success",
+    "error_message": null,
+    "width": 347,
+    "height": 480,
+    "original_width": 347,
+    "original_height": 480,
+    "exif": "{\"Image Orientation\": \"Horizontal (normal)\", \"Image XResolution\": \"300\", \"Image YResolution\": \"300\", \"Image ResolutionUnit\": \"Pixels/Inch\", \"Image YCbCrPositioning\": \"Centered\", \"Image ExifOffset\": \"102\", \"EXIF ExifVersion\": \"\", \"EXIF ComponentsConfiguration\": \"\", \"EXIF FlashPixVersion\": \"\", \"EXIF ColorSpace\": \"Uncalibrated\", \"EXIF ExifImageWidth\": \"347\", \"EXIF ExifImageLength\": \"480\"}",
+    "sha256": "c9fa00601ec2436cdfb5b3777fc4b07fa784a41d83aabec0d620fb28dc104df3"
+}

@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNSURE",
+    "similarity": 0.3134056627750397,
+    "LICENSE": "?",
+    "SAMPLE_ID": 976645001055.0,
+    "caption": "Cosmopolitan-May 2015 - Read on ipad, iphone, smart phone and tablets.",
+    "url": "https://d2na0fb6srbte6.cloudfront.net/read/imageapi/coverforissue/493531/magazine/300/new",
+    "key": "000007864",
+    "status": "success",
+    "error_message": null,
+    "width": 300,
+    "height": 403,
+    "original_width": 300,
+    "original_height": 403,
+    "exif": "{}",
+    "sha256": "a895834cca214db967ff44e399350d7452feb92e8925e8d9f5e1336328f71ab7"
+}

@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.3145853877067566,
+    "LICENSE": "?",
+    "SAMPLE_ID": 997573023368.0,
+    "caption": "St. Croix River bridge press conference with gover",
+    "url": "https://img.apmcdn.org/dace2f76fa9ed2ee791d979358c1e49147744c4b/uncropped/dafd44-20120323-bridge1.jpg",
+    "key": "000008845",
+    "status": "success",
+    "error_message": null,
+    "width": 1000,
+    "height": 667,
+    "original_width": 1000,
+    "original_height": 667,
+    "exif": "{}",
+    "sha256": "bec81f57860837c7b744e2e8e9459c9fde1821ddd238186383801cf7b914507e"
+}

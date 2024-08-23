@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.3474443852901459,
+    "LICENSE": "?",
+    "SAMPLE_ID": 4059435002543.0,
+    "caption": "marvelous mrs maisel",
+    "url": "https://www.intrattenimento.eu/wp-content/uploads/2017/04/marvelous-mrs-maisel.jpg",
+    "key": "000006108",
+    "status": "success",
+    "error_message": null,
+    "width": 660,
+    "height": 330,
+    "original_width": 660,
+    "original_height": 330,
+    "exif": "{}",
+    "sha256": "521a84c817eca5519a9b881c06b1663b9e6c539efb7bd31d09ae3bcb4cbab355"
+}

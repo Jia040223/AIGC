@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNSURE",
+    "similarity": 0.30746179819107056,
+    "LICENSE": "?",
+    "SAMPLE_ID": 2739153023046.0,
+    "caption": "Vintage Bella Umbrella | Featured on Ruffled | Vintage Bella Umbrella Rentals | Elizabeth Fogarty Photography",
+    "url": "https://images.squarespace-cdn.com/content/559ee055e4b002298b5f729d/1437080708206-UMNG9SNF2EIRKWM4X4U3/elizabethfogarty-52.jpg?format=1000w&content-type=image%2Fjpeg",
+    "key": "000005194",
+    "status": "success",
+    "error_message": null,
+    "width": 1000,
+    "height": 1498,
+    "original_width": 1000,
+    "original_height": 1498,
+    "exif": "{\"Image Make\": \"NIKON CORPORATION\", \"Image Model\": \"NIKON D800\", \"Image XResolution\": \"300\", \"Image YResolution\": \"300\", \"Image ResolutionUnit\": \"Pixels/Inch\", \"Image Software\": \"Adobe Photoshop Lightroom 5.7.1 (Macintosh)\", \"Image DateTime\": \"2015:06:09 10:50:10\", \"Image Artist\": \"ELIZABETH FOGARTY LLC\", \"Image Copyright\": \"www.elizabethfogartyphotagraphy.com\", \"Image ExifOffset\": \"302\", \"Thumbnail Compression\": \"JPEG (old-style)\", \"Thumbnail XResolution\": \"300\", \"Thumbnail YResolution\": \"300\", \"Thumbnail ResolutionUnit\": \"Pixels/Inch\", \"Thumbnail JPEGInterchangeFormat\": \"1052\", \"Thumbnail JPEGInterchangeFormatLength\": \"15439\", \"EXIF ExposureTime\": \"1/320\", \"EXIF FNumber\": \"7/5\", \"EXIF ExposureProgram\": \"Manual\", \"EXIF ISOSpeedRatings\": \"64\", \"EXIF SensitivityType\": \"Recommended Exposure Index\", \"EXIF ExifVersion\": \"\", \"EXIF DateTimeOriginal\": \"2015:05:30 18:12:47\", \"EXIF DateTimeDigitized\": \"2015:05:30 18:12:47\", \"EXIF ShutterSpeedValue\": \"1040241/125000\", \"EXIF ApertureValue\": \"485427/500000\", \"EXIF ExposureBiasValue\": \"0\", \"EXIF MaxApertureValue\": \"1\", \"EXIF MeteringMode\": \"Pattern\", \"EXIF LightSource\": \"Unknown\", \"EXIF Flash\": \"Flash did not fire, compulsory flash mode\", \"EXIF FocalLength\": \"35\", \"EXIF SubSecTimeOriginal\": \"00\", \"EXIF SubSecTimeDigitized\": \"00\", \"EXIF FocalPlaneXResolution\": \"16780511/8192\", \"EXIF FocalPlaneYResolution\": \"16780511/8192\", \"EXIF FocalPlaneResolutionUnit\": \"3\", \"EXIF SensingMethod\": \"One-chip color area\", \"EXIF FileSource\": \"0\", \"EXIF SceneType\": \"0\", \"EXIF CVAPattern\": \"[0, 0, 0, 0, 0, 0, 0, 0]\", \"EXIF CustomRendered\": \"Normal\", \"EXIF ExposureMode\": \"Manual Exposure\", \"EXIF WhiteBalance\": \"Auto\", \"EXIF DigitalZoomRatio\": \"1\", \"EXIF FocalLengthIn35mmFilm\": \"35\", \"EXIF SceneCaptureType\": \"Standard\", \"EXIF GainControl\": \"None\", \"EXIF Contrast\": \"Normal\", \"EXIF Saturation\": \"Normal\", \"EXIF Sharpness\": \"Normal\", \"EXIF SubjectDistanceRange\": \"0\", \"EXIF BodySerialNumber\": \"3073393\", \"EXIF LensSpecification\": \"[35, 35, 7/5, 7/5]\", \"EXIF LensModel\": \"35.0 mm f/1.4\"}",
+    "sha256": "734102111007fe3051b8868aa8d1117a76458556402415ae07c16bbf07e8d3d4"
+}

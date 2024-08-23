@@ -1,0 +1,17 @@
+{
+    "NSFW": "NSFW",
+    "similarity": 0.30256709456443787,
+    "LICENSE": "?",
+    "SAMPLE_ID": 1870321013709.0,
+    "caption": "John Sigmon, financial advisor Oklahoma City OK",
+    "url": "https://s3.amazonaws.com/wm-advisor-picture-prod/crd-187000",
+    "key": "000001982",
+    "status": "success",
+    "error_message": null,
+    "width": 717,
+    "height": 1024,
+    "original_width": 717,
+    "original_height": 1024,
+    "exif": "{}",
+    "sha256": "556ae83b84b8aa5e74c74f84eedae4612afd1bfa9418b23d7f5bc4f05eb82002"
+}

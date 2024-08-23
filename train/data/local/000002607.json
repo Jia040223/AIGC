@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.3917221426963806,
+    "LICENSE": "https://creativecommons.org/licenses/by/2.0/",
+    "SAMPLE_ID": 4201812010422.0,
+    "caption": "Breaking News: London Marathon Postponed",
+    "url": "https://foto.wuestenigel.com/wp-content/uploads/thumb/breaking-news-london-marathon-postponed.jpeg",
+    "key": "000002607",
+    "status": "success",
+    "error_message": null,
+    "width": 300,
+    "height": 197,
+    "original_width": 300,
+    "original_height": 197,
+    "exif": "{}",
+    "sha256": "b952c030c00c42bbd925aeceb0bc2777957695ddde9e24be0e5fa6b626a25cb7"
+}

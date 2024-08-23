@@ -20,11 +20,11 @@ if __name__ == "__main__":
     parser.add_argument("--device_num", type=int, default=0)
     parser.add_argument("--cfg_src", type=float, default=5)
     parser.add_argument("--cfg_tar", type=float, default=8)
-    parser.add_argument("--num_diffusion_steps", type=int, default=150)
+    parser.add_argument("--num_diffusion_steps", type=int, default=100)
     parser.add_argument("--dataset_yaml",  default="my.yaml")
     parser.add_argument("--eta", type=float, default=1)
     parser.add_argument("--mode",  default="our_inv", help="modes: our_inv,p2pinv,p2pddim,ddim")
-    parser.add_argument("--skip",  type=int, default=36)
+    parser.add_argument("--skip",  type=int, default=10)
     parser.add_argument("--xa", type=float, default=0.2)
     parser.add_argument("--sa", type=float, default=0.2)
     parser.add_argument("--edit_threshold_c", type=float, default=0.0)
@@ -82,6 +82,8 @@ if __name__ == "__main__":
         # load image
         offsets=(0,0,0,0)
         x0 = load_512(image_path, *offsets, device)
+        x0.repeat(16, 1, 1, 1)
+        print(x0.dtype)
 
         # vae encode image
         with autocast("cuda"), inference_mode():
@@ -119,14 +121,12 @@ if __name__ == "__main__":
                         #register_attention_control(ldm_stable, controller)
                         #print(controller.num_att_layers)
 
-                        '''
                         attention_store = LeditsAttentionStore(
                             average=True,
                             batch_size=1,
                             max_size=(wts[args.num_diffusion_steps-skip].shape[-2] / 4.0) * (wts[args.num_diffusion_steps-skip].shape[-1] / 4.0),
                             max_resolution=None,
                         )
-                        '''
 
                         prepare_unet(ldm_stable, controller)
                         w0, _ = inversion_reverse_process(ldm_stable, xT=wts[args.num_diffusion_steps-skip], edit_threshold_c = edit_threshold_c, etas=eta, prompts=[prompt_tar], cfg_scales=[cfg_scale_tar], prog_bar=True, zs=zs[:(args.num_diffusion_steps-skip)], controller=controller)

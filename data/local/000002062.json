@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.315425843000412,
+    "LICENSE": "?",
+    "SAMPLE_ID": 3492426002952.0,
+    "caption": "High rise palazzo trousers Intrend",
+    "url": "https://b2c-media.intrend.it/sys-master/m0/DT/2018/2/1136018906/001/s3master/1136018906001-a-luglio-pantalone-lungo_thumbnail.jpg",
+    "key": "000002062",
+    "status": "success",
+    "error_message": null,
+    "width": 468,
+    "height": 702,
+    "original_width": 468,
+    "original_height": 702,
+    "exif": "{\"Image ImageWidth\": \"3744\", \"Image ImageLength\": \"5616\", \"Image BitsPerSample\": \"[8, 8, 8]\", \"Image PhotometricInterpretation\": \"2\", \"Image Make\": \"Canon\", \"Image Model\": \"Canon EOS 5D Mark II\", \"Image Orientation\": \"Horizontal (normal)\", \"Image SamplesPerPixel\": \"3\", \"Image XResolution\": \"72\", \"Image YResolution\": \"72\", \"Image ResolutionUnit\": \"Pixels/Inch\", \"Image Software\": \"Adobe Photoshop CS6 (Windows)\", \"Image DateTime\": \"2019:05:23 11:24:21\", \"Image YCbCrPositioning\": \"Co-sited\", \"Image ExifOffset\": \"308\", \"GPS GPSVersionID\": \"[0, 0, 0, 0]\", \"Image GPSInfo\": \"1096\", \"Thumbnail Compression\": \"JPEG (old-style)\", \"Thumbnail XResolution\": \"72\", \"Thumbnail YResolution\": \"72\", \"Thumbnail ResolutionUnit\": \"Pixels/Inch\", \"Thumbnail JPEGInterchangeFormat\": \"1210\", \"Thumbnail JPEGInterchangeFormatLength\": \"1778\", \"EXIF ExposureTime\": \"1/125\", \"EXIF FNumber\": \"9\", \"EXIF ExposureProgram\": \"Manual\", \"EXIF ISOSpeedRatings\": \"100\", \"EXIF ExifVersion\": \"\", \"EXIF DateTimeOriginal\": \"2019:05:23 11:23:18\", \"EXIF DateTimeDigitized\": \"2019:05:23 11:23:18\", \"EXIF ComponentsConfiguration\": \"\", \"EXIF ShutterSpeedValue\": \"7\", \"EXIF ApertureValue\": \"51/8\", \"EXIF ExposureBiasValue\": \"0\", \"EXIF MaxApertureValue\": \"4\", \"EXIF MeteringMode\": \"Pattern\", \"EXIF Flash\": \"Flash did not fire, compulsory flash mode\", \"EXIF FocalLength\": \"60\", \"EXIF SubSecTime\": \"40\", \"EXIF SubSecTimeOriginal\": \"40\", \"EXIF SubSecTimeDigitized\": \"40\", \"EXIF FlashPixVersion\": \"\", \"EXIF ColorSpace\": \"sRGB\", \"EXIF ExifImageWidth\": \"468\", \"EXIF ExifImageLength\": \"702\", \"Interoperability InteroperabilityIndex\": \"R98\", \"Interoperability InteroperabilityVersion\": \"[0, 0, 0, 0]\", \"EXIF InteroperabilityOffset\": \"1064\", \"EXIF FocalPlaneXResolution\": \"5616000/1459\", \"EXIF FocalPlaneYResolution\": \"1872000/479\", \"EXIF FocalPlaneResolutionUnit\": \"2\", \"EXIF CustomRendered\": \"Normal\", \"EXIF ExposureMode\": \"Manual Exposure\", \"EXIF WhiteBalance\": \"Manual\", \"EXIF SceneCaptureType\": \"Standard\"}",
+    "sha256": "ae9731b6aa449071aa27698189010ecf43878b7dba73e56ea32957a8e1267218"
+}

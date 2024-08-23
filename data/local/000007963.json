@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.3060116767883301,
+    "LICENSE": "?",
+    "SAMPLE_ID": 3688976027870.0,
+    "caption": "South China Morning Post - Size The Limit Rosarini",
+    "url": "https://cdn.shopify.com/s/files/1/2013/9793/files/press_10Aug04-001.jpg?v=1535950360",
+    "key": "000007963",
+    "status": "success",
+    "error_message": null,
+    "width": 2152,
+    "height": 3260,
+    "original_width": 2152,
+    "original_height": 3260,
+    "exif": "{\"Image Orientation\": \"Horizontal (normal)\", \"Image XResolution\": \"144\", \"Image YResolution\": \"144\", \"Image ResolutionUnit\": \"Pixels/Inch\", \"Image YCbCrPositioning\": \"Centered\", \"Image ExifOffset\": \"102\", \"EXIF ExifVersion\": \"\", \"EXIF ComponentsConfiguration\": \"\", \"EXIF FlashPixVersion\": \"\", \"EXIF ColorSpace\": \"Uncalibrated\", \"EXIF ExifImageWidth\": \"2152\", \"EXIF ExifImageLength\": \"3260\"}",
+    "sha256": "acb330f8196e77011fefb9204d045345983ce45dfa139bae1fc60f8b7a8b8bae"
+}

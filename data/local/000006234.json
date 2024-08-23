@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNSURE",
+    "similarity": 0.3254295885562897,
+    "LICENSE": "?",
+    "SAMPLE_ID": 2494808014087.0,
+    "caption": "Sally Hawkins",
+    "url": "https://cdn9.bbend.net/images/news/2018/03/02/Sally_Hawkins.jpg",
+    "key": "000006234",
+    "status": "success",
+    "error_message": null,
+    "width": 427,
+    "height": 640,
+    "original_width": 427,
+    "original_height": 640,
+    "exif": "{\"Image Make\": \"Canon\", \"Image Model\": \"Canon EOS 5D Mark III\", \"Image Software\": \"Adobe Photoshop Lightroom 6.10 (Windows)\", \"Image DateTime\": \"2017:04:22 00:44:24\", \"Image Artist\": \"Martin Kraft\", \"Image Copyright\": \"Martin Kraft\", \"Image ExifOffset\": \"2384\", \"GPS GPSVersionID\": \"[0, 0, 0, 0]\", \"GPS GPSLatitudeRef\": \"N\", \"GPS GPSLatitude\": \"[52, 30, 3561/125]\", \"GPS GPSLongitudeRef\": \"E\", \"GPS GPSLongitude\": \"[13, 22, 543/25]\", \"GPS GPSAltitude\": \"373247/10000\", \"Image GPSInfo\": \"4864\", \"Image SensitivityType\": \"Recommended Exposure Index\", \"Image RecommendedExposureIndex\": \"640\", \"Image XPAuthor\": \"\", \"Image BodySerialNumber\": \"033024000707\", \"Image LensSpecification\": \"[70, 200, 0/0, 0/0]\", \"Image LensModel\": \"TAMRON SP 70-200mm F/2.8 Di VC USD A009\", \"Image LensSerialNumber\": \"0000000000\", \"Image Padding\": \"[]\", \"EXIF ExposureTime\": \"1/80\", \"EXIF FNumber\": \"4\", \"EXIF ExposureProgram\": \"Manual\", \"EXIF ISOSpeedRatings\": \"640\", \"EXIF ExifVersion\": \"\", \"EXIF DateTimeOriginal\": \"2017:02:15 19:39:43\", \"EXIF DateTimeDigitized\": \"2017:02:15 19:39:43\", \"EXIF ShutterSpeedValue\": \"790241/125000\", \"EXIF ApertureValue\": \"4\", \"EXIF ExposureBiasValue\": \"0\", \"EXIF MaxApertureValue\": \"3\", \"EXIF MeteringMode\": \"Pattern\", \"EXIF Flash\": \"Flash did not fire\", \"EXIF FocalLength\": \"157\", \"EXIF SubSecTimeOriginal\": \"00\", \"EXIF SubSecTimeDigitized\": \"00\", \"EXIF ColorSpace\": \"sRGB\", \"EXIF FocalPlaneXResolution\": \"1600\", \"EXIF FocalPlaneYResolution\": \"1600\", \"EXIF FocalPlaneResolutionUnit\": \"3\", \"EXIF CustomRendered\": \"Normal\", \"EXIF ExposureMode\": \"Manual Exposure\", \"EXIF WhiteBalance\": \"Manual\", \"EXIF SceneCaptureType\": \"Standard\", \"EXIF Padding\": \"[]\"}",
+    "sha256": "2b8f484369a72d9cd3e7eb3dee142321a5d0ce1d9ccac511dbfeee10af65dc89"
+}

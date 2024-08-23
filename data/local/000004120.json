@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.33548834919929504,
+    "LICENSE": "?",
+    "SAMPLE_ID": 3172430014161.0,
+    "caption": "The 1 for U 100% Cotton Nightgown - Martha (XL) White",
+    "url": "https://images-na.ssl-images-amazon.com/images/I/31q6f3rODQL.jpg",
+    "key": "000004120",
+    "status": "success",
+    "error_message": null,
+    "width": 229,
+    "height": 500,
+    "original_width": 229,
+    "original_height": 500,
+    "exif": "{\"Image ExifOffset\": \"26\"}",
+    "sha256": "d243e842ab8c1423e383b228654e74d3ad0fce74967adef7b7bfe70ff7bbc922"
+}

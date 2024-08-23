@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.3081373870372772,
+    "LICENSE": "?",
+    "SAMPLE_ID": 185346004357.0,
+    "caption": "Boxing Royalty Free Stock Images",
+    "url": "https://thumbs.dreamstime.com/t/boxing-17359749.jpg",
+    "key": "000005809",
+    "status": "success",
+    "error_message": null,
+    "width": 106,
+    "height": 160,
+    "original_width": 106,
+    "original_height": 160,
+    "exif": "{\"Image XResolution\": \"72\", \"Image YResolution\": \"72\", \"Image ResolutionUnit\": \"Pixels/Inch\", \"Image YCbCrPositioning\": \"Centered\", \"Image Copyright\": \"Robert Byron | Dreamstime.com\"}",
+    "sha256": "e27259844429c93bfd62d3e7fe949feefafc35696e28fc04651d529b272d43c0"
+}

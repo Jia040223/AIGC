@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.32005664706230164,
+    "LICENSE": "?",
+    "SAMPLE_ID": 3839295006471.0,
+    "caption": "Harriton Ladies' Key West Short-Sleeve Staff Shirt",
+    "url": "https://accentembroidery.ca/Content/images/sm/M580W_Flat.jpg",
+    "key": "000001943",
+    "status": "success",
+    "error_message": null,
+    "width": 210,
+    "height": 263,
+    "original_width": 210,
+    "original_height": 263,
+    "exif": "{\"Image ImageWidth\": \"3391\", \"Image ImageLength\": \"5086\", \"Image BitsPerSample\": \"[8, 8, 8]\", \"Image Compression\": \"Uncompressed\", \"Image PhotometricInterpretation\": \"2\", \"Image Make\": \"Canon\", \"Image Model\": \"Canon EOS-1D X\", \"Image Orientation\": \"Horizontal (normal)\", \"Image SamplesPerPixel\": \"3\", \"Image XResolution\": \"300\", \"Image YResolution\": \"300\", \"Image PlanarConfiguration\": \"1\", \"Image ResolutionUnit\": \"Pixels/Inch\", \"Image Software\": \"Adobe Photoshop CC (Macintosh)\", \"Image DateTime\": \"2018:10:17 13:33:00\", \"Image Artist\": \"\", \"Image ExifOffset\": \"312\", \"GPS GPSVersionID\": \"[0, 0, 0, 0]\", \"Image GPSInfo\": \"788\", \"Thumbnail Compression\": \"JPEG (old-style)\", \"Thumbnail XResolution\": \"300\", \"Thumbnail YResolution\": \"300\", \"Thumbnail ResolutionUnit\": \"Pixels/Inch\", \"Thumbnail JPEGInterchangeFormat\": \"902\", \"Thumbnail JPEGInterchangeFormatLength\": \"3393\", \"EXIF DateTime\": \"2018:05:30 03:46:24\", \"EXIF ExposureTime\": \"1/125\", \"EXIF FNumber\": \"13\", \"EXIF ExposureProgram\": \"Manual\", \"EXIF ISOSpeedRatings\": \"200\", \"EXIF ExifVersion\": \"\", \"EXIF DateTimeOriginal\": \"2018:05:30 03:46:24\", \"EXIF DateTimeDigitized\": \"2018:05:30 03:46:24\", \"EXIF ShutterSpeedValue\": \"7\", \"EXIF ApertureValue\": \"59/8\", \"EXIF ExposureBiasValue\": \"0\", \"EXIF SubjectDistance\": \"0\", \"EXIF MeteringMode\": \"CenterWeightedAverage\", \"EXIF Flash\": \"Flash did not fire, compulsory flash mode\", \"EXIF FocalLength\": \"70\", \"EXIF ColorSpace\": \"sRGB\", \"EXIF ExifImageWidth\": \"1200\", \"EXIF ExifImageLength\": \"1500\", \"EXIF FocalPlaneResolutionUnit\": \"2\", \"EXIF FileSource\": \"0\", \"EXIF SceneType\": \"0\", \"EXIF ExposureMode\": \"Manual Exposure\", \"EXIF WhiteBalance\": \"Manual\", \"EXIF LensSpecification\": \"[24, 70, 0/0, 0/0]\", \"EXIF LensModel\": \"EF24-70mm f/2.8L USM\"}",
+    "sha256": "10b1af412af3198f2c7de1e92ac335a01a05155768398cec2cb161188064a01b"
+}

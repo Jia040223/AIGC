@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.3076171875,
+    "LICENSE": "",
+    "SAMPLE_ID": 1209501410.0,
+    "caption": "Red Haute - Striped Jersey Maxi Dress",
+    "url": "http://image.s5a.com/is/image/saks/0478953416207_ASTL_247x329.jpg",
+    "key": "000004744",
+    "status": "success",
+    "error_message": null,
+    "width": 247,
+    "height": 329,
+    "original_width": 247,
+    "original_height": 329,
+    "exif": "{}",
+    "sha256": "f098fa9cc48559eb18851d8cefc37126b73ce32af13e4b09c8f1d96d73989855"
+}

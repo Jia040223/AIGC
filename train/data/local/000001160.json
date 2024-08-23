@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.30117833614349365,
+    "LICENSE": "?",
+    "SAMPLE_ID": 3332611009495.0,
+    "caption": "engagement-in-ostuni-\u00a9bottega53-11.jpg",
+    "url": "https://images.squarespace-cdn.com/content/v1/5c02ff7d70e802a128c31e74/1548443699994-D0CHGUFKG1BGV10VVJVL/ke17ZwdGBToddI8pDm48kNu93_l1Rc0JoXikXAEKHf17gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QHyNOqBUUEtDDsRWrJLTmDJyaVitQ06bkWUY0OMxkmN-bdz7wg8la12Me-ub45vBE5029s6uMXtkNCzVgxK8m/engagement-in-ostuni-%C2%A9bottega53-11.jpg",
+    "key": "000001160",
+    "status": "success",
+    "error_message": null,
+    "width": 1000,
+    "height": 1500,
+    "original_width": 1000,
+    "original_height": 1500,
+    "exif": "{\"Image Make\": \"NIKON CORPORATION\", \"Image Model\": \"NIKON D850\", \"Image Orientation\": \"Horizontal (normal)\", \"Image XResolution\": \"72\", \"Image YResolution\": \"72\", \"Image ResolutionUnit\": \"Pixels/Inch\", \"Image Software\": \"Adobe Photoshop Lightroom Classic 7.5 (Macintosh)\", \"Image DateTime\": \"2018:10:29 14:16:32\", \"Image ExifOffset\": \"238\", \"EXIF ExposureTime\": \"1/640\", \"EXIF FNumber\": \"5/2\", \"EXIF ExposureProgram\": \"Manual\", \"EXIF ISOSpeedRatings\": \"200\", \"EXIF SensitivityType\": \"Recommended Exposure Index\", \"EXIF RecommendedExposureIndex\": \"200\", \"EXIF ExifVersion\": \"\", \"EXIF DateTimeOriginal\": \"2017:06:02 05:42:22\", \"EXIF DateTimeDigitized\": \"2017:06:02 05:42:22\", \"EXIF ShutterSpeedValue\": \"31331/3361\", \"EXIF ApertureValue\": \"165241/62500\", \"EXIF ExposureBiasValue\": \"1/3\", \"EXIF MaxApertureValue\": \"1\", \"EXIF MeteringMode\": \"Pattern\", \"EXIF LightSource\": \"Cloudy weather\", \"EXIF Flash\": \"Flash did not fire\", \"EXIF FocalLength\": \"50\", \"EXIF SubSecTimeOriginal\": \"49\", \"EXIF SubSecTimeDigitized\": \"49\", \"EXIF ColorSpace\": \"sRGB\", \"EXIF ExifImageWidth\": \"1000\", \"EXIF ExifImageLength\": \"1500\", \"EXIF FocalPlaneXResolution\": \"1495861/650\", \"EXIF FocalPlaneYResolution\": \"1495861/650\", \"EXIF FocalPlaneResolutionUnit\": \"3\", \"EXIF SensingMethod\": \"One-chip color area\", \"EXIF FileSource\": \"0\", \"EXIF SceneType\": \"0\", \"EXIF CustomRendered\": \"Normal\", \"EXIF ExposureMode\": \"Manual Exposure\", \"EXIF WhiteBalance\": \"Manual\", \"EXIF FocalLengthIn35mmFilm\": \"50\", \"EXIF SceneCaptureType\": \"Portrait\", \"EXIF GainControl\": \"None\", \"EXIF Contrast\": \"Normal\", \"EXIF Saturation\": \"Normal\", \"EXIF Sharpness\": \"Normal\", \"EXIF SubjectDistanceRange\": \"0\", \"EXIF BodySerialNumber\": \"8608939\", \"EXIF LensSpecification\": \"[50, 50, 7/5, 7/5]\", \"EXIF LensModel\": \"50.0 mm f/1.4\"}",
+    "sha256": "e104f3e044e7c612af58323d163a350cede6592ddd89005f5ae5ccef8abc7aa5"
+}

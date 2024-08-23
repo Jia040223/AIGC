@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.3000166416168213,
+    "LICENSE": "?",
+    "SAMPLE_ID": 3553857005813.0,
+    "caption": "European Film Awards",
+    "url": "http://mikaelfellenius.se/wp-content/uploads/2019/12/Juliette-Binochet.jpg",
+    "key": "000006674",
+    "status": "success",
+    "error_message": null,
+    "width": 1280,
+    "height": 720,
+    "original_width": 1280,
+    "original_height": 720,
+    "exif": "{}",
+    "sha256": "8e1317f28b6655600396380b1569c930ed66f4666c11147285e48e07eaa15913"
+}

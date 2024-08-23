@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.3068291246891022,
+    "LICENSE": "?",
+    "SAMPLE_ID": 685085014651.0,
+    "caption": "Scarlets wing Sean Lamont is congratulated after his late winner",
+    "url": "http://news.bbcimg.co.uk/media/images/49068000/jpg/_49068420_lamont2.jpg",
+    "key": "000002934",
+    "status": "success",
+    "error_message": null,
+    "width": 226,
+    "height": 170,
+    "original_width": 226,
+    "original_height": 170,
+    "exif": "{\"Image XResolution\": \"96\", \"Image YResolution\": \"96\", \"Image ResolutionUnit\": \"Pixels/Inch\"}",
+    "sha256": "7d88eac77f2cebd7a00e10e009309ea2ddfdad06d4e361cc1900fe0d412c8392"
+}

@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.33022329211235046,
+    "LICENSE": "",
+    "SAMPLE_ID": 316501879.0,
+    "caption": "The Sound of the Smiths: The Very Best of the Smiths",
+    "url": "http://images.amazon.com/images/P/B001ED7C5S.01.MZZZZZZZ.jpg",
+    "key": "000000047",
+    "status": "success",
+    "error_message": null,
+    "width": 160,
+    "height": 159,
+    "original_width": 160,
+    "original_height": 159,
+    "exif": "{}",
+    "sha256": "efb5fe63ff7461cb5716ba77cbe696d6177d506de1d0143f12860393860933c8"
+}

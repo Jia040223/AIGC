@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.30428555607795715,
+    "LICENSE": "?",
+    "SAMPLE_ID": 2693859000013.0,
+    "caption": "Ruchel Freibrun interviewing Jennie Garth",
+    "url": "http://popbuff.wpengine.com/wp-content/uploads/2014/03/ruchel-freibrun-interviewing-jennie-garth.jpg?w=300",
+    "key": "000004731",
+    "status": "success",
+    "error_message": null,
+    "width": 900,
+    "height": 622,
+    "original_width": 900,
+    "original_height": 622,
+    "exif": "{\"Image ImageWidth\": \"4272\", \"Image ImageLength\": \"2848\", \"Image BitsPerSample\": \"[8, 8, 8]\", \"Image PhotometricInterpretation\": \"2\", \"Image Make\": \"Canon\", \"Image Model\": \"Canon EOS REBEL T3\", \"Image Orientation\": \"Horizontal (normal)\", \"Image SamplesPerPixel\": \"3\", \"Image XResolution\": \"72\", \"Image YResolution\": \"72\", \"Image ResolutionUnit\": \"Pixels/Inch\", \"Image Software\": \"Adobe Photoshop CS6 (Windows)\", \"Image DateTime\": \"2014:03:13 00:40:31\", \"Image YCbCrPositioning\": \"Co-sited\", \"Image ExifOffset\": \"292\", \"Thumbnail Compression\": \"JPEG (old-style)\", \"Thumbnail XResolution\": \"72\", \"Thumbnail YResolution\": \"72\", \"Thumbnail ResolutionUnit\": \"Pixels/Inch\", \"Thumbnail JPEGInterchangeFormat\": \"1418\", \"Thumbnail JPEGInterchangeFormatLength\": \"6351\", \"EXIF ExposureTime\": \"1/60\", \"EXIF FNumber\": \"9/2\", \"EXIF ExposureProgram\": \"Program Normal\", \"EXIF ISOSpeedRatings\": \"800\", \"EXIF SensitivityType\": \"Recommended Exposure Index\", \"EXIF RecommendedExposureIndex\": \"800\", \"EXIF ExifVersion\": \"\", \"EXIF DateTimeOriginal\": \"2014:03:09 07:44:09\", \"EXIF DateTimeDigitized\": \"2014:03:09 07:44:09\", \"EXIF ComponentsConfiguration\": \"\", \"EXIF ShutterSpeedValue\": \"6\", \"EXIF ApertureValue\": \"35/8\", \"EXIF ExposureBiasValue\": \"0\", \"EXIF MaxApertureValue\": \"17/4\", \"EXIF MeteringMode\": \"Pattern\", \"EXIF Flash\": \"Flash fired, compulsory flash mode\", \"EXIF FocalLength\": \"32\", \"EXIF SubSecTime\": \"31\", \"EXIF SubSecTimeOriginal\": \"31\", \"EXIF SubSecTimeDigitized\": \"31\", \"EXIF FlashPixVersion\": \"\", \"EXIF ColorSpace\": \"sRGB\", \"EXIF ExifImageWidth\": \"900\", \"EXIF ExifImageLength\": \"622\", \"Interoperability InteroperabilityIndex\": \"R98\", \"Interoperability InteroperabilityVersion\": \"[0, 0, 0, 0]\", \"EXIF InteroperabilityOffset\": \"1292\", \"EXIF FocalPlaneXResolution\": \"854400/181\", \"EXIF FocalPlaneYResolution\": \"569600/119\", \"EXIF FocalPlaneResolutionUnit\": \"2\", \"EXIF CustomRendered\": \"Normal\", \"EXIF ExposureMode\": \"Auto Exposure\", \"EXIF WhiteBalance\": \"Auto\", \"EXIF SceneCaptureType\": \"Standard\", \"EXIF CameraOwnerName\": \"\", \"EXIF BodySerialNumber\": \"182063170609\", \"EXIF LensSpecification\": \"[18, 55, 0/0, 0/0]\", \"EXIF LensModel\": \"EF-S18-55mm f/3.5-5.6 IS II\", \"EXIF LensSerialNumber\": \"00003b8565\"}",
+    "sha256": "88bd60b59cebf0e31f52727d34ee5f96ed137a5ff53a76d2e17ca04988be12a4"
+}

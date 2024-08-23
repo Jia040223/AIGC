@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.3541279435157776,
+    "LICENSE": "?",
+    "SAMPLE_ID": 1365535015332.0,
+    "caption": "John Singer Sargent Life: he was born in 1856. He was interested in outdoor activities.",
+    "url": "http://images.slideplayer.com/14/4378886/slides/slide_8.jpg",
+    "key": "000001588",
+    "status": "success",
+    "error_message": null,
+    "width": 1058,
+    "height": 793,
+    "original_width": 1058,
+    "original_height": 793,
+    "exif": "{}",
+    "sha256": "ed74f1d9989ca52cf716bec7f6cf31fbcd6e05dd0ed227b6e973d7aa03be8cba"
+}

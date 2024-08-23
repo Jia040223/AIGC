@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.3638243079185486,
+    "LICENSE": "?",
+    "SAMPLE_ID": 3752242008068.0,
+    "caption": "thimble theater",
+    "url": "https://www.sftourismtips.com/image-files/the-thimble-theater-sf.jpg",
+    "key": "000002511",
+    "status": "success",
+    "error_message": null,
+    "width": 750,
+    "height": 398,
+    "original_width": 750,
+    "original_height": 398,
+    "exif": "{}",
+    "sha256": "28f44c21a0e75d241f118f1fd6b4a21232d6d3e592fc82c506d8fa48496bf4e5"
+}

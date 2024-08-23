@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.321529746055603,
+    "LICENSE": "?",
+    "SAMPLE_ID": 8011084184.0,
+    "caption": "President Obama at a Newton, Iowa, wind-turbine blade maker in May.",
+    "url": "https://media.npr.org/assets/img/2012/08/09/obama-at-wind-turbine-plant-may-2012_custom-4a36e71bf32dea92966d9e8b0ad86f7ed705ef17-s6-c10.jpg",
+    "key": "000001653",
+    "status": "success",
+    "error_message": null,
+    "width": 948,
+    "height": 598,
+    "original_width": 948,
+    "original_height": 598,
+    "exif": "{}",
+    "sha256": "2c19b4229d9c0d66e5c771605a45b63cd5d7c7c1c505a35c76f4987bad23ee53"
+}

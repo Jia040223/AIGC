@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.3318746089935303,
+    "LICENSE": "?",
+    "SAMPLE_ID": 480461001977.0,
+    "caption": "Plus Size Casual Wear - OOTD",
+    "url": "http://whitneynicjames.com/wp-content/uploads/2015/01/Plus-Size-Casual-Wear-OOTD-684x1024.jpg",
+    "key": "000000678",
+    "status": "success",
+    "error_message": null,
+    "width": 684,
+    "height": 1024,
+    "original_width": 684,
+    "original_height": 1024,
+    "exif": "{\"Image Make\": \"NIKON CORPORATION\", \"Image Model\": \"NIKON D5100\", \"Image Orientation\": \"Horizontal (normal)\", \"Image Tag 0x0000\": \"0\", \"Image YResolution\": \"300\", \"Image ResolutionUnit\": \"Pixels/Inch\", \"Image Software\": \"Embettered by PicMonkey. http://www.picmonkey.com\", \"Image DateTime\": \"2015:01:19 02:33:16\", \"Image YCbCrPositioning\": \"Co-sited\", \"Image ExifOffset\": \"228\", \"GPS GPSVersionID\": \"[0, 0, 0, 0]\", \"Image GPSInfo\": \"37604\", \"Thumbnail Compression\": \"0\", \"Thumbnail Orientation\": \"Horizontal (normal)\", \"Thumbnail Tag 0x0000\": \"0\", \"Thumbnail YResolution\": \"300\", \"Thumbnail ResolutionUnit\": \"Pixels/Inch\", \"Thumbnail JPEGInterchangeFormat\": \"37796\", \"Thumbnail JPEGInterchangeFormatLength\": \"6083\", \"Thumbnail YCbCrPositioning\": \"0\", \"EXIF ExposureTime\": \"1/250\", \"EXIF FNumber\": \"8\", \"EXIF ExposureProgram\": \"Unidentified\", \"EXIF ISOSpeedRatings\": \"180\", \"EXIF SensitivityType\": \"Recommended Exposure Index\", \"EXIF ExifVersion\": \"\", \"EXIF DateTimeOriginal\": \"2015:01:19 02:33:16\", \"EXIF DateTimeDigitized\": \"2015:01:19 02:33:16\", \"EXIF ComponentsConfiguration\": \"\", \"EXIF CompressedBitsPerPixel\": \"2\", \"EXIF ExposureBiasValue\": \"0\", \"EXIF MaxApertureValue\": \"24/5\", \"EXIF MeteringMode\": \"Pattern\", \"EXIF LightSource\": \"Unknown\", \"EXIF Flash\": \"Flash did not fire, auto mode\", \"EXIF FocalLength\": \"46\", \"EXIF SubSecTime\": \"90\", \"EXIF SubSecTimeOriginal\": \"90\", \"EXIF SubSecTimeDigitized\": \"90\", \"EXIF FlashPixVersion\": \"\", \"EXIF ColorSpace\": \"sRGB\", \"EXIF ExifImageWidth\": \"4928\", \"EXIF ExifImageLength\": \"3264\", \"Interoperability InteroperabilityIndex\": \"R98\", \"Interoperability InteroperabilityVersion\": \"[0, 0, 0, 0]\", \"EXIF InteroperabilityOffset\": \"37574\", \"EXIF SensingMethod\": \"One-chip color area\", \"EXIF FileSource\": \"0\", \"EXIF SceneType\": \"0\", \"EXIF CVAPattern\": \"[0, 0, 0, 0, 0, 0, 0, 0]\", \"EXIF CustomRendered\": \"Normal\", \"EXIF ExposureMode\": \"Auto Exposure\", \"EXIF WhiteBalance\": \"Auto\", \"EXIF DigitalZoomRatio\": \"1\", \"EXIF FocalLengthIn35mmFilm\": \"69\", \"EXIF SceneCaptureType\": \"Standard\", \"EXIF GainControl\": \"None\", \"EXIF Contrast\": \"Normal\", \"EXIF Saturation\": \"Normal\", \"EXIF Sharpness\": \"Normal\", \"EXIF SubjectDistanceRange\": \"0\"}",
+    "sha256": "11e81978ea3da06ae813e0538a6fc03f1caa4ab69fa80b338620a297a54d14db"
+}

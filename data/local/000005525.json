@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.3319686949253082,
+    "LICENSE": "?",
+    "SAMPLE_ID": 15167031670.0,
+    "caption": "Wish You Were Here Front Cover",
+    "url": "http://static.djbooth.net/mixtapes/jthes-wish-you-were-here/front.jpg",
+    "key": "000005525",
+    "status": "success",
+    "error_message": null,
+    "width": 250,
+    "height": 250,
+    "original_width": 250,
+    "original_height": 250,
+    "exif": "{}",
+    "sha256": "9acd826ccfd4c2c9834b15a776dac667c432efd7df4bf221aeee39d3e835e653"
+}

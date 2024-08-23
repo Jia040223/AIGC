@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.3069365620613098,
+    "LICENSE": "?",
+    "SAMPLE_ID": 2784719011840.0,
+    "caption": "Virtual Tattoo Maker - Ink Art Screenshot",
+    "url": "https://is1-ssl.mzstatic.com/image/thumb/Purple118/v4/25/9e/70/259e707c-46de-5e1e-b4db-3d3e2311b05f/pr_source.jpg/1242x1242bb.jpg",
+    "key": "000001834",
+    "status": "success",
+    "error_message": null,
+    "width": 699,
+    "height": 1242,
+    "original_width": 699,
+    "original_height": 1242,
+    "exif": "{\"Image ExifOffset\": \"26\", \"EXIF ColorSpace\": \"sRGB\", \"EXIF ExifImageWidth\": \"699\", \"EXIF ExifImageLength\": \"1242\"}",
+    "sha256": "0b51655ce9881eea44fd88f71ad087b0d9d39b7c4453ef93a9240047a721842f"
+}

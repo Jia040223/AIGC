@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.30884838104248047,
+    "LICENSE": "?",
+    "SAMPLE_ID": 3740263002142.0,
+    "caption": "Picture of Leonardo Dicaprio holding up a wine glass",
+    "url": "http://blogs.studentlife.utoronto.ca/lifeatuoft/files/2016/10/Leonardo-Dicaprio-Cheers-300x200.jpg",
+    "key": "000002321",
+    "status": "success",
+    "error_message": null,
+    "width": 300,
+    "height": 200,
+    "original_width": 300,
+    "original_height": 200,
+    "exif": "{}",
+    "sha256": "e7e34f2b2d4370f06575c7b55adcaac3cdfd781767c735900f5a522e8c8b0def"
+}

@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.32990190386772156,
+    "LICENSE": "?",
+    "SAMPLE_ID": 143692007824.0,
+    "caption": "HGTV/Paste SXSW Preview - Foxygen",
+    "url": "http://cdn.pastemagazine.com/www/articles/Foxygen_300.jpg?635333649560844450",
+    "key": "000003843",
+    "status": "success",
+    "error_message": null,
+    "width": 300,
+    "height": 300,
+    "original_width": 300,
+    "original_height": 300,
+    "exif": "{\"Image Orientation\": \"Horizontal (normal)\", \"Image XResolution\": \"72\", \"Image YResolution\": \"72\", \"Image ResolutionUnit\": \"Pixels/Inch\", \"Image Software\": \"Adobe Photoshop CS6 (Macintosh)\", \"Image ExifOffset\": \"134\", \"EXIF ColorSpace\": \"sRGB\", \"EXIF ExifImageWidth\": \"300\", \"EXIF ExifImageLength\": \"300\"}",
+    "sha256": "41457eb00484a0156a65587e050eeb3eb015f3bde9f7479a21e8e552a1c56a04"
+}

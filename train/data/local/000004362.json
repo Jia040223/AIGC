@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.33625853061676025,
+    "LICENSE": "?",
+    "SAMPLE_ID": 2738591024688.0,
+    "caption": "Mike Tyson (centre) meeting with his trainer Jay Bright (right) during a fight against Buster Mathis, Jr., 1995.",
+    "url": "https://cdn.britannica.com/s:250x600/08/4808-004-41878FDC.jpg",
+    "key": "000004362",
+    "status": "success",
+    "error_message": null,
+    "width": 234,
+    "height": 300,
+    "original_width": 234,
+    "original_height": 300,
+    "exif": "{}",
+    "sha256": "25233ea1e40bfaeed375f2dae15c6db3c1ac3f5df8d55225e7c3b514f2f98351"
+}

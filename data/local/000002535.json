@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.320690780878067,
+    "LICENSE": "?",
+    "SAMPLE_ID": 702493010304.0,
+    "caption": "Boy eating icecream",
+    "url": "http://images.crestock.com/6150000-6159999/6154035-2xs.jpg",
+    "key": "000002535",
+    "status": "success",
+    "error_message": null,
+    "width": 160,
+    "height": 133,
+    "original_width": 160,
+    "original_height": 133,
+    "exif": "{}",
+    "sha256": "4ea3ec260d85c7f245e62c9742343f90ae1ca0b80596ec0f67bdb8bdcfe98e40"
+}

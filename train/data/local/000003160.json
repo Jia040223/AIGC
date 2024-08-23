@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.3224058151245117,
+    "LICENSE": "?",
+    "SAMPLE_ID": 3469057015976.0,
+    "caption": "ryan-gosling-look3",
+    "url": "http://bedboy.pl/wp-content/uploads/2014/04/ryan-gosling-look3-160x160.jpg",
+    "key": "000003160",
+    "status": "success",
+    "error_message": null,
+    "width": 160,
+    "height": 160,
+    "original_width": 160,
+    "original_height": 160,
+    "exif": "{}",
+    "sha256": "c11e491b645ae85584915fbc3c4bc816c30dcaceda0cdb860d7397fcf9b6e046"
+}

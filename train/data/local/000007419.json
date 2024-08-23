@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.3132818043231964,
+    "LICENSE": "?",
+    "SAMPLE_ID": 4167615011517.0,
+    "caption": "Cashmere Hooded Sweater -  image number 1",
+    "url": "https://assets.orvis.com/is/image/orvisprd/2ETA319HWAlt2_WWWU62_006?wid=768&src=is($object$:1-1)",
+    "key": "000007419",
+    "status": "success",
+    "error_message": null,
+    "width": 768,
+    "height": 768,
+    "original_width": 768,
+    "original_height": 768,
+    "exif": "{}",
+    "sha256": "be80b091a11988364eb3f990575d6620112622642d982422c3a923bdea2db533"
+}

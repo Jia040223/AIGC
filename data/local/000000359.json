@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.3044699430465698,
+    "LICENSE": "?",
+    "SAMPLE_ID": 4034352019153.0,
+    "caption": "Luna Jumpsuit | Palm Heather",
+    "url": "https://cdn.shopify.com/s/files/1/0022/4008/6074/products/VW340HPL_1_400x400.jpg?v=1579910483",
+    "key": "000000359",
+    "status": "success",
+    "error_message": null,
+    "width": 400,
+    "height": 400,
+    "original_width": 400,
+    "original_height": 400,
+    "exif": "{\"Image Orientation\": \"Horizontal (normal)\", \"Image XResolution\": \"72\", \"Image YResolution\": \"72\", \"Image ResolutionUnit\": \"Pixels/Inch\", \"Image YCbCrPositioning\": \"Centered\", \"Image ExifOffset\": \"102\", \"EXIF ExifVersion\": \"\", \"EXIF ComponentsConfiguration\": \"\", \"EXIF FlashPixVersion\": \"\", \"EXIF ColorSpace\": \"Uncalibrated\", \"EXIF ExifImageWidth\": \"400\", \"EXIF ExifImageLength\": \"400\"}",
+    "sha256": "65f835512d9c682b5e1279637415d1b90f4b8b04e187aadf9de7089283872fda"
+}

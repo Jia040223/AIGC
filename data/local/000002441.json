@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.33992648124694824,
+    "LICENSE": "?",
+    "SAMPLE_ID": 2953477016924.0,
+    "caption": "Jason Bourne 2016 recensione AF Digitale",
+    "url": "https://afdigitale.it/wp-content/uploads/jason_bourne_2016_COVER-300x200.jpg",
+    "key": "000002441",
+    "status": "success",
+    "error_message": null,
+    "width": 300,
+    "height": 200,
+    "original_width": 300,
+    "original_height": 200,
+    "exif": "{}",
+    "sha256": "789adc8dfe420d661f12e954a90e67c0fe9687bfe5e45251b68a56323a71171f"
+}

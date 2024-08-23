@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.35095301270484924,
+    "LICENSE": "?",
+    "SAMPLE_ID": 3133925026303.0,
+    "caption": "C7285  Lovely Pink Flower Girls Dresses Girls Party Dresses",
+    "url": "https://sc01.alicdn.com/kf/HTB1o0lkf_nI8KJjy0Ffq6AdoVXav/200162380/HTB1o0lkf_nI8KJjy0Ffq6AdoVXav.jpg",
+    "key": "000002320",
+    "status": "success",
+    "error_message": null,
+    "width": 800,
+    "height": 800,
+    "original_width": 800,
+    "original_height": 800,
+    "exif": "{\"Image ImageWidth\": \"2832\", \"Image ImageLength\": \"4256\", \"Image BitsPerSample\": \"[8, 8, 8]\", \"Image PhotometricInterpretation\": \"2\", \"Image Make\": \"NIKON CORPORATION\", \"Image Model\": \"NIKON D700\", \"Image SamplesPerPixel\": \"3\", \"Image XResolution\": \"403/40\", \"Image YResolution\": \"403/40\", \"Image ResolutionUnit\": \"Pixels/Inch\", \"Image Software\": \"www.meitu.com\", \"Image DateTime\": \"2017:03:31 10:31:47\", \"Image Artist\": \"\", \"Image ExifOffset\": \"300\", \"Thumbnail Compression\": \"JPEG (old-style)\", \"Thumbnail XResolution\": \"72\", \"Thumbnail YResolution\": \"72\", \"Thumbnail ResolutionUnit\": \"Pixels/Inch\", \"Thumbnail JPEGInterchangeFormat\": \"850\", \"Thumbnail JPEGInterchangeFormatLength\": \"6379\", \"EXIF ExposureTime\": \"1/160\", \"EXIF FNumber\": \"13\", \"EXIF ExposureProgram\": \"Manual\", \"EXIF ISOSpeedRatings\": \"200\", \"EXIF ExifVersion\": \"\", \"EXIF DateTimeOriginal\": \"2014:11:08 10:09:18\", \"EXIF DateTimeDigitized\": \"2014:11:08 10:09:18\", \"EXIF ShutterSpeedValue\": \"915241/125000\", \"EXIF ApertureValue\": \"7400879/1000000\", \"EXIF ExposureBiasValue\": \"0\", \"EXIF MaxApertureValue\": \"3\", \"EXIF MeteringMode\": \"Pattern\", \"EXIF LightSource\": \"Unknown\", \"EXIF Flash\": \"Flash did not fire\", \"EXIF FocalLength\": \"66\", \"EXIF ColorSpace\": \"sRGB\", \"EXIF ExifImageWidth\": \"800\", \"EXIF ExifImageLength\": \"800\", \"EXIF SensingMethod\": \"One-chip color area\", \"EXIF FileSource\": \"0\", \"EXIF SceneType\": \"0\", \"EXIF ExposureMode\": \"Manual Exposure\", \"EXIF WhiteBalance\": \"Manual\", \"EXIF Contrast\": \"Normal\", \"EXIF Saturation\": \"Normal\", \"EXIF Sharpness\": \"Normal\", \"EXIF SubjectDistanceRange\": \"0\"}",
+    "sha256": "d153f00e190dfaf51b407d91927fe2eeba39f21804e0d112b5239cc83b54f398"
+}

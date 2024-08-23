@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNSURE",
+    "similarity": 0.30563995242118835,
+    "LICENSE": "?",
+    "SAMPLE_ID": 3433612008422.0,
+    "caption": "Through a collaboration with McGraw-Hill Education, CHCP successfully increased graduation rates from 74 percent to 80 percent compared to CHCP's traditional residential education model.",
+    "url": "https://megadoctornews.com/wp-content/uploads/2018/09/CHCP-web.jpg",
+    "key": "000005745",
+    "status": "success",
+    "error_message": null,
+    "width": 1068,
+    "height": 537,
+    "original_width": 1068,
+    "original_height": 537,
+    "exif": "{\"Image PhotometricInterpretation\": \"2\", \"Image Orientation\": \"Horizontal (normal)\", \"Image XResolution\": \"150\", \"Image YResolution\": \"150\", \"Image ResolutionUnit\": \"Pixels/Inch\", \"Image Software\": \"Adobe Photoshop CC (Macintosh)\", \"Image DateTime\": \"2018:09:21 14:22:50\", \"Image ExifOffset\": \"178\", \"EXIF DateTimeDigitized\": \"2013:11:18 17:27:40\", \"EXIF ColorSpace\": \"sRGB\", \"EXIF ExifImageWidth\": \"1068\", \"EXIF ExifImageLength\": \"537\"}",
+    "sha256": "c057366d8ec969bca527135d0f0610f551c589746a1170584e8610ea985ccddf"
+}

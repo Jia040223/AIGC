@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.31869369745254517,
+    "LICENSE": "?",
+    "SAMPLE_ID": 1759745011481.0,
+    "caption": "The Life and Legend of Wyatt Earp,   Little Golden Book",
+    "url": "http://productimages.goantiques.gemr.s3.amazonaws.com/53400/9255779_fullsize.jpg",
+    "key": "000002985",
+    "status": "success",
+    "error_message": null,
+    "width": 640,
+    "height": 480,
+    "original_width": 640,
+    "original_height": 480,
+    "exif": "{\"Image ImageDescription\": \"OLYMPUS DIGITAL CAMERA\", \"Image Make\": \"OLYMPUS OPTICAL CO.,LTD\", \"Image Model\": \"C4100Z,C4000Z\", \"Image Orientation\": \"Horizontal (normal)\", \"Image XResolution\": \"72\", \"Image YResolution\": \"72\", \"Image ResolutionUnit\": \"Pixels/Inch\", \"Image Software\": \"CAMEDIA Master 4.03\", \"Image DateTime\": \"2010:07:14 16:12:46\", \"Image YCbCrPositioning\": \"Co-sited\", \"Image ExifOffset\": \"272\", \"Thumbnail Compression\": \"JPEG (old-style)\", \"Thumbnail XResolution\": \"72\", \"Thumbnail YResolution\": \"72\", \"Thumbnail ResolutionUnit\": \"Pixels/Inch\", \"Thumbnail JPEGInterchangeFormat\": \"1610\", \"Thumbnail JPEGInterchangeFormatLength\": \"12939\", \"EXIF ExposureTime\": \"1/60\", \"EXIF FNumber\": \"7\", \"EXIF ExposureProgram\": \"Program Normal\", \"EXIF ISOSpeedRatings\": \"100\", \"EXIF ExifVersion\": \"\", \"EXIF DateTimeOriginal\": \"0000:00:00 00:00:00\", \"EXIF DateTimeDigitized\": \"0000:00:00 00:00:00\", \"EXIF ComponentsConfiguration\": \"\", \"EXIF CompressedBitsPerPixel\": \"2\", \"EXIF ExposureBiasValue\": \"0\", \"EXIF MaxApertureValue\": \"3\", \"EXIF MeteringMode\": \"Pattern\", \"EXIF LightSource\": \"Unknown\", \"EXIF Flash\": \"Flash fired, auto mode\", \"EXIF FocalLength\": \"74/5\", \"EXIF FlashPixVersion\": \"\", \"EXIF ColorSpace\": \"sRGB\", \"EXIF ExifImageWidth\": \"640\", \"EXIF ExifImageLength\": \"480\", \"Interoperability InteroperabilityIndex\": \"R98\", \"Interoperability InteroperabilityVersion\": \"[0, 0, 0, 0]\", \"EXIF InteroperabilityOffset\": \"1478\", \"EXIF FileSource\": \"0\", \"EXIF SceneType\": \"0\", \"EXIF CustomRendered\": \"Custom\", \"EXIF ExposureMode\": \"Auto Exposure\", \"EXIF WhiteBalance\": \"Auto\", \"EXIF DigitalZoomRatio\": \"0\", \"EXIF SceneCaptureType\": \"Standard\", \"EXIF GainControl\": \"None\", \"EXIF Contrast\": \"Normal\", \"EXIF Saturation\": \"Normal\", \"EXIF Sharpness\": \"Normal\"}",
+    "sha256": "e075a2315405ee0069af0c8555723e0c80a2d20bdc3c457a5ff3c47ff288b117"
+}

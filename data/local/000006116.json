@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.3796348571777344,
+    "LICENSE": "?",
+    "SAMPLE_ID": 1591287004348.0,
+    "caption": "Culture and Customs of the Congo (Cultures and Customs of the World)",
+    "url": "https://images-na.ssl-images-amazon.com/images/I/51Qm%2BESn2QL.jpg",
+    "key": "000006116",
+    "status": "success",
+    "error_message": null,
+    "width": 310,
+    "height": 500,
+    "original_width": 310,
+    "original_height": 500,
+    "exif": "{\"Image ExifOffset\": \"26\"}",
+    "sha256": "29fc033099d77746124cef69ed235244379f764188c2cb3887fff173338224a0"
+}

@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNSURE",
+    "similarity": 0.30972763895988464,
+    "LICENSE": "?",
+    "SAMPLE_ID": 3192185024034.0,
+    "caption": "Richard Gere Open Arms - Leggilo",
+    "url": "https://www.leggilo.org/wp-content/uploads/2019/08/24a975de24759dab28d59eb4a7afce585b0f5813-238x178.jpg",
+    "key": "000001711",
+    "status": "success",
+    "error_message": null,
+    "width": 238,
+    "height": 178,
+    "original_width": 238,
+    "original_height": 178,
+    "exif": "{}",
+    "sha256": "883e9d4c1d8aeb2495ad23d792b5512235808a68803e12b6fea3fb7034270e11"
+}

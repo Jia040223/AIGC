@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.34436285495758057,
+    "LICENSE": "?",
+    "SAMPLE_ID": 1941346005216.0,
+    "caption": "Cartel_THE_IMITATION_GAME_b",
+    "url": "https://farrucini.es/wp-content/uploads/2015/02/Cartel_THE_IMITATION_GAME_b.jpg",
+    "key": "000006046",
+    "status": "success",
+    "error_message": null,
+    "width": 200,
+    "height": 300,
+    "original_width": 200,
+    "original_height": 300,
+    "exif": "{\"Image Orientation\": \"Horizontal (normal)\", \"Image XResolution\": \"300\", \"Image YResolution\": \"300\", \"Image ResolutionUnit\": \"Pixels/Inch\", \"Image Software\": \"Adobe Photoshop CS4 Macintosh\", \"Image DateTime\": \"2015:02:20 20:43:08\", \"Image ExifOffset\": \"164\", \"Thumbnail Compression\": \"JPEG (old-style)\", \"Thumbnail XResolution\": \"72\", \"Thumbnail YResolution\": \"72\", \"Thumbnail ResolutionUnit\": \"Pixels/Inch\", \"Thumbnail JPEGInterchangeFormat\": \"302\", \"Thumbnail JPEGInterchangeFormatLength\": \"7703\", \"EXIF ColorSpace\": \"Uncalibrated\", \"EXIF ExifImageWidth\": \"200\", \"EXIF ExifImageLength\": \"300\"}",
+    "sha256": "429e1be64b19c517ead0b2c50ff28c5b42d6316ba307744f4046ecaaef92e870"
+}

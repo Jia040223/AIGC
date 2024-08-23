@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.31025955080986023,
+    "LICENSE": "?",
+    "SAMPLE_ID": 2388505010280.0,
+    "caption": "2017 Fed Cup Final: USA vs. Belarus, Official team dinner, Vera Lapko, Lidziya Marozava, Zryna Sabalenka, Aliaksandra Sasnovic",
+    "url": "https://www.ashleymarshallphoto.com/img/s/v-3/p2638914271-5.jpg",
+    "key": "000001547",
+    "status": "success",
+    "error_message": null,
+    "width": 1100,
+    "height": 812,
+    "original_width": 1100,
+    "original_height": 812,
+    "exif": "{\"Image Make\": \"NIKON CORPORATION\", \"Image Model\": \"NIKON D4\", \"Image XResolution\": \"72\", \"Image YResolution\": \"72\", \"Image ResolutionUnit\": \"Pixels/Inch\", \"Image DateTime\": \"2017-11-09 22:59:42\", \"Image ExifOffset\": \"161\", \"EXIF ExposureTime\": \"1/60\", \"EXIF FNumber\": \"5\", \"EXIF ExposureProgram\": \"Manual\", \"EXIF ISOSpeedRatings\": \"160\", \"EXIF DateTimeOriginal\": \"2017-11-09 11:59:10\", \"EXIF DateTimeDigitized\": \"2017-11-09 11:59:10\", \"EXIF ShutterSpeedValue\": \"5906891/1000000\", \"EXIF ApertureValue\": \"290241/62500\", \"EXIF ExposureBiasValue\": \"0\", \"EXIF MaxApertureValue\": \"3\", \"EXIF MeteringMode\": \"Spot\", \"EXIF LightSource\": \"Flash\", \"EXIF Flash\": \"Flash fired, compulsory flash mode, return light detected\", \"EXIF FocalLength\": \"24\", \"EXIF SensingMethod\": \"One-chip color area\", \"EXIF ExposureMode\": \"Manual Exposure\", \"EXIF WhiteBalance\": \"Manual\", \"EXIF DigitalZoomRatio\": \"1\", \"EXIF FocalLengthIn35mmFilm\": \"24\", \"EXIF SceneCaptureType\": \"Standard\"}",
+    "sha256": "2a35fa2ff614a0770e61a777cb994f93ecb75ad855be6ab09b0fa1c32f41c30f"
+}

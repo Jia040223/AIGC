@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.3076533079147339,
+    "LICENSE": "?",
+    "SAMPLE_ID": 3920687000441.0,
+    "caption": "Mask with Print - Color Splash",
+    "url": "https://static.wixstatic.com/media/dec92d_de045481af984b0abafe3f0870b0920e~mv2.jpg/v1/fill/w_498,h_748,al_c,q_85,usm_0.66_1.00_0.01/dec92d_de045481af984b0abafe3f0870b0920e~mv2.jpg",
+    "key": "000000726",
+    "status": "success",
+    "error_message": null,
+    "width": 498,
+    "height": 748,
+    "original_width": 498,
+    "original_height": 748,
+    "exif": "{\"Image Orientation\": \"Horizontal (normal)\", \"Image XResolution\": \"72\", \"Image YResolution\": \"72\", \"Image ResolutionUnit\": \"Pixels/Inch\", \"Image YCbCrPositioning\": \"Centered\", \"Image ExifOffset\": \"102\", \"EXIF ExifVersion\": \"\", \"EXIF ComponentsConfiguration\": \"\", \"EXIF FlashPixVersion\": \"\", \"EXIF ColorSpace\": \"Uncalibrated\", \"EXIF ExifImageWidth\": \"498\", \"EXIF ExifImageLength\": \"748\"}",
+    "sha256": "9dd07c72a7de507227cb84a6e37c99a1b9a4a95a1cc8d874aab97f690428c6a1"
+}

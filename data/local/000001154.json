@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.3087691068649292,
+    "LICENSE": "?",
+    "SAMPLE_ID": 3471262022132.0,
+    "caption": "Wellers Saline MI wedding photograph",
+    "url": "https://www.specialmomentsusa.com/wp-content/uploads/2020/01/052-9358_wellers_saline_erika_jason.jpg",
+    "key": "000001154",
+    "status": "success",
+    "error_message": null,
+    "width": 900,
+    "height": 534,
+    "original_width": 900,
+    "original_height": 534,
+    "exif": "{\"Image ImageDescription\": \"Wellers Saline MI wedding photograph\", \"Image XResolution\": \"72\", \"Image YResolution\": \"72\", \"Image ResolutionUnit\": \"Pixels/Inch\", \"Image Software\": \"Adobe Photoshop Lightroom 5.7 (Windows)\", \"Image DateTime\": \"2020:01:14 12:01:09\", \"Image Artist\": \"Special Moments Photography Plymouth MI\", \"Image Copyright\": \"Special Moments Photography Plymouth MI\", \"Image ExifOffset\": \"316\", \"Thumbnail Compression\": \"JPEG (old-style)\", \"Thumbnail XResolution\": \"72\", \"Thumbnail YResolution\": \"72\", \"Thumbnail ResolutionUnit\": \"Pixels/Inch\", \"Thumbnail JPEGInterchangeFormat\": \"504\", \"Thumbnail JPEGInterchangeFormatLength\": \"9417\", \"EXIF ExifVersion\": \"\", \"EXIF DateTimeOriginal\": \"2019:05:25 18:19:02\", \"EXIF DateTimeDigitized\": \"2019:05:25 04:18:42\", \"EXIF SubSecTimeDigitized\": \"06\"}",
+    "sha256": "3bdcf149fa299dabbf7648bc9dc768e985784d8b52cdac5219039a0a30309c3c"
+}

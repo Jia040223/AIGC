@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNSURE",
+    "similarity": 0.3103180527687073,
+    "LICENSE": "?",
+    "SAMPLE_ID": 55332011462.0,
+    "caption": "Manchester United manager Sir Alex Ferguson",
+    "url": "http://news.bbcimg.co.uk/media/images/65005000/jpg/_65005066_65005065.jpg",
+    "key": "000003623",
+    "status": "success",
+    "error_message": null,
+    "width": 640,
+    "height": 360,
+    "original_width": 640,
+    "original_height": 360,
+    "exif": "{\"Image XResolution\": \"96\", \"Image YResolution\": \"96\", \"Image ResolutionUnit\": \"Pixels/Inch\"}",
+    "sha256": "90b5eb436190d53437616e6da852d6d0fcc48666a31fa2b1eab8c37b3d5a2a5f"
+}

@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.3874838948249817,
+    "LICENSE": "?",
+    "SAMPLE_ID": 3144114003249.0,
+    "caption": "Photo: PFLAG Philadelphia Facebook page",
+    "url": "https://billypenn.com/wp-content/uploads/2015/07/trans_parent.jpg?resize=267,150",
+    "key": "000004459",
+    "status": "success",
+    "error_message": null,
+    "width": 1000,
+    "height": 480,
+    "original_width": 1000,
+    "original_height": 480,
+    "exif": "{\"Image Orientation\": \"Horizontal (normal)\", \"Image XResolution\": \"72\", \"Image YResolution\": \"72\", \"Image ResolutionUnit\": \"Pixels/Inch\", \"Image Software\": \"Adobe Photoshop CS6 (Windows)\", \"Image DateTime\": \"2015:07:14 10:47:04\", \"Image ExifOffset\": \"164\", \"Thumbnail Compression\": \"JPEG (old-style)\", \"Thumbnail XResolution\": \"72\", \"Thumbnail YResolution\": \"72\", \"Thumbnail ResolutionUnit\": \"Pixels/Inch\", \"Thumbnail JPEGInterchangeFormat\": \"302\", \"Thumbnail JPEGInterchangeFormatLength\": \"5811\", \"EXIF ColorSpace\": \"Uncalibrated\", \"EXIF ExifImageWidth\": \"1000\", \"EXIF ExifImageLength\": \"480\"}",
+    "sha256": "f8f47706812ce43285ff1c27cd6c3439a255c8ceed8f44d02494600264db2ec3"
+}

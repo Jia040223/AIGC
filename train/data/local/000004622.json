@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.3448450565338135,
+    "LICENSE": "?",
+    "SAMPLE_ID": 349180004577.0,
+    "caption": "Blues: A Son House Memorial Playlist",
+    "url": "http://images.wolfgangsvault.com/cvfeatures/son-house3-101914.jpg",
+    "key": "000004622",
+    "status": "success",
+    "error_message": null,
+    "width": 474,
+    "height": 267,
+    "original_width": 474,
+    "original_height": 267,
+    "exif": "{\"Image Software\": \"Picasa\", \"Image DateTime\": \"2012:09:29 22:33:03\", \"Image Artist\": \"Picasa\", \"Image ExifOffset\": \"96\", \"Thumbnail Compression\": \"JPEG (old-style)\", \"Thumbnail XResolution\": \"72\", \"Thumbnail YResolution\": \"72\", \"Thumbnail ResolutionUnit\": \"Pixels/Inch\", \"Thumbnail JPEGInterchangeFormat\": \"364\", \"Thumbnail JPEGInterchangeFormatLength\": \"7372\", \"EXIF ExifVersion\": \"\", \"EXIF DateTimeOriginal\": \"2012:09:29 22:32:27\", \"EXIF ExifImageWidth\": \"403\", \"EXIF ExifImageLength\": \"403\", \"Interoperability InteroperabilityVersion\": \"[0, 0, 0, 0]\", \"Interoperability RelatedImageWidth\": \"403\", \"Interoperability RelatedImageLength\": \"403\", \"EXIF InteroperabilityOffset\": \"228\", \"EXIF ImageUniqueID\": \"219725c2970811fc4b359ac41a1dd84e\"}",
+    "sha256": "2975952e1d9087b323fab64f9380f2bd68dd2a4cd3761cbd6dc66579043de1bf"
+}

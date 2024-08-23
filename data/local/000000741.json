@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.3169635236263275,
+    "LICENSE": "?",
+    "SAMPLE_ID": 847749011160.0,
+    "caption": "Jalen & Jacoby",
+    "url": "http://a.espncdn.com/combiner/i?img=/espn360/images/showassets/ERJJ.jpg&w=640&h=360&20160201093651",
+    "key": "000000741",
+    "status": "success",
+    "error_message": null,
+    "width": 640,
+    "height": 360,
+    "original_width": 640,
+    "original_height": 360,
+    "exif": "{}",
+    "sha256": "b0d0105f49a725a0b1eb21c86cd76ee4bdc42803919f75e5d6f9ef0d0cf67636"
+}

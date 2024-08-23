@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.38469478487968445,
+    "LICENSE": "?",
+    "SAMPLE_ID": 2656337020114.0,
+    "caption": "\"A March 1942 article in The Oregon Journal refers to Min Yasui as a \"\"Jap leader.\"\"\"",
+    "url": "https://rafu.com/wp-content/uploads/2014/09/yasui-clipping-550x267.png",
+    "key": "000002031",
+    "status": "success",
+    "error_message": null,
+    "width": 550,
+    "height": 267,
+    "original_width": 550,
+    "original_height": 267,
+    "exif": "{}",
+    "sha256": "b0ab5d20ab4c97b4af1e0e4ed41b69a49172b7315c80f36efc7771f3dd64d82a"
+}

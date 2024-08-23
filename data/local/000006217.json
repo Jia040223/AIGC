@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.3163227438926697,
+    "LICENSE": "?",
+    "SAMPLE_ID": 98200000427.0,
+    "caption": "Francesca Cumani and Katie Page",
+    "url": "http://www.bluebloodthoroughbreds.com.au/wp-content/uploads/2013/12/060486-6b40f912-5b08-11e3-a193-58736454795b1.jpg",
+    "key": "000006217",
+    "status": "success",
+    "error_message": null,
+    "width": 650,
+    "height": 366,
+    "original_width": 650,
+    "original_height": 366,
+    "exif": "{\"Image ImageWidth\": \"5184\", \"Image ImageLength\": \"3456\", \"Image BitsPerSample\": \"[8, 8, 8]\", \"Image PhotometricInterpretation\": \"2\", \"Image ImageDescription\": \"Francesca Cumani and Katie Page with 2 year old race horse  Spirit of Joy at Randwick Racecourse .Picture Gregg Porteous\", \"Image Make\": \"Canon\", \"Image Model\": \"Canon EOS-1D X\", \"Image Orientation\": \"Horizontal (normal)\", \"Image SamplesPerPixel\": \"3\", \"Image XResolution\": \"300\", \"Image YResolution\": \"300\", \"Image ResolutionUnit\": \"Pixels/Inch\", \"Image Software\": \"Adobe Photoshop CS6 (Windows)\", \"Image DateTime\": \"2013:12:02 15:10:06\", \"Image Artist\": \"Gregg Porteous\", \"Image YCbCrPositioning\": \"Co-sited\", \"Image Copyright\": \"Copyright News Limited\", \"Image ExifOffset\": \"496\", \"GPS GPSVersionID\": \"[0, 0, 0, 0]\", \"Image GPSInfo\": \"1452\", \"Thumbnail Compression\": \"JPEG (old-style)\", \"Thumbnail XResolution\": \"72\", \"Thumbnail YResolution\": \"72\", \"Thumbnail ResolutionUnit\": \"Pixels/Inch\", \"Thumbnail JPEGInterchangeFormat\": \"1566\", \"Thumbnail JPEGInterchangeFormatLength\": \"7369\", \"EXIF ExposureTime\": \"1/1600\", \"EXIF FNumber\": \"4\", \"EXIF ExposureProgram\": \"Manual\", \"EXIF ISOSpeedRatings\": \"400\", \"EXIF SensitivityType\": \"Recommended Exposure Index\", \"EXIF RecommendedExposureIndex\": \"400\", \"EXIF ExifVersion\": \"\", \"EXIF DateTimeOriginal\": \"2013:12:02 12:53:08\", \"EXIF DateTimeDigitized\": \"2013:12:02 12:53:08\", \"EXIF ComponentsConfiguration\": \"\", \"EXIF ShutterSpeedValue\": \"85/8\", \"EXIF ApertureValue\": \"4\", \"EXIF ExposureBiasValue\": \"0\", \"EXIF MaxApertureValue\": \"3\", \"EXIF MeteringMode\": \"Pattern\", \"EXIF Flash\": \"Flash did not fire, compulsory flash mode\", \"EXIF FocalLength\": \"175\", \"EXIF SubSecTime\": \"60\", \"EXIF SubSecTimeOriginal\": \"60\", \"EXIF SubSecTimeDigitized\": \"60\", \"EXIF FlashPixVersion\": \"\", \"EXIF ColorSpace\": \"sRGB\", \"EXIF ExifImageWidth\": \"3780\", \"EXIF ExifImageLength\": \"3204\", \"Interoperability InteroperabilityIndex\": \"R98\", \"Interoperability InteroperabilityVersion\": \"[0, 0, 0, 0]\", \"EXIF InteroperabilityOffset\": \"1420\", \"EXIF FocalPlaneXResolution\": \"1036800/181\", \"EXIF FocalPlaneYResolution\": \"576000/101\", \"EXIF FocalPlaneResolutionUnit\": \"2\", \"EXIF CustomRendered\": \"Normal\", \"EXIF ExposureMode\": \"Manual Exposure\", \"EXIF WhiteBalance\": \"Manual\", \"EXIF SceneCaptureType\": \"Standard\", \"EXIF CameraOwnerName\": \"\", \"EXIF BodySerialNumber\": \"045011000081\", \"EXIF LensSpecification\": \"[70, 200, 0, 0]\", \"EXIF LensModel\": \"EF70-200mm f/2.8L IS II USM\", \"EXIF LensSerialNumber\": \"0000c25e04\"}",
+    "sha256": "4fc59ca3ee7dafe63520cba04ca8c5563badf7ea5a9288946e318ead369047f1"
+}

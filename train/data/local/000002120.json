@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.3218403458595276,
+    "LICENSE": "?",
+    "SAMPLE_ID": 3997073010902.0,
+    "caption": "Green Printed Dress",
+    "url": "https://cdn.shopify.com/s/files/1/2483/7256/products/image_affed1db-e9d6-4639-8b1d-abef0803b906_250x.jpg?v=1571648190",
+    "key": "000002120",
+    "status": "success",
+    "error_message": null,
+    "width": 250,
+    "height": 358,
+    "original_width": 250,
+    "original_height": 358,
+    "exif": "{\"Image Orientation\": \"Horizontal (normal)\", \"Image XResolution\": \"72\", \"Image YResolution\": \"72\", \"Image ResolutionUnit\": \"Pixels/Inch\", \"Image YCbCrPositioning\": \"Centered\", \"Image ExifOffset\": \"102\", \"EXIF ExifVersion\": \"\", \"EXIF ComponentsConfiguration\": \"\", \"EXIF FlashPixVersion\": \"\", \"EXIF ColorSpace\": \"Uncalibrated\", \"EXIF ExifImageWidth\": \"250\", \"EXIF ExifImageLength\": \"358\"}",
+    "sha256": "d0bb6aa9da5fd23950219331c98fc7a5564dfa605595fbef2229bb8111247eee"
+}

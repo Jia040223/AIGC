@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.32545632123947144,
+    "LICENSE": "?",
+    "SAMPLE_ID": 115088001029.0,
+    "caption": "Lost_in_yonkers",
+    "url": "https://fuzzyenglish.files.wordpress.com/2013/09/lost_in_yonkers.jpg?w=224&",
+    "key": "000000412",
+    "status": "success",
+    "error_message": null,
+    "width": 224,
+    "height": 333,
+    "original_width": 224,
+    "original_height": 333,
+    "exif": "{}",
+    "sha256": "8051b4bbf331d972cef29e2a5f19bb73021c09a7fb7c103b92431b9e43667a65"
+}

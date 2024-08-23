@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.3377421796321869,
+    "LICENSE": "?",
+    "SAMPLE_ID": 21485034855.0,
+    "caption": "Picture of Jean Simmons",
+    "url": "http://cdn2.bigcommerce.com/server4900/364bb/products/193511/images/144312/293012__94892.1352620468.500.500.jpg",
+    "key": "000009810",
+    "status": "success",
+    "error_message": null,
+    "width": 400,
+    "height": 500,
+    "original_width": 400,
+    "original_height": 500,
+    "exif": "{\"Image Orientation\": \"Horizontal (normal)\"}",
+    "sha256": "9211d65a5c00442e37fd37bc2b3d07a78ccbced6e2ce2869f67f8c31d6ebca46"
+}

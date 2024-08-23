@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.32619956135749817,
+    "LICENSE": "?",
+    "SAMPLE_ID": 3443674023993.0,
+    "caption": "Castlevania Anniversary Collection",
+    "url": "https://cdn02.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_download_software_1/H2x1_NSwitchDS_CastlevaniaAnniversaryCollection_image1600w.jpg",
+    "key": "000001979",
+    "status": "success",
+    "error_message": null,
+    "width": 1600,
+    "height": 800,
+    "original_width": 1600,
+    "original_height": 800,
+    "exif": "{}",
+    "sha256": "e30e8908448b5032c4a8d02b60774549563ebc72341f162cb370cbd745d6db0f"
+}

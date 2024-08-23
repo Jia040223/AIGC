@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.3061971664428711,
+    "LICENSE": "?",
+    "SAMPLE_ID": 25826012255.0,
+    "caption": "Doc-Jacobs-Event-Upper-Deck-Operation-Gratitude-Tommy-Lasorda-Talking-to-Doc",
+    "url": "http://upperdeckblog.com/wp-content/uploads/2013/04/Doc-Jacobs-Event-Upper-Deck-Operation-Gratitude-Tommy-Lasorda-Talking-to-Doc.jpg",
+    "key": "000000290",
+    "status": "success",
+    "error_message": null,
+    "width": 550,
+    "height": 470,
+    "original_width": 550,
+    "original_height": 470,
+    "exif": "{\"Image Orientation\": \"Horizontal (normal)\", \"Image XResolution\": \"96\", \"Image YResolution\": \"96\", \"Image ResolutionUnit\": \"Pixels/Inch\", \"Image Software\": \"Adobe Photoshop CS3 Windows\", \"Image DateTime\": \"2013:04:22 08:49:10\", \"Image ExifOffset\": \"164\", \"Thumbnail Compression\": \"JPEG (old-style)\", \"Thumbnail XResolution\": \"72\", \"Thumbnail YResolution\": \"72\", \"Thumbnail ResolutionUnit\": \"Pixels/Inch\", \"Thumbnail JPEGInterchangeFormat\": \"314\", \"Thumbnail JPEGInterchangeFormatLength\": \"8811\", \"EXIF ColorSpace\": \"sRGB\", \"EXIF ExifImageWidth\": \"550\", \"EXIF ExifImageLength\": \"470\"}",
+    "sha256": "250f686f3e1181c1af16a46d4c22ff51a1e78afab19913085f65fd5f5c04a2bd"
+}

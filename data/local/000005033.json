@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.32000410556793213,
+    "LICENSE": "?",
+    "SAMPLE_ID": 896487015670.0,
+    "caption": "Wilson's Meats - Playboy June 1966",
+    "url": "http://vignette3.wikia.nocookie.net/muppet/images/5/5e/Wilson%27s_Meats_-_Playboy_June_1966.jpg/revision/latest/scale-to-width-down/300?cb=20111202023127",
+    "key": "000005033",
+    "status": "success",
+    "error_message": null,
+    "width": 300,
+    "height": 161,
+    "original_width": 300,
+    "original_height": 161,
+    "exif": "{}",
+    "sha256": "62af0a68c4695597de825c1fa53cea16f423f01e162cf5b25a523454c11773f6"
+}

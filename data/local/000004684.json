@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.3025493621826172,
+    "LICENSE": "?",
+    "SAMPLE_ID": 3520688004188.0,
+    "caption": "Girl, 14, missing from Chicago Lawn; last seen earlier today",
+    "url": "https://images.foxtv.com/static.fox32chicago.com/www.fox32chicago.com/content/uploads/2020/02/592/333/ashley-dixon.jpg?ve=1&tl=1",
+    "key": "000004684",
+    "status": "success",
+    "error_message": null,
+    "width": 592,
+    "height": 333,
+    "original_width": 592,
+    "original_height": 333,
+    "exif": "{}",
+    "sha256": "8f2064a9c869e69ef5d17152b4861282274471bb01960891a4ec0e096c7cf890"
+}

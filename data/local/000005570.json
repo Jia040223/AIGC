@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.33383846282958984,
+    "LICENSE": "?",
+    "SAMPLE_ID": 2411372009456.0,
+    "caption": "Ladysmith Black Mambazo \u00a9 KLRU photo by Scott Newton",
+    "url": "https://acltv.com/wp-content/uploads/2014/02/ACL3206Ladysmithv_featured-350x350.jpg",
+    "key": "000005570",
+    "status": "success",
+    "error_message": null,
+    "width": 350,
+    "height": 350,
+    "original_width": 350,
+    "original_height": 350,
+    "exif": "{}",
+    "sha256": "317cae52dbc62898d38566dd15e0de930c88e127bbdadbb4d716d73e50167eef"
+}

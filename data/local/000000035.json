@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.36141350865364075,
+    "LICENSE": "?",
+    "SAMPLE_ID": 3939926026405.0,
+    "caption": "\"My Review of \"\"Tremors\"\"\"",
+    "url": "https://res.cloudinary.com/jerrick/image/upload/c_fill,fl_progressive,h_280,q_auto,w_500/5ed868c811f355001eb20d99.jpg",
+    "key": "000000035",
+    "status": "success",
+    "error_message": null,
+    "width": 500,
+    "height": 280,
+    "original_width": 500,
+    "original_height": 280,
+    "exif": "{}",
+    "sha256": "ae65ee66a55b3ca5c25579a559b625819acf1f0d963e7b09e6380df438ce8901"
+}

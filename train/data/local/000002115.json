@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.3243243098258972,
+    "LICENSE": "?",
+    "SAMPLE_ID": 1640087011817.0,
+    "caption": "Maxi Dresses for Weddings",
+    "url": "https://www.dressforthewedding.com/wp-content/uploads/2015/02/image1xxl-700x893.jpg",
+    "key": "000002115",
+    "status": "success",
+    "error_message": null,
+    "width": 700,
+    "height": 893,
+    "original_width": 700,
+    "original_height": 893,
+    "exif": "{\"Image XResolution\": \"96\", \"Image YResolution\": \"96\", \"Image ResolutionUnit\": \"Pixels/Inch\", \"Image YCbCrPositioning\": \"Centered\", \"Image ExifOffset\": \"90\", \"EXIF ExifVersion\": \"\", \"EXIF ComponentsConfiguration\": \"\", \"EXIF FlashPixVersion\": \"\", \"EXIF ColorSpace\": \"Uncalibrated\"}",
+    "sha256": "16a1c7a193d1a9750c8722a7d4d0a22a7a0a7c15a102a6a2c221732123c83718"
+}

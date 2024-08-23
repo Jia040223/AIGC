@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.31882601976394653,
+    "LICENSE": "?",
+    "SAMPLE_ID": 186233006297.0,
+    "caption": "Jason Ritter Stock Photos",
+    "url": "https://thumbs.dreamstime.com/t/jason-ritter-26356093.jpg",
+    "key": "000004930",
+    "status": "success",
+    "error_message": null,
+    "width": 107,
+    "height": 160,
+    "original_width": 107,
+    "original_height": 160,
+    "exif": "{\"Image XResolution\": \"72\", \"Image YResolution\": \"72\", \"Image ResolutionUnit\": \"Pixels/Inch\", \"Image YCbCrPositioning\": \"Centered\", \"Image Copyright\": \"Sbukley | Dreamstime.com\"}",
+    "sha256": "757b249b0e182e6bac27d6f075b6fb9d5ff4b3a8c618a3c86a4fe63c3bbceaa5"
+}

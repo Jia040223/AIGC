@@ -1,0 +1,17 @@
+{
+    "NSFW": "NSFW",
+    "similarity": 0.37353765964508057,
+    "LICENSE": "?",
+    "SAMPLE_ID": 3801107005623.0,
+    "caption": "The Church- Heyday LP PROMO",
+    "url": "https://cdn.shopify.com/s/files/1/2359/3891/products/image_a338a303-b1ab-47dd-8c88-f11f3b0bb64e_480x.jpg?v=1599789670",
+    "key": "000009889",
+    "status": "success",
+    "error_message": null,
+    "width": 480,
+    "height": 308,
+    "original_width": 480,
+    "original_height": 308,
+    "exif": "{\"Image Orientation\": \"Horizontal (normal)\", \"Image XResolution\": \"72\", \"Image YResolution\": \"72\", \"Image ResolutionUnit\": \"Pixels/Inch\", \"Image YCbCrPositioning\": \"Centered\", \"Image ExifOffset\": \"102\", \"EXIF ExifVersion\": \"\", \"EXIF ComponentsConfiguration\": \"\", \"EXIF FlashPixVersion\": \"\", \"EXIF ColorSpace\": \"Uncalibrated\", \"EXIF ExifImageWidth\": \"480\", \"EXIF ExifImageLength\": \"308\"}",
+    "sha256": "0d425d9cf0f71ec188f1422d71043a760f1a04a3d52af25ff47e0934ec067ec9"
+}

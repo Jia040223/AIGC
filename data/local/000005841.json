@@ -1,0 +1,17 @@
+{
+    "NSFW": "UNLIKELY",
+    "similarity": 0.3146805167198181,
+    "LICENSE": "?",
+    "SAMPLE_ID": 4212628002521.0,
+    "caption": "Frederic Manning, by William Rothenstein - NPG 4417",
+    "url": "https://collectionimages.npg.org.uk/std/mw04191/Frederic-Manning.jpg",
+    "key": "000005841",
+    "status": "success",
+    "error_message": null,
+    "width": 235,
+    "height": 325,
+    "original_width": 235,
+    "original_height": 325,
+    "exif": "{}",
+    "sha256": "c4d6c3ad2d9378cdfdbfc5528c985cb6239d398c0f97254ed0c9a452791b4056"
+}
