@@ -259,8 +259,7 @@ def inversion_reverse_process(model,
                     asyrp = False,
                     attention_store = None):
     batch_size = len(prompts)
-    mse_list = []  # 用于存储每个时间步的 MSE
-    print(batch_size)
+    #mse_list = []  # 用于存储每个时间步的 MSE
 
     cfg_scales_tensor = torch.Tensor(cfg_scales).view(-1,1,1,1).to(model.device)
 
@@ -291,10 +290,10 @@ def inversion_reverse_process(model,
                 cond_out = model.unet.forward(xt, timestep =  t, 
                                                 encoder_hidden_states = text_embeddings)
         
-        print(cond_out.sample.shape)
         #mse = calculate_mse(cond_out.sample[0], cond_out.sample[1])
         #mse_list.append(mse)
         
+        '''
         controller.between_steps()
         noise_guidance_edit_tmp = cond_out.sample - uncond_out.sample
 
@@ -311,10 +310,9 @@ def inversion_reverse_process(model,
             select= 0
         )
         attn_map = out[:, :, :, 1 : 2]  # 0 -> startoftext
-        print(out.shape)
         
         # average over all tokens
-        attn_map = attn_map[1].unsqueeze(0)
+        #attn_map = attn_map[1].unsqueeze(0)
         if attn_map.shape[3] != 1:
             raise ValueError(
                 f"Incorrect shape of attention_map. Expected size 1, but found {attn_map.shape[3]}!"
@@ -372,15 +370,14 @@ def inversion_reverse_process(model,
                 noise_guidance_edit_tmp_quantile >= tmp[:, :, None, None],
                 torch.ones_like(noise_guidance_edit_tmp),
                 torch.zeros_like(noise_guidance_edit_tmp),
-            ) * attn_mask
-        
-        print(intersect_mask.shape)
+            )
+        '''
 
         z = zs[idx] if not zs is None else None
         z = z.expand(batch_size, -1, -1, -1)
         if prompts:
             ## classifier free guidance
-            noise_pred = uncond_out.sample + cfg_scales_tensor * (cond_out.sample - uncond_out.sample)
+            noise_pred = uncond_out.sample + cfg_scales_tensor * (cond_out.sample - uncond_out.sample) 
         else: 
             noise_pred = uncond_out.sample
         # 2. compute less noisy image and set x_t -> x_t-1  

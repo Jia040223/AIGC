@@ -142,11 +142,12 @@ class AttentionStore(AttentionControl):
         self.step_store = self.get_empty_store()
         self.attention_store = {}
 
-    def __init__(self, average=False):
+    def __init__(self, batch_size, average=False):
         super(AttentionStore, self).__init__()
         self.step_store = self.get_empty_store()
         self.attention_store = {}
         self.average = average
+        self.batch_size = batch_size
     
     def aggregate_attention(
         self, attention_maps, prompts, res: Union[int, Tuple[int]], from_where: List[str], is_cross: bool, select: int
@@ -212,8 +213,8 @@ class AttentionControlEdit(AttentionStore, abc.ABC):
                  local_blend=None,
                  device=None,
                  tokenizer=None):
-        super(AttentionControlEdit, self).__init__()
         self.batch_size = len(prompts)
+        super(AttentionControlEdit, self).__init__(self.batch_size)
         self.cross_replace_alpha = ptp_utils.get_time_words_attention_alpha(prompts, num_steps, cross_replace_steps, tokenizer).to(device)
         if type(self_replace_steps) is float:
             self_replace_steps = 0, self_replace_steps

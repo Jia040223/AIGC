@@ -115,7 +115,7 @@ class AttentionStore(AttentionControl):
         self.step_store[key].append(attn)
         return attn
 
-    def between_steps(self, store_step=True):
+    def between_steps(self, store_step=False):
         if store_step:
             if self.average:
                 if len(self.attention_store) == 0:

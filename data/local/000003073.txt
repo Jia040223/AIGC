@@ -1,1 +1,0 @@
-Programming as easy as 1-2-3: Using the SINUMERIK Operate interface, a machinist can turn on coolant flow by 1) pressing Cycle Stop to stop the machine, 2) Coolant On, and 3) Restart.

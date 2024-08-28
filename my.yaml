@@ -1,8 +1,8 @@
--
-    init_img:  /example_images/2.png
-    source_prompt: a photo of a old man with white hair
+  -
+    init_img:  /example_images/300.jpg
+    source_prompt: a photo of a smiling man
     target_prompts:
-    - a photo of a old smiling man with white hair
-    - a photo of a very angry old man with white hair
-    - a photo of a old man with much bigger eyes
-    - a photo of a young man
+    - a photo of a smiling man with beard
+    - a photo of a serious man
+    - a photo of a smiling man with glasses
+    - a photo of a smiling man with red hair

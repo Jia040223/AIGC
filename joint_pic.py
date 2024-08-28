@@ -3,13 +3,13 @@ import os
 
 # 定义图片目录路径和输出图片大小
 base_dir = 'results'
-output_image = 'results/output/output_6.png'
+output_image = 'results/output/output_32.png'
 width, height = 128, 128  # 假设每张图片的大小是 512x512
 
 # 获取子目录列表，选择特定范围的子目录
 subdirs = sorted([d for d in os.listdir(base_dir) if os.path.isdir(os.path.join(base_dir, d))])
 # 从子目录名称中提取数字，进行范围比较
-selected_subdirs = [d for d in subdirs if 'our_inv_' in d and 1723890166 <= int(d.split('_')[-1]) <= 1723890920]
+selected_subdirs = [d for d in subdirs if 'our_inv_' in d and 1724510818 <= int(d.split('_')[-1]) <= 1724511124]
 
 
 # 定义拼接后的图片大小

@@ -120,16 +120,20 @@ if __name__ == "__main__":
 
                         #register_attention_control(ldm_stable, controller)
                         #print(controller.num_att_layers)
+                        #controller = AttentionStore(batch_size=1, average=False)
 
+                        '''
                         attention_store = LeditsAttentionStore(
                             average=True,
                             batch_size=1,
                             max_size=(wts[args.num_diffusion_steps-skip].shape[-2] / 4.0) * (wts[args.num_diffusion_steps-skip].shape[-1] / 4.0),
                             max_resolution=None,
                         )
+                        '''
 
                         prepare_unet(ldm_stable, controller)
-                        w0, _ = inversion_reverse_process(ldm_stable, xT=wts[args.num_diffusion_steps-skip], edit_threshold_c = edit_threshold_c, etas=eta, prompts=[prompt_tar], cfg_scales=[cfg_scale_tar], prog_bar=True, zs=zs[:(args.num_diffusion_steps-skip)], controller=controller)
+                        w0, _ = inversion_reverse_process(ldm_stable, xT=wts[args.num_diffusion_steps-skip], edit_threshold_c = edit_threshold_c, etas=eta, prompts=prompts, cfg_scales=[cfg_scale_tar], prog_bar=True, zs=zs[:(args.num_diffusion_steps-skip)], controller=controller)
+                        w0 = w0[1].unsqueeze(0)
                         
                     elif args.mode=="p2pinv":
                         # inversion with attention replace
@@ -143,7 +147,7 @@ if __name__ == "__main__":
 
                         register_attention_control(ldm_stable, controller)
                         w0, _ = inversion_reverse_process(ldm_stable, xT=wts[args.num_diffusion_steps-skip], etas=eta, prompts=prompts, cfg_scales=cfg_scale_list, prog_bar=True, zs=zs[:(args.num_diffusion_steps-skip)], controller=controller)
-                        w0 = w0[1].unsqueeze(0)
+                        w0 = w0[1].unsequeeze(0)
 
                     elif args.mode=="p2pddim" or args.mode=="ddim":
                         # only z=0

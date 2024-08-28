@@ -14,17 +14,28 @@ from diffusers import DDIMScheduler
 from torch import autocast, inference_mode
 from prompt_to_prompt.ptp_classes import AttentionStore, prepare_unet
 import torch.distributed as dist
+import torch.multiprocessing as mp
 from torch.nn.parallel import DistributedDataParallel as DDP
+from torch.utils.data.distributed import DistributedSampler
+
+
 
 class Mask_Model_Pipline():
-    def __init__(self, config, device="cuda", load_path=None):
+    def __init__(self, config, rank, world_size, device="cuda", load_path=None):
+        self.rank = rank
+        self.world_size = world_size
+
+        # 初始化进程组
+        torch.cuda.set_device(rank)
+        dist.init_process_group("nccl", rank=rank, world_size=world_size)
+        self.device = device
+            
         cuda_availdabe = torch.cuda.is_available()
         if cuda_availdabe and device != "cpu":
             print('Initializing model on GPU')
         else:
             print('Initializing model on CPU')
 
-        self.device = device
         self.epochs = config["epochs"]
         self.batch_size = config["batch_size"]
         self.lr = config["lr"]
@@ -35,49 +46,65 @@ class Mask_Model_Pipline():
         
         self.model_id = "/data/worker/Resources/34/HuggingFaceRepos/CompVis/stable-diffusion-v1-4"
         self.ldm_stable = StableDiffusionPipeline.from_pretrained(self.model_id).to(device) 
+        #self.ldm_stable = DDP(self.ldm_stable, device_ids=[rank])
         
         # 冻结 Stable Diffusion 模型的参数
         self.ldm_stable.unet.requires_grad_(False)
         self.ldm_stable.vae.requires_grad_(False)
         self.ldm_stable.text_encoder.requires_grad_(False)
 
-        self.mask_model = MaskGenerator()
+        self.mask_model = MaskGenerator().to(self.device)
 
+        '''
         if cuda_availdabe and device != "cpu":
             self.mask_model.cuda()
-
+        '''
+        
         if load_path is not None:
             self.mask_model.load_state_dict(load_path)
+        self.mask_model = DDP(self.mask_model, device_ids=[rank])
 
-    def train_or_eval(self, dataloader, optimizer=None, train=False):
+    def train_or_eval(self, dataloader, epoch, optimizer=None, train=False):
         losses = []
+        self.ldm_stable.scheduler = DDIMScheduler.from_config(self.model_id, subfolder = "scheduler")    
+        self.ldm_stable.scheduler.set_timesteps(self.num_diffusion_steps)
 
         assert not train or optimizer != None
         if train:
             self.mask_model.train()
         else:
             self.mask_model.eval()
+            
+        if train:
+            dataloader.sampler.set_epoch(epoch)  # 在每个 epoch 开始时设置采样器的 epoch
 
         num_batches = len(dataloader)
 
         for data in dataloader:
             if train:
                 optimizer.zero_grad()
-                
+             
             images, prompt_src = data
             images = images.to(self.device)
 
+            print("start forward")
             self.forward(images, prompt_src)
-            loss = self.inverse(self.xt, self.zs, self.xts, prompt_src)
+            print("start inverse")
+            loss = self.inverse(optimizer, self.xt, self.zs, self.xts, prompt_src)
+            print(loss)
+            del self.xt, self.zs, self.xts
 
-            losses.append(loss.item())
+            losses.append(loss)
 
+            '''
             if train:
                 loss.backward()
                 optimizer.step()
-
+            '''
+            
         avg_loss = round(np.sum(losses), 4)
         avg_loss /= num_batches
+        print(avg_loss)
 
         return avg_loss
 
@@ -85,9 +112,6 @@ class Mask_Model_Pipline():
     def forward(self, images, prompt_src):
         cfg_scale_src = self.cfg_src
         eta = self.eta # = 1
-
-        self.ldm_stable.scheduler = DDIMScheduler.from_config(self.model_id, subfolder = "scheduler")    
-        self.ldm_stable.scheduler.set_timesteps(self.num_diffusion_steps)
 
         x0 = images
         # vae encode image
@@ -98,7 +122,7 @@ class Mask_Model_Pipline():
         self.xt, self.zs, self.xts = self.inversion_forward_process(self.ldm_stable, w0, etas=eta, prompt=prompt_src, cfg_scale=cfg_scale_src, prog_bar=False, num_inference_steps = self.num_diffusion_steps)
         
     
-    def inverse(self, wt, zs, wts, prompt_tar):
+    def inverse(self, optimizer, wt, zs, wts, prompt_tar):
         attention_store = AttentionStore(
                             average=False,
                             batch_size=self.batch_size,
@@ -107,7 +131,7 @@ class Mask_Model_Pipline():
         prepare_unet(self.ldm_stable, attention_store)
         
         for cfg_scale_tar in self.cfg_scale_tar_list:
-            loss = self.inversion_reverse_process(self.ldm_stable, xT=wts[self.num_diffusion_steps], etas=self.eta, prompts=prompt_tar, cfg_scales=[cfg_scale_tar], prog_bar=False, zs=zs[:(self.num_diffusion_steps)], controller=attention_store)
+            loss = self.inversion_reverse_process(optimizer, self.ldm_stable, xT=wts[self.num_diffusion_steps], etas=self.eta, prompts=prompt_tar, cfg_scales=[cfg_scale_tar], prog_bar=False, zs=zs[:(self.num_diffusion_steps)], controller=attention_store)
             
         return loss
         
@@ -138,6 +162,29 @@ class Mask_Model_Pipline():
     
         return xts
     
+    def sample_xt(self, model, x0, t, num_inference_steps=50):
+        timesteps = model.scheduler.timesteps.to(model.device)
+        t_to_idx = {int(v):k for k,v in enumerate(timesteps)}
+        
+        idx = num_inference_steps-t_to_idx[int(t)]
+        if idx == 0:
+            return x0
+    
+        # torch.manual_seed(43256465436)
+        alpha_bar = model.scheduler.alphas_cumprod
+        sqrt_one_minus_alpha_bar = (1-alpha_bar) ** 0.5
+        alphas = model.scheduler.alphas
+        betas = 1 - alphas
+        variance_noise_shape = (
+                num_inference_steps,
+                model.unet.in_channels, 
+                model.unet.sample_size,
+                model.unet.sample_size)
+        
+        xt = x0 * (alpha_bar[t] ** 0.5) +  torch.randn_like(x0) * sqrt_one_minus_alpha_bar[t]
+    
+        return xt
+    
     
     def encode_text(self, model, prompts):
         text_input = model.tokenizer(
@@ -150,7 +197,6 @@ class Mask_Model_Pipline():
         with torch.no_grad():
             text_encoding = model.text_encoder(text_input.input_ids.to(model.device))[0]
             
-        print(text_encoding.shape)
         return text_encoding
     
     
@@ -193,11 +239,11 @@ class Mask_Model_Pipline():
     
         if not prompt=="":
             text_embeddings = self.encode_text(model, prompt)
-        uncond_embedding = self.encode_text(model, [""] * self.batch_size)
+        uncond_embedding = self.encode_text(model, [""] * x0.shape[0])
         timesteps = model.scheduler.timesteps.to(model.device)
         variance_noise_shape = (
             num_inference_steps,
-            self.batch_size,
+            x0.shape[0],
             model.unet.in_channels, 
             model.unet.sample_size,
             model.unet.sample_size)
@@ -296,7 +342,7 @@ class Mask_Model_Pipline():
     
         return prev_sample
     
-    def inversion_reverse_process(self, model,
+    def inversion_reverse_process(self,optimizer, model,
                         xT, 
                         etas = 0,
                         prompts = "",
@@ -304,40 +350,47 @@ class Mask_Model_Pipline():
                         prog_bar = False,
                         zs = None,
                         controller=None,
-                        asyrp = False):
+                        asyrp = False,
+                        accumulate_steps=5):
         cfg_scales_tensor = torch.Tensor(cfg_scales).view(-1,1,1,1).to(model.device)
     
         text_embeddings = self.encode_text(model, prompts)
         uncond_embedding = self.encode_text(model, [""] * self.batch_size)
-    
+        
         if etas is None: etas = 0
         if type(etas) in [int, float]: etas = [etas]*model.scheduler.num_inference_steps
         assert len(etas) == model.scheduler.num_inference_steps
         timesteps = model.scheduler.timesteps.to(model.device)
-    
+        
         xt = xT.expand(self.batch_size, -1, -1, -1)
         op = tqdm(timesteps[-zs.shape[0]:]) if prog_bar else timesteps[-zs.shape[0]:] 
-    
+        
         t_to_idx = {int(v):k for k,v in enumerate(timesteps[-zs.shape[0]:])}
         
         total_loss = 0  # 初始化总损失
         tmp = 0
-    
+        
+        # 用于累计损失
+        accumulated_loss = 0
+        step_counter = 0
+        
         for t in op:
             idx = model.scheduler.num_inference_steps-t_to_idx[int(t)]-(model.scheduler.num_inference_steps-zs.shape[0]+1)    
+            print(idx)
+            xt = self.xts[idx+1]
             ## Unconditional embedding
             with torch.no_grad():
                 uncond_out = model.unet.forward(xt, timestep =  t, 
                                                 encoder_hidden_states = uncond_embedding)
-    
-                ## Conditional embedding  
+
+            ## Conditional embedding  
             if prompts:  
                 with torch.no_grad():
                     cond_out = model.unet.forward(xt, timestep =  t, 
                                                     encoder_hidden_states = text_embeddings)    
             
             noise_guidance_edit_tmp = cond_out.sample - uncond_out.sample
-    
+
             resolution = xT.shape[-2:]
             att_res = (int(resolution[0] / 4), int(resolution[1] / 4))
             
@@ -350,17 +403,11 @@ class Mask_Model_Pipline():
                 select= 0
             )
             controller.between_steps(store_step=False)
-    
+
             z = zs[idx] if not zs is None else None
             z = z.expand(self.batch_size, -1, -1, -1)
             
             x = self.xts[idx]
-            if tmp != 0:
-                # 计算 x 和 xt 之间的 MSE 损失
-                mse_loss = F.mse_loss(xt, x)
-                total_loss += mse_loss  
-            else:
-                tmp = 1
             
             t_input = torch.tensor([float(t)] * self.batch_size)
             t_input = t_input.to(self.device)
@@ -375,14 +422,22 @@ class Mask_Model_Pipline():
             # 2. compute less noisy image and set x_t -> x_t-1  
             xt = self.reverse_step(model, noise_pred, t, xt, eta = etas[idx], variance_noise = z) 
             if controller is not None:
-                xt = controller.step_callback(xt)  
-        
-        # 计算 x 和 xt 之间的 MSE 损失
-        mse_loss = F.mse_loss(xt, x)
-        
-        # 累加到总损失
-        total_loss += mse_loss
+                xt = controller.step_callback(xt) 
             
+            x = self.xts[idx]
+            # 计算 x 和 xt 之间的 MSE 损失
+            mse_loss = F.mse_loss(xt, x)
+            accumulated_loss += mse_loss
+            step_counter += 1
+            
+            # 每 accumulate_steps 步执行一次反向传播
+            if step_counter % accumulate_steps == 0 or t == op[-1]:  # 确保在最后一步也进行反向传播
+                total_loss += accumulated_loss.item()  # 累加总损失
+                accumulated_loss.backward()  # 反向传播计算梯度
+                optimizer.step()  # 更新模型参数
+                optimizer.zero_grad()  # 清除梯度
+                accumulated_loss = 0  # 重置累积损失
+        
         return total_loss
     
     
@@ -392,19 +447,24 @@ class Mask_Model_Pipline():
         
         train_loader, _, test_loader = get_loaders(batch_size=self.batch_size, valid=0.0,
                                                    train=0.8, root_dir="./data/local")
+        
+        # 使用 DistributedSampler
+        train_sampler = DistributedSampler(train_loader.dataset, num_replicas=self.world_size, rank=self.rank)
+        train_loader = torch.utils.data.DataLoader(train_loader.dataset, batch_size=self.batch_size, sampler=train_sampler)
 
         cumulative_epoch = self.load_model()
 
         train_losses = []
-        test_losses = []
+        #test_losses = []
         pbar = tqdm(range(self.epochs), desc="Training Progress")
-        for _ in pbar:
-            train_loss = self.train_or_eval(train_loader, optimizer, True)
-            test_loss = self.train_or_eval(test_loader)
+        for e in pbar:
+            print("epoch:", e)
+            train_loss = self.train_or_eval(train_loader, e, optimizer, True)
+            #test_loss = self.train_or_eval(test_loader, e)
 
             # 将训练期间的性能指标添加到列表中
             train_losses.append(train_loss)
-            test_losses.append(test_loss)
+            #test_losses.append(test_loss)
     
             # 更新进度条的显示信息
             pbar.set_postfix(train_loss=train_loss, test_loss=test_loss)
@@ -413,7 +473,8 @@ class Mask_Model_Pipline():
             if cumulative_epoch % 1 == 0:
                 if not os.path.exists('checkpoint'):
                     os.makedirs('checkpoint')
-                torch.save(self.mask_model.state_dict(), "./checkpoint/Mask_model-" + str(cumulative_epoch) + ".pth")
+                if dist.get_rank() == 0:  # 只有 rank 0 保存模型
+                    torch.save(self.mask_model.state_dict(), "./checkpoint/Mask_model-" + str(cumulative_epoch) + ".pth")
 
         pbar.close()
 
@@ -455,26 +516,47 @@ class Mask_Model_Pipline():
                 return_id = int(latest_pth.split("-")[-1].split(".")[0])
 
         return return_id
-    
+
+def main_worker(rank, world_size, config, device):
+    Model = Mask_Model_Pipline(config, rank, world_size, device)
+
+    if args.train:
+        train_loss, test_loss = Model.train()
+    else:
+        print("test")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='The setting of models')
     parser.add_argument('--train', type=str, default=True, help='train or not')
     parser.add_argument('--config', type=str, default="./config/base.yaml", help='config file')
-    parser.add_argument('--device', type=str, default="cuda", help='the device to train or test the model')
-    args = parser.parse_args()
+    parser.add_argument('--world_size', type=int, default=torch.cuda.device_count(), help='number of gpus')
 
-    if args.device == "cuda" and not torch.cuda.is_available():
-        args.device = "cpu"
-    device = args.device
+    args = parser.parse_args()
+    local_rank = int(os.environ['LOCAL_RANK'])
+    
+    world_size = args.world_size
+    if local_rank == 0:
+        device = "cuda:0"  # 2nd GPU
+    elif local_rank == 1:
+        device = "cuda:1"  # 4th GPU
+    elif local_rank == 2:
+        device = "cuda:2"  # 4th GPU
 
     with open(args.config, 'r') as f:
         config = yaml.safe_load(f)
 
-    Model = Mask_Model_Pipline(config, device)
+    Model = Mask_Model_Pipline(config, local_rank, world_size, device)
 
-    if args.train is True:
+    if args.train:
         train_loss, test_loss = Model.train()
+        with open('losses.txt', 'w') as f:
+            f.write("Train Loss:\n")
+            for loss in train_loss:
+                f.write(f"{loss}\n")
+            
+            f.write("\nTest Loss:\n")
+            for loss in test_loss:
+                f.write(f"{loss}\n")
     else:
         print("test")
     
