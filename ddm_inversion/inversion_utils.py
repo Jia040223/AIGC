@@ -54,6 +54,7 @@ def sample_xts_from_x0(model, x0, num_inference_steps=50):
     for t in reversed(timesteps):
         idx = num_inference_steps-t_to_idx[int(t)]
         xts[idx] = x0 * (alpha_bar[t] ** 0.5) +  torch.randn_like(x0) * sqrt_one_minus_alpha_bar[t]
+        print(idx, t)
 
 
     return xts

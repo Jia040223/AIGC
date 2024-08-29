@@ -87,12 +87,8 @@ class Mask_Model_Pipline():
             images, prompt_src = data
             images = images.to(self.device)
 
-            print("start forward")
-            self.forward(images, prompt_src)
-            print("start inverse")
-            loss = self.inverse(optimizer, self.xt, self.zs, self.xts, prompt_src)
+            loss = self.get_losses_and_train(images, optimizer, prompt_src, prompt_src)
             print(loss)
-            del self.xt, self.zs, self.xts
 
             losses.append(loss)
 
@@ -109,7 +105,7 @@ class Mask_Model_Pipline():
         return avg_loss
 
     
-    def forward(self, images, prompt_src):
+    def get_losses_and_train(self, images, optimizer, prompt_src, prompt_tar):
         cfg_scale_src = self.cfg_src
         eta = self.eta # = 1
 
@@ -118,11 +114,6 @@ class Mask_Model_Pipline():
         with inference_mode():
             w0 = (self.ldm_stable.vae.encode(x0).latent_dist.mode() * self.ldm_stable.vae.config.scaling_factor).float()
 
-        # find Zs and wts - forward process
-        self.xt, self.zs, self.xts = self.inversion_forward_process(self.ldm_stable, w0, etas=eta, prompt=prompt_src, cfg_scale=cfg_scale_src, prog_bar=False, num_inference_steps = self.num_diffusion_steps)
-        
-    
-    def inverse(self, optimizer, wt, zs, wts, prompt_tar):
         attention_store = AttentionStore(
                             average=False,
                             batch_size=self.batch_size,
@@ -130,11 +121,32 @@ class Mask_Model_Pipline():
 
         prepare_unet(self.ldm_stable, attention_store)
         
-        for cfg_scale_tar in self.cfg_scale_tar_list:
-            loss = self.inversion_reverse_process(optimizer, self.ldm_stable, xT=wts[self.num_diffusion_steps], etas=self.eta, prompts=prompt_tar, cfg_scales=[cfg_scale_tar], prog_bar=False, zs=zs[:(self.num_diffusion_steps)], controller=attention_store)
-            
-        return loss
+        # find Zs and wts - forward process
+        op = model.scheduler.timesteps.to(model.device)
         
+        total_loss = 0  # 初始化总损失
+        # 用于累计损失
+        accumulated_loss = 0
+        step_counter = 0
+    
+        for t in op:
+            xt, xtm1, z = self.inversion_forward_process(self.ldm_stable, w0, etas=eta, prompt=prompt_src, cfg_scale=cfg_scale_src, prog_bar=False, num_inference_steps = self.num_diffusion_steps)
+
+            for cfg_scale_tar in self.cfg_scale_tar_list:
+                mse_loss = self.inversion_reverse_process(optimizer, self.ldm_stable, xt=xt, xtml = xtm1, etas=self.eta, prompts=prompt_tar, cfg_scales=[cfg_scale_tar], prog_bar=False, z=z, controller=attention_store)
+            
+            accumulated_loss += mse_loss
+            step_counter += 1
+            
+            # 每 accumulate_steps 步执行一次反向传播
+            if step_counter % accumulate_steps == 0 or t == op[-1]:  # 确保在最后一步也进行反向传播
+                total_loss += accumulated_loss.item()  # 累加总损失
+                accumulated_loss.backward()  # 反向传播计算梯度
+                optimizer.step()  # 更新模型参数
+                optimizer.zero_grad()  # 清除梯度
+                accumulated_loss = 0  # 重置累积损失
+        
+        return total_loss        
     
     def sample_xts_from_x0(self, model, x0, num_inference_steps=50):
         """
@@ -230,7 +242,7 @@ class Mask_Model_Pipline():
         variance = (beta_prod_t_prev / beta_prod_t) * (1 - alpha_prod_t / alpha_prod_t_prev)
         return variance
     
-    def inversion_forward_process(self, model, x0, 
+    def inversion_forward_process(self, model, x0, t,
                                 etas = None,    
                                 prog_bar = False,
                                 prompt = "",
@@ -253,62 +265,59 @@ class Mask_Model_Pipline():
         else:
             eta_is_zero = False
             if type(etas) in [int, float]: etas = [etas]*model.scheduler.num_inference_steps
-            xts = self.sample_xts_from_x0(model, x0, num_inference_steps=num_inference_steps)
+            #xts = self.sample_xts_from_x0(model, x0, num_inference_steps=num_inference_steps)
             alpha_bar = model.scheduler.alphas_cumprod
             zs = torch.zeros(size=variance_noise_shape, device=model.device)
         t_to_idx = {int(v):k for k,v in enumerate(timesteps)}
+        idx_to_t = {k:v for k,v in enumerate(timesteps)}
         xt = x0
         # op = tqdm(reversed(timesteps)) if prog_bar else reversed(timesteps)
         op = tqdm(timesteps) if prog_bar else timesteps
-    
-        for t in op:
-            # idx = t_to_idx[int(t)]
-            idx = num_inference_steps-t_to_idx[int(t)]-1
-            # 1. predict noise residual
-            if not eta_is_zero:
-                xt = xts[idx+1]
-                # xt = xts_cycle[idx+1][None]
-            
-            with torch.no_grad():
-                out = model.unet.forward(xt, timestep =  t, encoder_hidden_states = uncond_embedding)
-                if not prompt=="":
-                    cond_out = model.unet.forward(xt, timestep=t, encoder_hidden_states = text_embeddings) 
-    
+        
+        # idx = t_to_idx[int(t)]
+        idx = num_inference_steps-t_to_idx[int(t)]-1
+        # 1. predict noise residual
+        if not eta_is_zero:
+            xt = self.sample_xt(model, x0, t, num_inference_steps=num_inference_steps)
+            # xt = xts[idx+1]
+            # xt = xts_cycle[idx+1][None]
+        
+        with torch.no_grad():
+            out = model.unet.forward(xt, timestep =  t, encoder_hidden_states = uncond_embedding)
             if not prompt=="":
-                ## classifier free guidance
-                noise_pred = out.sample + cfg_scale * (cond_out.sample - out.sample)
-            else:
-                noise_pred = out.sample
-            if eta_is_zero:
-                # 2. compute more noisy image and set x_t -> x_t+1
-                xt = self.forward_step(model, noise_pred, t, xt)
-    
-            else: 
-                # xtm1 =  xts[idx+1][None]
-                xtm1 =  xts[idx][None]
-                # pred of x0
-                pred_original_sample = (xt - (1-alpha_bar[t])  ** 0.5 * noise_pred ) / alpha_bar[t] ** 0.5
-                
-                # direction to xt
-                prev_timestep = t - model.scheduler.config.num_train_timesteps // model.scheduler.num_inference_steps
-                alpha_prod_t_prev = model.scheduler.alphas_cumprod[prev_timestep] if prev_timestep >= 0 else model.scheduler.final_alpha_cumprod
-                
-                variance = self.get_variance(model, t)
-                pred_sample_direction = (1 - alpha_prod_t_prev - etas[idx] * variance ) ** (0.5) * noise_pred
-    
-                mu_xt = alpha_prod_t_prev ** (0.5) * pred_original_sample + pred_sample_direction
-    
-                z = (xtm1 - mu_xt ) / ( etas[idx] * variance ** 0.5 )
-                zs[idx] = z
-    
-                # correction to avoid error accumulation
-                xtm1 = mu_xt + ( etas[idx] * variance ** 0.5 )*z
-                xts[idx] = xtm1
-                
-        if not zs is None: 
-            zs[0] = torch.zeros_like(zs[0]) 
-    
-        return xt, zs, xts
+                cond_out = model.unet.forward(xt, timestep=t, encoder_hidden_states = text_embeddings) 
+
+        if not prompt=="":
+            ## classifier free guidance
+            noise_pred = out.sample + cfg_scale * (cond_out.sample - out.sample)
+        else:
+            noise_pred = out.sample
+        if eta_is_zero:
+            # 2. compute more noisy image and set x_t -> x_t+1
+            xt = self.forward_step(model, noise_pred, t, xt)
+
+        else: 
+            # xtm1 =  xts[idx+1][None]
+            xtm1 = self.sample_xt(model, x0, idx_to_t[num_inference_steps-idx], num_inference_steps=num_inference_steps)
+            # pred of x0
+            pred_original_sample = (xt - (1-alpha_bar[t])  ** 0.5 * noise_pred ) / alpha_bar[t] ** 0.5
+            
+            # direction to xt
+            prev_timestep = t - model.scheduler.config.num_train_timesteps // model.scheduler.num_inference_steps
+            alpha_prod_t_prev = model.scheduler.alphas_cumprod[prev_timestep] if prev_timestep >= 0 else model.scheduler.final_alpha_cumprod
+            
+            variance = self.get_variance(model, t)
+            pred_sample_direction = (1 - alpha_prod_t_prev - etas[idx] * variance ) ** (0.5) * noise_pred
+
+            mu_xt = alpha_prod_t_prev ** (0.5) * pred_original_sample + pred_sample_direction
+
+            z = (xtm1 - mu_xt ) / ( etas[idx] * variance ** 0.5 )
+
+            # correction to avoid error accumulation
+            xtm1 = mu_xt + ( etas[idx] * variance ** 0.5 )*z
+        
+        return xt, xtm1, z
+
     
     
     def reverse_step(self, model, model_output, timestep, sample, eta = 0, variance_noise=None):
@@ -343,12 +352,12 @@ class Mask_Model_Pipline():
         return prev_sample
     
     def inversion_reverse_process(self,optimizer, model,
-                        xT, 
+                        xt, xtm1,
                         etas = 0,
                         prompts = "",
                         cfg_scales = None,
                         prog_bar = False,
-                        zs = None,
+                        z = None,
                         controller=None,
                         asyrp = False,
                         accumulate_steps=5):
@@ -359,85 +368,55 @@ class Mask_Model_Pipline():
         
         if etas is None: etas = 0
         if type(etas) in [int, float]: etas = [etas]*model.scheduler.num_inference_steps
-        assert len(etas) == model.scheduler.num_inference_steps
-        timesteps = model.scheduler.timesteps.to(model.device)
+        assert len(etas) == model.scheduler.num_inference_steps  
         
-        xt = xT.expand(self.batch_size, -1, -1, -1)
-        op = tqdm(timesteps[-zs.shape[0]:]) if prog_bar else timesteps[-zs.shape[0]:] 
-        
-        t_to_idx = {int(v):k for k,v in enumerate(timesteps[-zs.shape[0]:])}
-        
-        total_loss = 0  # 初始化总损失
-        tmp = 0
-        
-        # 用于累计损失
-        accumulated_loss = 0
-        step_counter = 0
-        
-        for t in op:
-            idx = model.scheduler.num_inference_steps-t_to_idx[int(t)]-(model.scheduler.num_inference_steps-zs.shape[0]+1)    
-            xt = self.xts[idx+1]
-            ## Unconditional embedding
+        ## Unconditional embedding
+        with torch.no_grad():
+            uncond_out = model.unet.forward(xt, timestep =  t, 
+                                            encoder_hidden_states = uncond_embedding)
+
+        ## Conditional embedding  
+        if prompts:  
             with torch.no_grad():
-                uncond_out = model.unet.forward(xt, timestep =  t, 
-                                                encoder_hidden_states = uncond_embedding)
-
-            ## Conditional embedding  
-            if prompts:  
-                with torch.no_grad():
-                    cond_out = model.unet.forward(xt, timestep =  t, 
-                                                    encoder_hidden_states = text_embeddings)    
-            
-            noise_guidance_edit_tmp = cond_out.sample - uncond_out.sample
-
-            resolution = xT.shape[-2:]
-            att_res = (int(resolution[0] / 4), int(resolution[1] / 4))
-            
-            out = controller.aggregate_attention(
-                attention_maps=controller.step_store,
-                prompts= [prompts],
-                res=att_res,
-                from_where=["up", "down"],
-                is_cross=True,
-                select= 0
-            )
-            controller.between_steps(store_step=False)
-
-            z = zs[idx] if not zs is None else None
-            z = z.expand(self.batch_size, -1, -1, -1)
-            
-            x = self.xts[idx]
-            
-            t_input = torch.tensor([float(t)] * self.batch_size)
-            t_input = t_input.to(self.device)
-            mask = self.mask_model(uncond_noise=uncond_out.sample, cond_noise=cond_out.sample, upsampled_feature_map=out, t=t_input, txt_embedding=text_embeddings)
-            
-            if prompts:
-                ## classifier free guidance
-                noise_pred = uncond_out.sample + cfg_scales_tensor * (cond_out.sample - uncond_out.sample) * mask
-            else: 
-                noise_pred = uncond_out.sample
-                
-            # 2. compute less noisy image and set x_t -> x_t-1  
-            xt = self.reverse_step(model, noise_pred, t, xt, eta = etas[idx], variance_noise = z) 
-            if controller is not None:
-                xt = controller.step_callback(xt) 
-            
-            x = self.xts[idx]
-            # 计算 x 和 xt 之间的 MSE 损失
-            mse_loss = F.mse_loss(xt, x)
-            accumulated_loss += mse_loss
-            step_counter += 1
-            
-            # 每 accumulate_steps 步执行一次反向传播
-            if step_counter % accumulate_steps == 0 or t == op[-1]:  # 确保在最后一步也进行反向传播
-                total_loss += accumulated_loss.item()  # 累加总损失
-                accumulated_loss.backward()  # 反向传播计算梯度
-                optimizer.step()  # 更新模型参数
-                optimizer.zero_grad()  # 清除梯度
-                accumulated_loss = 0  # 重置累积损失
+                cond_out = model.unet.forward(xt, timestep =  t, 
+                                                encoder_hidden_states = text_embeddings)    
         
-        return total_loss
+        noise_guidance_edit_tmp = cond_out.sample - uncond_out.sample
+
+        resolution = xT.shape[-2:]
+        att_res = (int(resolution[0] / 4), int(resolution[1] / 4))
+        
+        out = controller.aggregate_attention(
+            attention_maps=controller.step_store,
+            prompts= [prompts],
+            res=att_res,
+            from_where=["up", "down"],
+            is_cross=True,
+            select= 0
+        )
+        controller.between_steps(store_step=False)
+
+        z = z.expand(self.batch_size, -1, -1, -1)   
+        
+        t_input = torch.tensor([float(t)] * self.batch_size)
+        t_input = t_input.to(self.device)
+        mask = self.mask_model(uncond_noise=uncond_out.sample, cond_noise=cond_out.sample, upsampled_feature_map=out, t=t_input, txt_embedding=text_embeddings)
+        
+        if prompts:
+            ## classifier free guidance
+            noise_pred = uncond_out.sample + cfg_scales_tensor * (cond_out.sample - uncond_out.sample) * mask
+        else: 
+            noise_pred = uncond_out.sample
+            
+        # 2. compute less noisy image and set x_t -> x_t-1  
+        xt = self.reverse_step(model, noise_pred, t, xt, eta = etas[idx], variance_noise = z) 
+        if controller is not None:
+            xt = controller.step_callback(xt) 
+        
+        # 计算 xt 和 xtm1 之间的 MSE 损失
+        mse_loss = F.mse_loss(xt, xtm1)
+           
+        return mse_loss
     
     
     def train(self, optimizer=None, loss_function=None):
