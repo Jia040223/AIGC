@@ -84,10 +84,10 @@ class Mask_Model_Pipline():
             if train:
                 optimizer.zero_grad()
              
-            images, prompt_src = data
+            images, prompt_src, prompt_tgt = data
             images = images.to(self.device)
 
-            loss = self.get_losses_and_train(images, optimizer, prompt_src, prompt_src)
+            loss = self.get_losses_and_train(images, optimizer, prompt_src, prompt_tgt)
             print(loss)
 
             losses.append(loss)
@@ -105,7 +105,7 @@ class Mask_Model_Pipline():
         return avg_loss
 
     
-    def get_losses_and_train(self, images, optimizer, prompt_src, prompt_tar):
+    def get_losses_and_train(self, images, optimizer, prompt_src, prompt_tar, accumulate_steps=5):
         cfg_scale_src = self.cfg_src
         eta = self.eta # = 1
 
@@ -122,7 +122,7 @@ class Mask_Model_Pipline():
         prepare_unet(self.ldm_stable, attention_store)
         
         # find Zs and wts - forward process
-        op = model.scheduler.timesteps.to(model.device)
+        op = self.ldm_stable.scheduler.timesteps.to(self.ldm_stable.device)
         
         total_loss = 0  # 初始化总损失
         # 用于累计损失
@@ -130,10 +130,10 @@ class Mask_Model_Pipline():
         step_counter = 0
     
         for t in op:
-            xt, xtm1, z = self.inversion_forward_process(self.ldm_stable, w0, etas=eta, prompt=prompt_src, cfg_scale=cfg_scale_src, prog_bar=False, num_inference_steps = self.num_diffusion_steps)
+            xt, xtm1, z = self.inversion_forward_process(self.ldm_stable, w0, t, etas=eta, prompt=prompt_src, cfg_scale=cfg_scale_src, prog_bar=False, num_inference_steps = self.num_diffusion_steps)
 
             for cfg_scale_tar in self.cfg_scale_tar_list:
-                mse_loss = self.inversion_reverse_process(optimizer, self.ldm_stable, xt=xt, xtml = xtm1, etas=self.eta, prompts=prompt_tar, cfg_scales=[cfg_scale_tar], prog_bar=False, z=z, controller=attention_store)
+                mse_loss = self.inversion_reverse_process(optimizer, self.ldm_stable, xt=xt, xtm1=xtm1, t=t, etas=self.eta, prompts=prompt_tar, cfg_scales=[cfg_scale_tar], prog_bar=False, z=z, controller=attention_store)
             
             accumulated_loss += mse_loss
             step_counter += 1
@@ -141,6 +141,7 @@ class Mask_Model_Pipline():
             # 每 accumulate_steps 步执行一次反向传播
             if step_counter % accumulate_steps == 0 or t == op[-1]:  # 确保在最后一步也进行反向传播
                 total_loss += accumulated_loss.item()  # 累加总损失
+                print(accumulated_loss.item())
                 accumulated_loss.backward()  # 反向传播计算梯度
                 optimizer.step()  # 更新模型参数
                 optimizer.zero_grad()  # 清除梯度
@@ -298,7 +299,12 @@ class Mask_Model_Pipline():
 
         else: 
             # xtm1 =  xts[idx+1][None]
-            xtm1 = self.sample_xt(model, x0, idx_to_t[num_inference_steps-idx], num_inference_steps=num_inference_steps)
+            if idx == 0:
+                xtm1 = x0
+            else:
+                t_ = idx_to_t[num_inference_steps-idx]
+                #print(num_inference_steps-t_to_idx[int(t_)], idx)
+                xtm1 = self.sample_xt(model, x0, t_, num_inference_steps=num_inference_steps)
             # pred of x0
             pred_original_sample = (xt - (1-alpha_bar[t])  ** 0.5 * noise_pred ) / alpha_bar[t] ** 0.5
             
@@ -352,15 +358,14 @@ class Mask_Model_Pipline():
         return prev_sample
     
     def inversion_reverse_process(self,optimizer, model,
-                        xt, xtm1,
+                        xt, xtm1, t,
                         etas = 0,
                         prompts = "",
                         cfg_scales = None,
                         prog_bar = False,
                         z = None,
                         controller=None,
-                        asyrp = False,
-                        accumulate_steps=5):
+                        asyrp = False):
         cfg_scales_tensor = torch.Tensor(cfg_scales).view(-1,1,1,1).to(model.device)
     
         text_embeddings = self.encode_text(model, prompts)
@@ -383,7 +388,7 @@ class Mask_Model_Pipline():
         
         noise_guidance_edit_tmp = cond_out.sample - uncond_out.sample
 
-        resolution = xT.shape[-2:]
+        resolution = xt.shape[-2:]
         att_res = (int(resolution[0] / 4), int(resolution[1] / 4))
         
         out = controller.aggregate_attention(
@@ -409,7 +414,7 @@ class Mask_Model_Pipline():
             noise_pred = uncond_out.sample
             
         # 2. compute less noisy image and set x_t -> x_t-1  
-        xt = self.reverse_step(model, noise_pred, t, xt, eta = etas[idx], variance_noise = z) 
+        xt = self.reverse_step(model, noise_pred, t, xt, eta = etas[0], variance_noise = z) 
         if controller is not None:
             xt = controller.step_callback(xt) 
         
@@ -445,7 +450,7 @@ class Mask_Model_Pipline():
             #test_losses.append(test_loss)
     
             # 更新进度条的显示信息
-            pbar.set_postfix(train_loss=train_loss, test_loss=test_loss)
+            pbar.set_postfix(train_loss=train_loss)
 
             cumulative_epoch += 1
             if cumulative_epoch % 1 == 0:
@@ -456,7 +461,7 @@ class Mask_Model_Pipline():
 
         pbar.close()
 
-        return train_losses, test_losses
+        return train_losses
 
     def test(self, dataloader=None, loss_function=None):
         self.load_model()
@@ -499,7 +504,7 @@ def main_worker(rank, world_size, config, device):
     Model = Mask_Model_Pipline(config, rank, world_size, device)
 
     if args.train:
-        train_loss, test_loss = Model.train()
+        train_loss = Model.train()
     else:
         print("test")
 
@@ -513,12 +518,7 @@ if __name__ == "__main__":
     local_rank = int(os.environ['LOCAL_RANK'])
     
     world_size = args.world_size
-    if local_rank == 0:
-        device = "cuda:0"  # 2nd GPU
-    elif local_rank == 1:
-        device = "cuda:1"  # 4th GPU
-    elif local_rank == 2:
-        device = "cuda:2"  # 4th GPU
+    device = "cuda:{0}".format(local_rank)
 
     with open(args.config, 'r') as f:
         config = yaml.safe_load(f)

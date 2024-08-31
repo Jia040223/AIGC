@@ -54,9 +54,10 @@ if __name__ == "__main__":
   dataloader,_ , _= get_loaders(batch_size=32, valid=0.0, train=1.0, root_dir="/data/jiachenghao/DDPM_inversion/data/local/", num_workers=0, pin_memory=False)
   
   i = 0
-  for images, captions in dataloader:
+  for images, src_captions, tgt_captions in dataloader:
       print(images.shape)  
-      print(captions[0], len(captions))  
+      print(src_captions[0], len(src_captions))  
+      print(tgt_captions[0], len(tgt_captions))  
       
       if(i>10):
         break

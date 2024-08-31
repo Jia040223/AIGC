@@ -38,8 +38,8 @@ class ImageCaptionDataset(Dataset):
         self.transform = transform
         self.image_files = [f for f in os.listdir(root_dir) if f.endswith('.jpg')]
         
-        self.model = BlipForConditionalGeneration.from_pretrained("Salesforce/blip-image-captioning-base").to("cuda")
-        self.processor = BlipProcessor.from_pretrained("Salesforce/blip-image-captioning-base")
+        #self.model = BlipForConditionalGeneration.from_pretrained("Salesforce/blip-image-captioning-base").to("cuda")
+        #self.processor = BlipProcessor.from_pretrained("Salesforce/blip-image-captioning-base")
 
     def __len__(self):
         return len(self.image_files)
@@ -64,16 +64,25 @@ class ImageCaptionDataset(Dataset):
         image = load_512(np.array(image)[:, :, :3], *offsets)
         
         
-        txt_name = img_name.replace('.jpg', '.txt')
-        txt_path = os.path.join(self.root_dir, txt_name)
+        src_txt_name = img_name.replace('.jpg', '.txt')
+        src_txt_path = os.path.join(self.root_dir, src_txt_name)
         
         #self.save_caption(txt_path, caption)
         
-        with open(txt_path, 'r') as f:
-            caption = f.read().strip()  
+        with open(src_txt_path, 'r') as f:
+            src_caption = f.read().strip()  
+            #print(caption, txt_path) 
+            
+        tgt_txt_name = img_name.replace('.jpg', '_.txt')
+        tgt_txt_path = os.path.join(self.root_dir, tgt_txt_name)
+        
+        #self.save_caption(txt_path, caption)
+        
+        with open(tgt_txt_path, 'r') as f:
+            tgt_caption = f.read().strip()  
             #print(caption, txt_path) 
         
-        return image, caption
+        return image, src_caption, tgt_caption
         
     def save_caption(self, txt_path, caption):
         with open(txt_path, 'w') as f:

@@ -1,5 +1,5 @@
 epochs: 50                  # Number of training epochs
-batch_size: 2               # Size of each batch
+batch_size: 4               # Size of each batch
 lr: 0.001                   # Learning rate for the optimizer
 cfg_src: 8.0                # Path or identifier for the source configuration or model
 eta: 1                    # Parameter for the noise schedule or other diffusion process
